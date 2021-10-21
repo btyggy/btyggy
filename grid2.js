@@ -4,8 +4,7 @@ d = document
 c = console
 
 // *************************** cells/fields to look at or blank or update ***************************
-const fields =
-    [
+const fields =[
         "PSS",
         "tor",
         "powe",
