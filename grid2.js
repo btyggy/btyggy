@@ -29,42 +29,11 @@ const fields =
         "erdLeakage"
     ]
 
-const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
-
-//************************** set value pairs to the current document ****************************/
-const pairs = valueP => valueP.forEach(pair => pair[0] != 0 && isNaN(pair[0]) === false && isFinite(pair[0]) === true ? d.getElementById(pair[1]).innerHTML = pair[0].toFixed(pair[3]) : d.getElementById(pair[1]).innerHTML = pair[2])
-
-// ***************************get values***************************
-const getv = id => parseFloat(d.getElementById(id).value)
-
-// ***************************this gets all the listerners for the doument ***************************
-const listeners = ["mpb", "mrr", "mpl", "money", "rateFix"]
-
-// ***************************this gets all the listerners for the doument ***************************
-const listen = () => {
-    var pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
-    pageInputs.forEach(el => el.addEventListener('keyup', looky, false)) 
-    listeners.forEach(value => d.getElementById(value).addEventListener('change', looky, false))
-    looky() 
-}
-
-const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
-    d.getElementById("PerFlRaMD").disabled = perfA
-    d.getElementById("pfr").disabled = pfrA
-    d.getElementById("mif").disabled = mifA
-    d.getElementById("mif").style.background = mifB
-    d.getElementById("PerFlRaMD").style.background = perfB
-    d.getElementById("pfr").style.background = pfrB
-}
-
 const abbs = [
     [true, true, false, "BlanchedAlmond", "white", "white"],
     [false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond"],
     [false, false, false, "white", "white", "white"]
 ]
-
-//this disables the oposite value from edit so the you can set a value not to change and have the values around it change
-const disble = () => able(...abbs[d.getElementById("rateFix").value])
 
 
 const kVal = [
@@ -77,10 +46,46 @@ const kVal = [
     0
 ]
 
+const listeners = ["mpb", "mrr", "mpl", "money", "rateFix"]
+
+const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
+
+//************************** set value pairs to the current document ****************************/
+const pairs = valueP => valueP.forEach(pair => pair[0] != 0 && isNaN(pair[0]) === false && isFinite(pair[0]) === true ? d.getElementById(pair[1]).innerHTML = pair[0].toFixed(pair[3]) : d.getElementById(pair[1]).innerHTML = pair[2])
+
+// ***************************get values***************************
+const getv = id => parseFloat(d.getElementById(id).value)
+
+// ***************************this gets all the listerners for the doument ***************************
+
+
+// ***************************this gets all the listerners for the doument ***************************
+const listen = () => {
+    var pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
+    pageInputs.forEach(el => el.addEventListener('keyup', looky, false))
+    listeners.forEach(value => d.getElementById(value).addEventListener('change', looky, false))
+    looky()
+}
+
+const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
+    d.getElementById("PerFlRaMD").disabled = perfA
+    d.getElementById("pfr").disabled = pfrA
+    d.getElementById("mif").disabled = mifA
+    d.getElementById("mif").style.background = mifB
+    d.getElementById("PerFlRaMD").style.background = perfB
+    d.getElementById("pfr").style.background = pfrB
+}
+
+
+
+//this disables the oposite value from edit so the you can set a value not to change and have the values around it change
+const disble = () => able(...abbs[d.getElementById("rateFix").value])
+
+
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 // ***************************change the pfr and perlramd ***************************
 
-const outflow =(mif,k)=>{
+const outflow = (mif, k) => {
     mifa = mif / k
     kd = 24 * mifa
     d.getElementById("pfr").value = mifa.toFixed(2)
@@ -101,10 +106,12 @@ const getFlow = f => {
         d.getElementById("PerFlRaMD").value = kd.toFixed(2)
     }
 
-    if (id == "mif") outflow(mif,k)
-    if (id == "mrr" && rateFix == 2) outflow(mif,k)
-    if (id == "mrr" && rateFix == 0) outflow(mif,k)
-  
+    if (id == "mif") outflow(mif, k)
+
+    if (id == "mrr") {
+        if (rateFix == 2 || rateFix == 0) outflow(mif, k)
+    }
+
     //change to permeate flow rates 
     if (id == "pfr") {
         prd = pr * 24
@@ -141,6 +148,13 @@ const errorM = () => {
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
 }
 
+// not used but the general template is usefull, e.g. multi-line tenerey
+const membrainPressureLossMultiplier = (mult) => {
+    return mult === 2 ? 1
+        : mult > 2 ? mult * 0.5
+            : mult / 2;
+}
+
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
 
@@ -152,7 +166,6 @@ const looky = () => {
     c.clear()
     disble()
     getFlow()
-
     money = currency[parseInt(d.getElementById("money").value)]
 
     var [membraneRecoveryRateVal, membraneInletPressure, costPerKWHour, membranePressureLoss, permeateFlowRatePerDayInput, permeateFlowRatePerDayInputRaw, hours, membrainInletFlow, permeateFlowRate] = ["mrr", "mpb", "cpkwh", "mpl", "PerFlRaMD", "PerFlRaMD", "hours", "mif", "pfr"].map(getv)
