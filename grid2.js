@@ -95,7 +95,7 @@ const getFlow = f => {
     }
 
     if (id == "mif") outflow(mif, k)
-    
+
     if (id == "mrr") {
         if (rateFix == 2 || rateFix == 0) outflow(mif, k)
     }
