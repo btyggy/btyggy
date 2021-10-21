@@ -173,7 +173,6 @@ const getFlow = f => {
 }
 
 
-
 // *************************** no pump ***************************
 const errorP = () => {
     var x = d.getElementById("errorP");
@@ -186,7 +185,6 @@ const errorP = () => {
 // *************************** no motor ***************************
 const errorM = () => {
     var x = d.getElementById("errorM");
-    c.log("No motor Found")
     // Add the "show" class to DIV
     x.className = "show";
     // After 3 seconds, remove the show class from DIV
@@ -412,8 +410,14 @@ const looky = () => {
 
                         ])
                         c.log("Chosen Electric Motor  ERD = " + emotorM(chosenMotorPower * offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0]))
-inletPress[chosenPump[chosenPump.length - 1][23]][it] === "Consult TWHC"? d.getElementById("pfp").innerText = "Consult TWHC":{errorM()
-}
+
+                        if (inletPress[chosenPump[chosenPump.length - 1][23]][it] === "Consult TWHC") {
+                            d.getElementById("pfp").innerText = "Consult TWHC"
+                        }
+                    } else {
+                        errorM()
+                        c.log("No motor Found")
+                    }
 
                     // then the line is column filerted by the i postition +2 (80 becomes 82) this is then the first figure in the triptic
                     // i = the position in the array to manipulated to get the array elemnt in the second array(erd figs)
