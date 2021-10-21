@@ -1,3 +1,6 @@
+// this is the code behind a look-up 
+
+
 d = document
 c = console
 // *************************** cells/fields to look at or blank or update ***************************
