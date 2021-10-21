@@ -4,29 +4,29 @@ d = document
 c = console
 
 // *************************** cells/fields to look at or blank or update ***************************
-const fields =[
-        "PSS",
-        "tor",
-        "powe",
-        "pum",
-        "cpd",
-        "cpm",
-        "cpy",
-        "cpdCS",
-        "cpmCS",
-        "cpyCS",
-        "hours",
-        "powCen",
-        "pfp",
-        "pfpa",
-        "pfpr",
-        "saving",
-        "PSSm",
-        "erdTor",
-        "mpkp",
-        "erdReFl",
-        "erdLeakage"
-    ]
+const fields = [
+    "PSS",
+    "tor",
+    "powe",
+    "pum",
+    "cpd",
+    "cpm",
+    "cpy",
+    "cpdCS",
+    "cpmCS",
+    "cpyCS",
+    "hours",
+    "powCen",
+    "pfp",
+    "pfpa",
+    "pfpr",
+    "saving",
+    "PSSm",
+    "erdTor",
+    "mpkp",
+    "erdReFl",
+    "erdLeakage"
+]
 const abbs = [
     [true, true, false, "BlanchedAlmond", "white", "white"],
     [false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond"],
