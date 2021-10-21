@@ -58,7 +58,7 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
 }
 
 
-const abbs=[
+const abbs = [
     [true, true, false, "BlanchedAlmond", "white", "white"],
     [false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond"],
     [false, false, false, "white", "white", "white"]
@@ -67,8 +67,8 @@ const abbs=[
 
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => {
-    rateFixV = d.getElementById("rateFix").value
-let yuk=[...abbs[rateFix]]
+
+    const yuk = abbs[d.getElementById("rateFix").value]
     able(...yuk)
     // if (rateFixV == 0) {
     //     able(true, true, false, "BlanchedAlmond", "white", "white")
@@ -89,16 +89,16 @@ const getFlow = f => {
     let id = d.activeElement.id
     let mifa
 
-const kVal=[
-    4,
-    3.3333333333,
-    2.85714285714,
-    2.5,
-    2.2222222222,
-    2,
-    0
-]
-k=kVal[mrr]
+    const kVal = [
+        4,
+        3.3333333333,
+        2.85714285714,
+        2.5,
+        2.2222222222,
+        2,
+        0
+    ]
+    k = kVal[mrr]
 
     // switch (mrr) {
     //     case 0:
