@@ -58,9 +58,6 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
 }
 
 
-
-
-
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => {
 
@@ -70,8 +67,8 @@ const disble = () => {
         [false, false, false, "white", "white", "white"]
     ]
 
-    const yuk = abbs[d.getElementById("rateFix").value]
-    able(...yuk)
+    // const yuk = abbs[d.getElementById("rateFix").value]
+    able(...abbs[d.getElementById("rateFix").value])
     // if (rateFixV == 0) {
     //     able(true, true, false, "BlanchedAlmond", "white", "white")
     // }
@@ -189,6 +186,7 @@ const errorP = () => {
 // *************************** no motor ***************************
 const errorM = () => {
     var x = d.getElementById("errorM");
+    c.log("No motor Found")
     // Add the "show" class to DIV
     x.className = "show";
     // After 3 seconds, remove the show class from DIV
@@ -414,14 +412,8 @@ const looky = () => {
 
                         ])
                         c.log("Chosen Electric Motor  ERD = " + emotorM(chosenMotorPower * offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0]))
-
-                        if (inletPress[chosenPump[chosenPump.length - 1][23]][it] === "Consult TWHC") {
-                            d.getElementById("pfp").innerText = "Consult TWHC"
-                        }
-                    } else {
-                        errorM()
-                        c.log("No motor Found")
-                    }
+inletPress[chosenPump[chosenPump.length - 1][23]][it] === "Consult TWHC"? d.getElementById("pfp").innerText = "Consult TWHC":{errorM()
+}
 
                     // then the line is column filerted by the i postition +2 (80 becomes 82) this is then the first figure in the triptic
                     // i = the position in the array to manipulated to get the array elemnt in the second array(erd figs)
