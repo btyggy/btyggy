@@ -28,13 +28,11 @@ const fields =
         "erdReFl",
         "erdLeakage"
     ]
-
 const abbs = [
     [true, true, false, "BlanchedAlmond", "white", "white"],
     [false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond"],
     [false, false, false, "white", "white", "white"]
 ]
-
 const kVal = [
     4,
     3.3333333333,
@@ -44,11 +42,10 @@ const kVal = [
     2,
     0
 ]
-
 const listeners = ["mpb", "mrr", "mpl", "money", "rateFix"]
-
 const currency = ["£", "$", "€"]
 
+// *************************************** functions *************************************************
 const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
 
 //************************** set value pairs to the current document ****************************/
@@ -80,7 +77,6 @@ const disble = () => able(...abbs[d.getElementById("rateFix").value])
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 const outflow = (mif, k) => {
     let mifa = mif / k
-    // let kd = 24 * mifa
     d.getElementById("pfr").value = mifa.toFixed(2)
     d.getElementById("PerFlRaMD").value = (24 * mifa).toFixed(2)
 }
@@ -94,13 +90,12 @@ const getFlow = f => {
 
     if (id == "mrr" && rateFix == 1) {
         mifa = pr * k
-        // kd = 24 * pr
         d.getElementById("mif").value = mifa.toFixed(2)
         d.getElementById("PerFlRaMD").value = (24 * pr).toFixed(2)
     }
 
     if (id == "mif") outflow(mif, k)
-
+    
     if (id == "mrr") {
         if (rateFix == 2 || rateFix == 0) outflow(mif, k)
     }
@@ -272,8 +267,6 @@ const looky = () => {
                     //Motor Data
                     //                                                       size                          %                          %             
                     let chosenMotor = ERDvals.filter(a => a[2] === ERDmembraneRecoveryRate && a[1] === ERDLookUp && a[3] === membraneInletPressure)
-
-                    // c.log("** chosen Motor Line ** " + chosenMotor)
 
                     if (chosenMotor.length > 0) {
 
