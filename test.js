@@ -185,8 +185,6 @@ const membrainPressureLossMultiplier = (mult) => {
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
 
-
-
 //  *************************** new look-up function to find values from 2d array ***************************
 const looky = () => {
 
@@ -352,14 +350,12 @@ const looky = () => {
                         c.log("Motor is " + motor)
                         c.log("cost per day saving " + costPerDayCostSaving)
 
-
                         //graph values
                         let start1 = 18300
                         let start2 = 25550
                         let inc1 = 500
                         let inc2 = -200
                         document.getElementById("graph").href = "graph2.html?start1=" + start1 + "&start2=" + start2 + "&inc1=" + inc1 + "&inc2=" + inc2
-
 
                         //c.log("found motor")
                         c.log(inletPress[chosenPump[chosenPump.length - 1][23]][it] + " Inlet pressure calc ")
