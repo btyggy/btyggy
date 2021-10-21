@@ -152,6 +152,8 @@ const getFlow = f => {
     c.log("MIFA=" + mifa + " * 24= " + mifa * 24)
 }
 
+
+
 // *************************** no pump ***************************
 const errorP = () => {
     var x = d.getElementById("errorP");
