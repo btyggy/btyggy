@@ -189,9 +189,13 @@ const looky = () => {
     disble()
     getFlow()
 
-    if (d.getElementById("money").value === "p") { money = "£" }
-    if (d.getElementById("money").value === "d") { money = "$" }
-    if (d.getElementById("money").value === "e") { money = "€" }
+const currency=["£","$","€"]
+
+    money=currency[parseInt( d.getElementById("money"))]
+
+    // if (d.getElementById("money").value === "p") { money = "£" }
+    // if (d.getElementById("money").value === "d") { money = "$" }
+    // if (d.getElementById("money").value === "e") { money = "€" }
 
     var [membraneRecoveryRateVal, membraneInletPressure, costPerKWHour, membranePressureLoss, permeateFlowRatePerDayInput, permeateFlowRatePerDayInputRaw, hours, membrainInletFlow, permeateFlowRate] = ["mrr", "mpb", "cpkwh", "mpl", "PerFlRaMD", "PerFlRaMD", "hours", "mif", "pfr"].map(getv)
     c.log("membraneRecoveryRateVal " + membraneRecoveryRateVal)
