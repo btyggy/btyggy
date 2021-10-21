@@ -79,10 +79,16 @@ const getFlow = f => {
     let id = d.activeElement.id
     let mifa
 
-const kVal=[4,3.3333333333,2.85714285714,2.5,2.2222222222,2,0]
+const kVal=[
+    4,
+    3.3333333333,
+    2.85714285714,
+    2.5,
+    2.2222222222,
+    2,
+    0
+]
 k=kVal[mrr]
-
-
 
     // switch (mrr) {
     //     case 0:
