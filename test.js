@@ -25,7 +25,7 @@ const fields =
         "erdReFl",
         "erdLeakage"
     ]
-thing 1
+
 
 const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
 
