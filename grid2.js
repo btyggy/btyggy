@@ -91,16 +91,12 @@ const kVal = [
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 // ***************************change the pfr and perlramd ***************************
 
-
-
 const outflow =(mif,k)=>{
     mifa = mif / k
-    // kd = 24 * mifa
+    kd = 24 * mifa
     d.getElementById("pfr").value = mifa.toFixed(2)
-    d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
+    d.getElementById("PerFlRaMD").value = kd.toFixed(2)
 }
-
-
 
 const getFlow = f => {
     let k = 0
@@ -137,9 +133,9 @@ const getFlow = f => {
 
     if (id == "mrr" && rateFix == 1) {
         mifa = pr * k
-        // kd = 24 * pr
+        kd = 24 * pr
         d.getElementById("mif").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = 24*pr.toFixed(2)
+        d.getElementById("PerFlRaMD").value = kd.toFixed(2)
     }
 
     // change to the membrain recovery rate
@@ -163,9 +159,6 @@ const getFlow = f => {
     //     d.getElementById("pfr").value = mifa.toFixed(2)
     //     d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
     // }
-
-
-
   
 
     //change to permeate flow rates 
