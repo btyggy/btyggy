@@ -62,7 +62,7 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
 const disble = () => {
     rateFixV = d.getElementById("rateFix").value
     
-    rateFixV === 0 ? able(true, true, false, "BlanchedAlmond", "white", "white"):rateFixV === 1 ? able(false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond") : rateFixV === 2 ? able(false, false, false, "white", "white", "white")
+    rateFixV == 0 ? able(true, true, false, "BlanchedAlmond", "white", "white"):rateFixV == 1 ? able(false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond") : rateFixV == 2 ? able(false, false, false, "white", "white", "white")
      
     
     // if (rateFixV == 0) {
