@@ -68,8 +68,8 @@ const abbs=[
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => {
     rateFixV = d.getElementById("rateFix").value
-
-    able(...abbs[rateFix])
+let yuk=[...abbs[rateFix]]
+    able(...yuk)
     // if (rateFixV == 0) {
     //     able(true, true, false, "BlanchedAlmond", "white", "white")
     // }
