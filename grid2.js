@@ -191,7 +191,7 @@ const looky = () => {
 
 const currency=["£","$","€"]
 
-    money=currency[parseInt( d.getElementById("money"))]
+    money=currency[parseInt( d.getElementById("money").value)]
 
     // if (d.getElementById("money").value === "p") { money = "£" }
     // if (d.getElementById("money").value === "d") { money = "$" }
