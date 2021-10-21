@@ -28,7 +28,6 @@ const fields =
         "erdLeakage"
     ]
 
-
 const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
 
 //************************** set value pairs to the current document ****************************/
@@ -56,7 +55,6 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
     d.getElementById("PerFlRaMD").style.background = perfB
     d.getElementById("pfr").style.background = pfrB
 }
-
 
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => {
@@ -171,7 +169,6 @@ const getFlow = f => {
     c.log("ratefix == " + rateFix)
     c.log("MIFA=" + mifa + " * 24= " + mifa * 24)
 }
-
 
 // *************************** no pump ***************************
 const errorP = () => {
