@@ -35,7 +35,6 @@ const abbs = [
     [false, false, false, "white", "white", "white"]
 ]
 
-
 const kVal = [
     4,
     3.3333333333,
@@ -57,9 +56,6 @@ const pairs = valueP => valueP.forEach(pair => pair[0] != 0 && isNaN(pair[0]) ==
 const getv = id => parseFloat(d.getElementById(id).value)
 
 // ***************************this gets all the listerners for the doument ***************************
-
-
-// ***************************this gets all the listerners for the doument ***************************
 const listen = () => {
     var pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
     pageInputs.forEach(el => el.addEventListener('keyup', looky, false))
@@ -76,18 +72,14 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
     d.getElementById("pfr").style.background = pfrB
 }
 
-
-
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => able(...abbs[d.getElementById("rateFix").value])
 
 
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
-// ***************************change the pfr and perlramd ***************************
-
 const outflow = (mif, k) => {
-    mifa = mif / k
-    kd = 24 * mifa
+   let mifa = mif / k
+   let kd = 24 * mifa
     d.getElementById("pfr").value = mifa.toFixed(2)
     d.getElementById("PerFlRaMD").value = kd.toFixed(2)
 }
