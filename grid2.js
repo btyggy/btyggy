@@ -70,10 +70,6 @@ const disble = () => {
         [false, false, false, "white", "white", "white"]
     ]
 
-
-
-
-
     const yuk = abbs[d.getElementById("rateFix").value]
     able(...yuk)
     // if (rateFixV == 0) {
