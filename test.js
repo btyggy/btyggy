@@ -411,4 +411,4 @@ const looky = () => {
         errorP()
         c.log("this is the trap for being off the figures")
     }
-})
+}
