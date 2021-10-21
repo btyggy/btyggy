@@ -80,9 +80,9 @@ const disble = () => able(...abbs[d.getElementById("rateFix").value])
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 const outflow = (mif, k) => {
     let mifa = mif / k
-    let kd = 24 * mifa
+    // let kd = 24 * mifa
     d.getElementById("pfr").value = mifa.toFixed(2)
-    d.getElementById("PerFlRaMD").value = kd.toFixed(2)
+    d.getElementById("PerFlRaMD").value = (24 * mifa).toFixed(2)
 }
 
 const getFlow = f => {
@@ -94,9 +94,9 @@ const getFlow = f => {
 
     if (id == "mrr" && rateFix == 1) {
         mifa = pr * k
-        kd = 24 * pr
+        // kd = 24 * pr
         d.getElementById("mif").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = kd.toFixed(2)
+        d.getElementById("PerFlRaMD").value = (24 * pr).toFixed(2)
     }
 
     if (id == "mif") outflow(mif, k)
@@ -283,11 +283,7 @@ const looky = () => {
                         let sav = chosenMotorPower * offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0]
                         let costPerDayCostSaving = sav * hours * costPerKWHour
                         let motorVolumetricLoss = parseFloat(chosenMotor[0][11])
-
-                        //*****************************************************************************************************
                         let erdReturnFlow = ((((100 - ERDmembraneRecoveryRate) / 100) * meters3PerDay) - motorVolumetricLoss) / 24
-                        //*****************************************************************************************************
-
                         let pumpDrainFlow = (pumpVolumetricLoss + motorVolumetricLoss) / 24
 
                         motorLoss = chosenLine[0][i + 2] + chosenMotor[0][11]
