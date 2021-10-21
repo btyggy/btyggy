@@ -58,15 +58,21 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
 }
 
 
-const abbs = [
-    [true, true, false, "BlanchedAlmond", "white", "white"],
-    [false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond"],
-    [false, false, false, "white", "white", "white"]
-]
+
 
 
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => {
+
+    let abbs = [
+        [true, true, false, "BlanchedAlmond", "white", "white"],
+        [false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond"],
+        [false, false, false, "white", "white", "white"]
+    ]
+
+
+
+
 
     const yuk = abbs[d.getElementById("rateFix").value]
     able(...yuk)
