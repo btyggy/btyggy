@@ -79,28 +79,33 @@ const getFlow = f => {
     let id = d.activeElement.id
     let mifa
 
-    switch (mrr) {
-        case 0:
-            k = 4
-            break;
-        case 1:
-            k = 3.3333333333
-            break;
-        case 2:
-            k = 2.85714285714
-            break;
-        case 3:
-            k = 2.5
-            break;
-        case 4:
-            k = 2.2222222222
-            break;
-        case 5:
-            k = 2
-            break
-        case 6:
-            k = 0
-    }
+const kVal=[4,3.3333333333,2.85714285714,2.5,2.2222222222,2,0]
+k=kVal[mrr]
+
+
+
+    // switch (mrr) {
+    //     case 0:
+    //         k = 4
+    //         break;
+    //     case 1:
+    //         k = 3.3333333333
+    //         break;
+    //     case 2:
+    //         k = 2.85714285714
+    //         break;
+    //     case 3:
+    //         k = 2.5
+    //         break;
+    //     case 4:
+    //         k = 2.2222222222
+    //         break;
+    //     case 5:
+    //         k = 2
+    //         break
+    //     case 6:
+    //         k = 0
+    // }
 
     // change to the membrain inlet flow
     //if (id == "mif" && rateFix == 2) {
@@ -189,9 +194,9 @@ const looky = () => {
     disble()
     getFlow()
 
-const currency=["£","$","€"]
+    const currency = ["£", "$", "€"]
 
-    money=currency[parseInt( d.getElementById("money").value)]
+    money = currency[parseInt(d.getElementById("money").value)]
 
     // if (d.getElementById("money").value === "p") { money = "£" }
     // if (d.getElementById("money").value === "d") { money = "$" }
