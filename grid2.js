@@ -42,7 +42,7 @@ const listeners = ["mpb", "mrr", "mpl", "money", "rateFix"]
 
 // ***************************this gets all the listerners for the doument ***************************
 const listen = () => {
-    const pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
+    var pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
     pageInputs.forEach(el => el.addEventListener('keyup', looky, false)) //this each of them a listener
     listeners.forEach(value => d.getElementById(value).addEventListener('change', looky, false))
     looky() // call of look-up
