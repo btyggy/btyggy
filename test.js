@@ -33,14 +33,7 @@ const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
 
 //************************** set value pairs to the current document ****************************/
 const pairs = valueP =>
-    valueP.forEach(pair => {
-        if (pair[0] != 0 && isNaN(pair[0]) === false && isFinite(pair[0]) === true) {
-            //  this bit need to be innserHTML as the cubbed bit dosnt get translated
-            d.getElementById(pair[1]).innerHTML = pair[0].toFixed(pair[3])
-        } else {
-            d.getElementById(pair[1]).innerHTML = pair[2]
-        }
-    })
+    valueP.forEach(pair => pair[0] != 0 && isNaN(pair[0]) === false && isFinite(pair[0]) === true ? d.getElementById(pair[1]).innerHTML = pair[0].toFixed(pair[3]) : d.getElementById(pair[1]).innerHTML = pair[2])
 
 // ***************************get values***************************
 const getv = id => parseFloat(d.getElementById(id).value)
