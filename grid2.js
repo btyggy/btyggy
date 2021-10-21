@@ -75,7 +75,6 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => able(...abbs[d.getElementById("rateFix").value])
 
-
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 const outflow = (mif, k) => {
    let mifa = mif / k
