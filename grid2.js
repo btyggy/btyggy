@@ -79,8 +79,8 @@ const disble = () => able(...abbs[d.getElementById("rateFix").value])
 
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 const outflow = (mif, k) => {
-   let mifa = mif / k
-   let kd = 24 * mifa
+    let mifa = mif / k
+    let kd = 24 * mifa
     d.getElementById("pfr").value = mifa.toFixed(2)
     d.getElementById("PerFlRaMD").value = kd.toFixed(2)
 }
