@@ -141,13 +141,6 @@ const errorM = () => {
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
 }
 
-// not used but the general template is usefull, e.g. multi-line tenerey
-const membrainPressureLossMultiplier = (mult) => {
-    return mult === 2 ? 1
-        : mult > 2 ? mult * 0.5
-            : mult / 2;
-}
-
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
 
