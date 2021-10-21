@@ -122,35 +122,39 @@ const getFlow = f => {
 
     // change to the membrain inlet flow
     //if (id == "mif" && rateFix == 2) {
-    if (id == "mif") {
-        mifa = mif / k
-        kd = 24 * mifa
-        d.getElementById("pfr").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = kd.toFixed(2)
-    }
-
-    // change to the membrain recovery rate
-
-    if (id == "mrr" && rateFix == 2) {
-        mifa = mif / k
-        kd = 24 * mifa
-        d.getElementById("pfr").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = kd.toFixed(2)
-    }
 
     if (id == "mrr" && rateFix == 1) {
         mifa = pr * k
-        kd = 24 * pr
+        // kd = 24 * pr
         d.getElementById("mif").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = kd.toFixed(2)
+        d.getElementById("PerFlRaMD").value = 24*pr.toFixed(2)
+    }
+
+    // change to the membrain recovery rate
+    if (id == "mif") {
+        mifa = mif / k
+        // kd = 24 * mifa
+        d.getElementById("pfr").value = mifa.toFixed(2)
+        d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
+    }
+
+    if (id == "mrr" && rateFix == 2) {
+        mifa = mif / k
+        // kd = 24 * mifa
+        d.getElementById("pfr").value = mifa.toFixed(2)
+        d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
     }
 
     if (id == "mrr" && rateFix == 0) {
-        let mifa = mif / k
-        kd = 24 * mifa
+        mifa = mif / k
+        // kd = 24 * mifa
         d.getElementById("pfr").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = kd.toFixed(2)
+        d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
     }
+
+
+
+  
 
     //change to permeate flow rates 
     if (id == "pfr") {
