@@ -65,25 +65,30 @@ const abbs = [
     [false, false, false, "white", "white", "white"]
 ]
 
-
-
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => able(...abbs[d.getElementById("rateFix").value])
 
-    
+// const yuk = abbs[d.getElementById("rateFix").value]
 
-    // const yuk = abbs[d.getElementById("rateFix").value]
- 
-    // if (rateFixV == 0) {
-    //     able(true, true, false, "BlanchedAlmond", "white", "white")
-    // }
-    // if (rateFixV == 1) {
-    //     able(false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond")
-    // }
-    // if (rateFixV == 2) {
-    //     able(false, false, false, "white", "white", "white")
-    // }
+// if (rateFixV == 0) {
+//     able(true, true, false, "BlanchedAlmond", "white", "white")
+// }
+// if (rateFixV == 1) {
+//     able(false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond")
+// }
+// if (rateFixV == 2) {
+//     able(false, false, false, "white", "white", "white")
+// }
 
+const kVal = [
+    4,
+    3.3333333333,
+    2.85714285714,
+    2.5,
+    2.2222222222,
+    2,
+    0
+]
 
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 // ***************************change the pfr and perlramd ***************************
@@ -92,16 +97,6 @@ const getFlow = f => {
     let [pr, prd, mif, mrr, rateFix] = ["pfr", "PerFlRaMD", "mif", "mrr", "rateFix"].map(getv)
     let id = d.activeElement.id
     let mifa
-
-    const kVal = [
-        4,
-        3.3333333333,
-        2.85714285714,
-        2.5,
-        2.2222222222,
-        2,
-        0
-    ]
     k = kVal[mrr]
 
     // switch (mrr) {
