@@ -47,6 +47,8 @@ const kVal = [
 
 const listeners = ["mpb", "mrr", "mpl", "money", "rateFix"]
 
+const currency = ["£", "$", "€"]
+
 const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
 
 //************************** set value pairs to the current document ****************************/
@@ -149,11 +151,8 @@ const membrainPressureLossMultiplier = (mult) => {
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
 
-const currency = ["£", "$", "€"]
-
 //  *************************** new look-up function to find values from 2d array ***************************
 const looky = () => {
-
     c.clear()
     disble()
     getFlow()
