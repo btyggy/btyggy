@@ -43,9 +43,9 @@ const listeners = ["mpb", "mrr", "mpl", "money", "rateFix"]
 // ***************************this gets all the listerners for the doument ***************************
 const listen = () => {
     var pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
-    pageInputs.forEach(el => el.addEventListener('keyup', looky, false)) //this each of them a listener
+    pageInputs.forEach(el => el.addEventListener('keyup', looky, false)) 
     listeners.forEach(value => d.getElementById(value).addEventListener('change', looky, false))
-    looky() // call of look-up
+    looky() 
 }
 
 const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
@@ -56,8 +56,6 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
     d.getElementById("PerFlRaMD").style.background = perfB
     d.getElementById("pfr").style.background = pfrB
 }
-
-
 
 const abbs = [
     [true, true, false, "BlanchedAlmond", "white", "white"],
