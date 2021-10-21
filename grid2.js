@@ -66,17 +66,6 @@ const abbs = [
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => able(...abbs[d.getElementById("rateFix").value])
 
-// const yuk = abbs[d.getElementById("rateFix").value]
-
-// if (rateFixV == 0) {
-//     able(true, true, false, "BlanchedAlmond", "white", "white")
-// }
-// if (rateFixV == 1) {
-//     able(false, false, true, "white", "BlanchedAlmond", "BlanchedAlmond")
-// }
-// if (rateFixV == 2) {
-//     able(false, false, false, "white", "white", "white")
-// }
 
 const kVal = [
     4,
@@ -105,32 +94,6 @@ const getFlow = f => {
     let mifa
     k = kVal[mrr]
 
-    // switch (mrr) {
-    //     case 0:
-    //         k = 4
-    //         break;
-    //     case 1:
-    //         k = 3.3333333333
-    //         break;
-    //     case 2:
-    //         k = 2.85714285714
-    //         break;
-    //     case 3:
-    //         k = 2.5
-    //         break;
-    //     case 4:
-    //         k = 2.2222222222
-    //         break;
-    //     case 5:
-    //         k = 2
-    //         break
-    //     case 6:
-    //         k = 0
-    // }
-
-    // change to the membrain inlet flow
-    //if (id == "mif" && rateFix == 2) {
-
     if (id == "mrr" && rateFix == 1) {
         mifa = pr * k
         kd = 24 * pr
@@ -138,29 +101,10 @@ const getFlow = f => {
         d.getElementById("PerFlRaMD").value = kd.toFixed(2)
     }
 
-    // change to the membrain recovery rate
     if (id == "mif") outflow(mif,k)
-        // mifa = mif / k
-        // kd = 24 * mifa
-        // d.getElementById("pfr").value = mifa.toFixed(2)
-        // d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
-    // }
-
     if (id == "mrr" && rateFix == 2) outflow(mif,k)
-        // ?mifa = mif / k
-        // kd = 24 * mifa
-        // d.getElementById("pfr").value = mifa.toFixed(2)
-        // d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
-    // }
-
     if (id == "mrr" && rateFix == 0) outflow(mif,k)
-    //     mifa = mif / k
-    //     // kd = 24 * mifa
-    //     d.getElementById("pfr").value = mifa.toFixed(2)
-    //     d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
-    // }
   
-
     //change to permeate flow rates 
     if (id == "pfr") {
         prd = pr * 24
@@ -197,15 +141,10 @@ const errorM = () => {
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
 }
 
-// not used but the general template is usefull, e.g. multi-line tenerey
-const membrainPressureLossMultiplier = (mult) => {
-    return mult === 2 ? 1
-        : mult > 2 ? mult * 0.5
-            : mult / 2;
-}
-
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
+
+const currency = ["£", "$", "€"]
 
 //  *************************** new look-up function to find values from 2d array ***************************
 const looky = () => {
@@ -214,13 +153,7 @@ const looky = () => {
     disble()
     getFlow()
 
-    const currency = ["£", "$", "€"]
-
     money = currency[parseInt(d.getElementById("money").value)]
-
-    // if (d.getElementById("money").value === "p") { money = "£" }
-    // if (d.getElementById("money").value === "d") { money = "$" }
-    // if (d.getElementById("money").value === "e") { money = "€" }
 
     var [membraneRecoveryRateVal, membraneInletPressure, costPerKWHour, membranePressureLoss, permeateFlowRatePerDayInput, permeateFlowRatePerDayInputRaw, hours, membrainInletFlow, permeateFlowRate] = ["mrr", "mpb", "cpkwh", "mpl", "PerFlRaMD", "PerFlRaMD", "hours", "mif", "pfr"].map(getv)
     c.log("membraneRecoveryRateVal " + membraneRecoveryRateVal)
