@@ -90,6 +90,18 @@ const kVal = [
 
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 // ***************************change the pfr and perlramd ***************************
+
+
+
+const outflow =(mif,k)=>{
+    mifa = mif / k
+    // kd = 24 * mifa
+    d.getElementById("pfr").value = mifa.toFixed(2)
+    d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
+}
+
+
+
 const getFlow = f => {
     let k = 0
     let [pr, prd, mif, mrr, rateFix] = ["pfr", "PerFlRaMD", "mif", "mrr", "rateFix"].map(getv)
@@ -131,26 +143,26 @@ const getFlow = f => {
     }
 
     // change to the membrain recovery rate
-    if (id == "mif") {
-        mifa = mif / k
+    if (id == "mif") outflow(mif,k)
+        // mifa = mif / k
         // kd = 24 * mifa
-        d.getElementById("pfr").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
-    }
+        // d.getElementById("pfr").value = mifa.toFixed(2)
+        // d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
+    // }
 
-    if (id == "mrr" && rateFix == 2) {
-        mifa = mif / k
+    if (id == "mrr" && rateFix == 2) outflow(mif,k)
+        // ?mifa = mif / k
         // kd = 24 * mifa
-        d.getElementById("pfr").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
-    }
+        // d.getElementById("pfr").value = mifa.toFixed(2)
+        // d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
+    // }
 
-    if (id == "mrr" && rateFix == 0) {
-        mifa = mif / k
-        // kd = 24 * mifa
-        d.getElementById("pfr").value = mifa.toFixed(2)
-        d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
-    }
+    if (id == "mrr" && rateFix == 0) outflow(mif,k)
+    //     mifa = mif / k
+    //     // kd = 24 * mifa
+    //     d.getElementById("pfr").value = mifa.toFixed(2)
+    //     d.getElementById("PerFlRaMD").value = 24*mifa.toFixed(2)
+    // }
 
 
 
