@@ -1,56 +1,512 @@
 
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-a51e22ea-d13d-4c5b-8f08-f6757331d86b@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-2abb8bd7-aa9a-458b-b274-0bbadc946365@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-4abe80f0-0e6f-4d2d-ac9a-af24fde9f702@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-212036d5-70a9-4343-9373-49bdeaba40b2@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-7960b76b-e5bf-445e-8323-34f6d2a238c8@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-6e604b8e-fddc-46fc-b885-c4a60ae6e958@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-013fd877-7251-4a38-b5d8-f05cc800abf2@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-d67f151a-4393-41d4-a297-a5950eecd0a3@mhtml.blink" />
-    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Calculator</title>
-    <link rel="stylesheet" href="http://kaywinn.co.uk/grid_version_8.4/cardStyle.css">
+    <link rel="stylesheet" href="cardStyle.css">
 
-    
+    <style>
+        #errorM {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 20px;
+        }
+
+        #errorM.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        #errorP {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 20px;
+        }
+
+        #errorP.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        .modal-window1 {
+            position: fixed;
+            background-color: rgba(200, 200, 200, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal-window1:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window1>div {
+            width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            background: #fff;
+            color: #444;
+        }
+
+        .modal-window1 header {
+            font-weight: bold;
+        }
+
+        .modal-close1 {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+        }
+
+        .modal-close1:hover {
+            color: #000;
+        }
+
+        .modal-window1 h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+
+        .modal-window2 {
+            position: fixed;
+            background-color: rgba(200, 200, 200, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal-window2:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window2>div {
+               width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            background: #fff;
+            color: #444;
+        }
+
+        .modal-window2 header {
+            font-weight: bold;
+        }
+
+        .modal-close2 {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+        }
+
+        .modal-close2:hover {
+            color: #000;
+        }
+
+        .modal-window2 h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+
+        .modal-window3 {
+            position: fixed;
+            background-color: rgba(200, 200, 200, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal-window3:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window3>div {
+              width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            background: #fff;
+            color: #444;
+        }
+
+        .modal-window3 header {
+            font-weight: bold;
+        }
+
+        .modal-close3 {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+        }
+
+        .modal-close3:hover {
+            color: #000;
+        }
+
+        .modal-window3 h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+
+        .modal-window4 {
+            position: fixed;
+            background-color: rgba(200, 200, 200, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal-window4:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window4>div {
+             width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            background: #fff;
+            color: #444;
+        }
+
+        .modal-window4 header {
+            font-weight: bold;
+        }
+
+        .modal-close4 {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+        }
+
+        .modal-close4:hover {
+            color: #000;
+        }
+
+        .modal-window4 h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+
+        .modal-window5 {
+            position: fixed;
+            background-color: rgba(200, 200, 200, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal-window5:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window5>div {
+             width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            background: #fff;
+            color: #444;
+        }
+
+        .modal-window5 header {
+            font-weight: bold;
+        }
+
+        .modal-close5 {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+        }
+
+        .modal-close5:hover {
+            color: #000;
+        }
+
+        .modal-window5 h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+
+        .modal-window6 {
+            position: fixed;
+            background-color: rgba(200, 200, 200, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal-window6:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window6>div {
+             width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            background: #fff;
+            color: #444;
+        }
+
+        .modal-window6 header {
+            font-weight: bold;
+        }
+
+        .modal-close6 {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+        }
+
+        .modal-close6:hover {
+            color: #000;
+        }
+
+        .modal-window6 h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
 
 
+        .modal-window {
+            position: fixed;
+            background-color: rgba(200, 200, 200, 0.75);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .modal-window:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-window>div {
+             width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            background: #fff;
+            color: #444;
+        }
+
+        .modal-window header {
+            font-weight: bold;
+        }
+
+        .modal-close {
+            color: #aaa;
+            line-height: 50px;
+            font-size: 80%;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 70px;
+            text-decoration: none;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        .modal-window h1 {
+            font-size: 150%;
+            margin: 0 0 15px;
+        }
+    </style>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-    
-    
+    <script type="text/javascript" src="values.js"></script>
+    <script type="text/javascript" src="grid.js"></script>
 </head>
 
 <body>
     <div id="errorP">No Pump Found</div>
     <div id="errorM">No Motor Found</div>
-    <div class="wprint" style="text-align:right;"><button>Print this page</button></div>
+    <div class="wprint" style="text-align:right;"><button onclick="window.print()">Print this page</button></div>
     <div class="wrapper">
         <div class="box a">
             <div>
-                <a href="http://kaywinn.co.uk/grid_version_8.4/card.html"><img class="logo" src="http://kaywinn.co.uk/grid_version_8.4/images/logoG.jpg" alt=""></a>
+                <a href=""><img class="logo" src="images/logoG.jpg" alt=""></a>
             </div>
             
             
                      <div class="fixr" align="right" style="color:grey">Fixed Rate<select id="rateFix">
-                                <option value="0">Membrain Inlet Flow</option>
-                                <option value="1">Permeate Flow Rate</option>
-                                 <option value="2" selected="">None</option>
+                                <option value="0" >Membrain Inlet Flow</option>
+                                <option value="1" >Permeate Flow Rate</option>
+                                 <option value="2" selected >None</option>
                                                         </select></div>
       
             
         </div>
-        <div class="box b cen"><img class="responsive" src="http://kaywinn.co.uk/grid_version_8.4/images/lat5.jpg">
+        <div class="box b cen"><img class="responsive" src="images/lat5.jpg">
         </div>
         <div class="box c1">
    
@@ -62,11 +518,11 @@
                 <span>
 
                     <span class="info">
-                        <div><a class="inLink" href="http://kaywinn.co.uk/grid_version_8.4/card.html#open-modal1" style="text-decoration: none;">?</a>
+                        <div><a class="inLink" href="#open-modal1"  Style="text-decoration: none;" >?</a>
                             <div id="open-modal1" class="modal-window1">
                                 <div>
-                                    <a href="http://kaywinn.co.uk/grid_version_8.4/card.html#modal-close1" title="Close" class="modal-close1">close ×</a>
-                                    <h1>Ben's Info</h1>
+                                    <a href="#modal-close1" title="Close" class="modal-close1">close &times;</a>
+                                    <h1>Info</h1>
                                     <div>This is a box that sits on the info 1</div>
                                 </div>
                             </div>
@@ -79,12 +535,12 @@
                     <div class="grid-container">
 
                         <div>Feed pressure at inlet</div>
-                        <div id="pfp">3.80</div>
+                        <div id="pfp">0</div>
                         <div id="barp1"> bar </div>
 
                         <div>High Pressure Pump Feed Flow</div>
-                        <div id="pfpa">0.70</div>
-                        <div id="barp1"> m³/h </div>
+                        <div id="pfpa">0</div>
+                        <div id="barp1"> m&sup3;/h </div>
                         <div>&nbsp;</div>
 
                     </div>
@@ -103,11 +559,11 @@
                 <span>
 
                     <span class="info">
-                        <div><a class="inLink" href="http://kaywinn.co.uk/grid_version_8.4/card.html#open-modal3" style="text-decoration: none;">?</a>
+                        <div><a class="inLink" href="#open-modal3" Style="text-decoration: none;">?</a>
                             <div id="open-modal3" class="modal-window3">
                                 <div>
-                                    <a href="http://kaywinn.co.uk/grid_version_8.4/card.html#modal-close3" title="Close" class="modal-close3">close ×</a>
-                                    <h1>Ben's Info</h1>
+                                    <a href="#modal-close3" title="Close" class="modal-close3">close &times;</a>
+                                    <h1>Info</h1>
                                     <div>This is a box that sits on the info 3</div>
                                 </div>
                             </div>
@@ -127,7 +583,7 @@
                                 <option value="1">0.5</option>
                                 <option value="2">1</option>
                                 <option value="3">1.5</option>
-                                <option value="4" selected="">2</option>
+                                <option value="4" selected>2</option>
                                 <option value="5">2.5</option>
                                 <option value="6">3</option>
                                 <option value="7">3.5</option>
@@ -144,7 +600,7 @@
                                 <option value="2">35</option>
                                 <option value="3">40</option>
                                 <option value="4">45</option>
-                                <option value="5" selected="">50</option>
+                                <option value="5" selected>50</option>
                             </select>
                         </div>
                         <div>%</div>
@@ -161,11 +617,11 @@
                 <span>
 
                     <span class="info">
-                        <div><a class="inLink" href="http://kaywinn.co.uk/grid_version_8.4/card.html#open-modal5" style="text-decoration: none;">?</a>
+                        <div><a class="inLink" href="#open-modal5" Style="text-decoration: none;">?</a>
                             <div id="open-modal5" class="modal-window5">
                                 <div>
-                                    <a href="http://kaywinn.co.uk/grid_version_8.4/card.html#modal-close5" title="Close" class="modal-close5">close ×</a>
-                                    <h1>Ben's Info</h1>
+                                    <a href="#modal-close5" title="Close" class="modal-close5">close &times;</a>
+                                    <h1>Info</h1>
                                     <div>This is a box that sits on the info 5</div>
                                 </div>
                             </div>
@@ -177,12 +633,12 @@
                     <div class="grid-container">
 
                         <div>ERD Return Flow</div>
-                        <div id="erdReFl">0.31</div>
-                        <div id="barp1"> m³/h </div>
+                        <div id="erdReFl">0 </div>
+                        <div id="barp1"> m&sup3;/h </div>
 
                         <div>ERD Leakage</div>
-                        <div id="erdLeakage">0.03</div>
-                        <div id="barp1"> m³/h </div>
+                        <div id="erdLeakage">0 </div>
+                        <div id="barp1"> m&sup3;/h </div>
 
                         <div>&nbsp;</div>
 
@@ -200,11 +656,11 @@
                 <span>
 
                     <span class="info">
-                        <div><a class="inLink" href="http://kaywinn.co.uk/grid_version_8.4/card.html#open-modal2" style="text-decoration: none;">?</a>
+                        <div><a class="inLink" href="#open-modal2" Style="text-decoration: none;">?</a>
                             <div id="open-modal2" class="modal-window2"> 
                                 <div>
-                                    <a href="http://kaywinn.co.uk/grid_version_8.4/card.html#modal-close2" title="Close" class="modal-close2">close ×</a>
-                                    <h1>Ben's Info</h1>
+                                    <a href="#modal-close2" title="Close" class="modal-close2">close &times;</a>
+                                    <h1>Info</h1>
                                     <div>This is a box that sits on the info 2</div>
                                 </div>
                             </div>
@@ -227,7 +683,7 @@
                                 <option value="35">35</option>
                                 <option value="40">40</option>
                                 <option value="45">45</option>
-                                <option value="50" selected="">50</option>
+                                <option value="50" selected>50</option>
                                 <option value="55">55</option>
                                 <option value="60">60</option>
                                 <option value="65">65</option>
@@ -249,12 +705,14 @@
                         <div id="barp2">bar</div>
 
                         <div>Membrane Inlet Flow</div>
-                        <div><input name="mif" class="inp" type="number" id="mif" size="6" value="0.67" min="0" max="5000" step="0.01" pattern="[0-9]{5}" required="" style="background: white;"> </div>
-                        <div id="barp1"> m³/h </div>
+                        <div><input name="mif" class="inp" type="number" id="mif" size="6" value="0.67"
+                                onKeyPress="if(this.value.length==4) return false;" min="0" max="5000" step="0.01"
+                                pattern="[0-9]{5}" required /> </div>
+                        <div id="barp1"> m&sup3;/h </div>
 
                         <div>Pump Leakage</div>
-                        <div id="pl">0.03</div>
-                        <div>m³/h</div>
+                        <div id="pl">0</div>
+                        <div>m&sup3;/h</div>
                         <div>&nbsp;</div>
 
                     </div>
@@ -269,11 +727,11 @@
                 <span>
 
                     <span class="info">
-                        <div><a class="inLink" href="http://kaywinn.co.uk/grid_version_8.4/card.html#open-modal4" style="text-decoration: none;">?</a>
+                        <div><a class="inLink" href="#open-modal4" Style="text-decoration: none;">?</a>
                             <div id="open-modal4" class="modal-window4">
                                 <div>
-                                    <a href="http://kaywinn.co.uk/grid_version_8.4/card.html#modal-close4" title="Close" class="modal-close4">close ×</a>
-                                    <h1>Ben's Info</h1>
+                                    <a href="#modal-close4" title="Close" class="modal-close4">close &times;</a>
+                                    <h1>Info</h1>
                                     <div>This is a box that sits on the info 4</div>
                                 </div>
                             </div>
@@ -285,7 +743,7 @@
                     <div class="grid-container">
 
                         <div>Membrane Output Pressure</div>
-                        <div id="pfpr">48.00</div>
+                        <div id="pfpr">0 </div>
                         <div id="barp1"> bar </div>
                         <div>&nbsp;</div>
 
@@ -303,11 +761,11 @@
                 <span>
 
                     <span class="info">
-                        <div><a class="inLink" href="http://kaywinn.co.uk/grid_version_8.4/card.html#open-modal6" style="text-decoration: none;">?</a>
+                        <div><a class="inLink" href="#open-modal6" Style="text-decoration: none;">?</a>
                             <div id="open-modal6" class="modal-window6">
                                 <div>
-                                    <a href="http://kaywinn.co.uk/grid_version_8.4/card.html#modal-close6" title="Close" class="modal-close6">close ×</a>
-                                    <h1>Ben's Info</h1>
+                                    <a href="#modal-close6" title="Close" class="modal-close6">close &times;</a>
+                                    <h1>Info</h1>
                                     <div>This is a box that sits on the info 6</div>
                                 </div>
                             </div>
@@ -319,16 +777,20 @@
                     <div class="grid-container">
 
                         <div>Permeate Flow Rate</div>
-                        <div> <input name="pfr" class="inp" type="number" id="pfr" size="6" value="0.34" min="0" max="5000" step="0.01" pattern="[0-9]{5}" required="" style="background: white;"> </div>
-                        <div id="barp1"> m³/hour </div>
+                        <div> <input name="pfr" class="inp" type="number" id="pfr" size="6" value="0.34"
+                                onKeyPress="if(this.value.length==4) return false;" min="0" max="5000" step="0.01"
+                                pattern="[0-9]{5}" required    /> </div>
+                        <div id="barp1"> m&sup3;/hour </div>
 
                         <div>Permeate Flow Rate</div>
                         <div>
 
-                            <input type="number" id="PerFlRaMD" class="inp" name="PerFlRaMD" required="" minlength="4" maxlength="4" size="6" value="8.04" min="0" max="5000" step="0.01" pattern="[0-9]{5}" style="background: white;">
+                            <input      type="number" id="PerFlRaMD" class="inp" name="PerFlRaMD" required minlength="4"
+                                maxlength="4" size="6" value="8.04" onKeyPress="if(this.value.length==4) return false;"
+                                min="0" max="5000" step="0.01" pattern="[0-9]{5}"             />
 
                         </div>
-                        <div>m³/day</div>
+                        <div>m&sup3;/day</div>
 
                         <div>&nbsp;</div>
 
@@ -351,79 +813,85 @@
                 <div>&nbsp;</div>
 
                 <div>Pump</div>
-                <div id="pum">P6 6</div>
+                <div id="pum"> 0 </div>
                 <div id="barp1"> &nbsp; </div>
                 <div>Power Centre</div>
-                <div id="powCen">PC 5</div>
+                <div id="powCen"> 0 </div>
 
                 <div>Power (kW)</div>
-                <div id="powe">1.17</div>
+                <div id="powe"> 0 </div>
                 <div id="barp1"> </div>
                 <div>Power (kW)</div>
-                <div id="saving">0.77</div>
+                <div id="saving">&nbsp;</div>
 
                 <div>Shaft Speed (RPM)</div>
-                <div id="PSS">1950.00</div>
+                <div id="PSS">0</div>
                 <div id="barp1"> &nbsp; </div>
 
                 <div>Shaft Speed (RPM)</div>
-                <div id="PSSm">1950.00</div>
+                <div id="PSSm">0</div>
 
                 <div>Input Torque (Nm)</div>
-                <div id="tor">5.71</div>
+                <div id="tor">0</div>
                 <div id="barp1"> &nbsp; </div>
 
                 <div>Input Torque(Nm)</div>
-                <div id="erdTor">3.75</div>
+                <div id="erdTor">0</div>
 
-                <div>Power kW/m³ Permeate</div>
-                <div id="pkp">3.43</div>
+                <div>Power kW/m&sup3; Permeate</div>
+                <div id="pkp"> &nbsp; </div>
                 <div>&nbsp;</div>
-                <div>Power kW/m³ Permeate</div>
-                <div id="mpkp">2.25</div>
+                <div>Power kW/m&sup3; Permeate</div>
+                <div id="mpkp"> &nbsp; </div>
 
                 <div>Hours Per Day</div>
 
-                <div><input name="hours" class="inp" type="number" id="hours" size="6" value="24" min="0" max="99" step="0.001" pattern="[0-9]{5}" required="required"></div>
+                <div><input name="hours" class="inp" type="number" id="hours" size="6" value="24"
+                        onkeypress="if(this.value.length==4) return false;" min="0" max="99" step="0.001"
+                        pattern="[0-9]{5}" required="required" /></div>
                 <div>&nbsp;</div>
                 <div>&nbsp;</div>
                 <div>&nbsp;</div>
 
                 <div>Cost Per kW</div>
-                <div><input name="cpkwh" class="inp" type="number" id="cpkwh" size="6" value="0.16" min="0" max="5000" step="0.001" pattern="[0-9]{5}" required="required"></div>
+                <div><input name="cpkwh" class="inp" type="number" id="cpkwh" size="6" value="0.16"
+                        onkeypress="if(this.value.length==4) return false;" min="0" max="5000" step="0.001"
+                        pattern="[0-9]{5}" required="required" /></div>
                 <div> <select id="money" class="inp">
-                        <option value="e">€</option>
-                        <option value="d">$</option>
-                        <option value="p" selected="">£</option>
+                        <option value="e">&euro;</option>
+                        <option value="d">&dollar;</option>
+                        <option value="p" selected>&pound;</option>
                     </select></div>
                 <div>&nbsp;</div>
-                <div><a id="graph" href="http://kaywinn.co.uk/grid_version_8.4/graph2.html?start1=18300&amp;start2=25550&amp;inc1=500&amp;inc2=-200"><button>Graph</button></a></div>
+                <div><a id="graph" href=""><button>Graph</button></a></div>
 
                 <div>Cost Per Day</div>
-                <div id="cpd">£4.48</div>
+                <div id="cpd">0</div>
                 <div>&nbsp;</div>
-                <div id="cpdCS">£2.94</div>
+                <div id="cpdCS">0</div>
                 <div>&nbsp;</div>
 
                 <div>Cost Per Month</div>
-                <div id="cpm">£138.84</div>
+                <div id="cpm">0</div>
                 <div>&nbsp;</div>
-                <div id="cpmCS">£91.20</div>
+                <div id="cpmCS">0</div>
                 <div>&nbsp;</div>
 
                 <div>Cost Per Year</div>
-                <div id="cpy">£1634.69</div>
+                <div id="cpy">0</div>
                 <div>&nbsp;</div>
-                <div id="cpyCS">£1073.84</div>
+                <div id="cpyCS">0</div>
                 <div>&nbsp;</div>
             </div>
             <div>&nbsp;</div>
             <div>
             </div>
 
-            
+            <script>
+                listen();
+            </script>
         </div>
 
+</body>
 
-
-</div></body></html>
+</html>
