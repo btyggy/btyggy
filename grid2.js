@@ -217,6 +217,7 @@ const looky = () => {
                     let meters3PerDay = parseFloat(chosenLine[0][i])
                     let pumpVolumetricLoss = parseFloat(chosenLine[0][9])
                     let highPressureFeedFlow = (meters3PerDay + pumpVolumetricLoss) / 24
+                    let pkp = power / permeateFlowRate
                     let costPerDay = power * hours * costPerKWHour
                     let cost = {
                         cDay: costPerDay,
@@ -229,16 +230,10 @@ const looky = () => {
                     cost.cYear = money + cost.cYear.toFixed(2).toString()
 
                     // this is the section for eleltric motor
-                    c.log("Chosen Electric Motor Pump = " + emotorP(power))
-
-                    //pairs([[money + costcDay,"cpd"," ",2]]) does not work out the box so...
+                    d.getElementById("pkp").innerText = parseFloat(pkp).toFixed(2)
                     d.getElementById("cpd").innerText = cost.cDay
                     d.getElementById("cpm").innerText = cost.cMonth
                     d.getElementById("cpy").innerText = cost.cYear
-
-                    let pkp = power / permeateFlowRate
-
-                    d.getElementById("pkp").innerText = parseFloat(pkp).toFixed(2)
 
                     pairs([
                         [pumpShaftSpeed, "PSS", " ", 2],
@@ -248,6 +243,7 @@ const looky = () => {
                         [inletPress[chosenPump[chosenPump.length - 1][23]][it], "pfp", " ", 2]
                     ])
 
+                    c.log("Chosen Electric Motor Pump = " + emotorP(power))
                     c.log("Pump should be " + pump)
                     c.log("power centre is " + powCen)
                     c.log("power/permeateFlowRate " + " " + power + " / " + permeateFlowRate + " = " + power / permeateFlowRate)
@@ -277,8 +273,7 @@ const looky = () => {
                         let motorVolumetricLoss = parseFloat(chosenMotor[0][11])
                         let erdReturnFlow = ((((100 - ERDmembraneRecoveryRate) / 100) * meters3PerDay) - motorVolumetricLoss) / 24
                         let pumpDrainFlow = (pumpVolumetricLoss + motorVolumetricLoss) / 24
-
-                        motorLoss = chosenLine[0][i + 2] + chosenMotor[0][11]
+                        let motorLoss = chosenLine[0][i + 2] + chosenMotor[0][11]
                         let motorTorque = chosenMotor[0][i + 3]
 
                         c.log("parseInt(membranePressureLoss) with cccc " + parseInt(membranePressureLoss))
@@ -292,17 +287,17 @@ const looky = () => {
                         c.log("Motor loss " + chosenMotor[0][11])
                         c.log("Motor is " + motor)
                         c.log("cost per day saving " + costPerDayCostSaving)
+                        c.log(inletPress[chosenPump[chosenPump.length - 1][23]][it] + " Inlet pressure calc ")
 
                         //graph values
                         let start1 = 18300
                         let start2 = 25550
                         let inc1 = 500
                         let inc2 = -200
-                        document.getElementById("graph").href = "graph2.html?start1=" + start1 + "&start2=" + start2 + "&inc1=" + inc1 + "&inc2=" + inc2
+                        d.getElementById("graph").href = "graph2.html?start1=" + start1 + "&start2=" + start2 + "&inc1=" + inc1 + "&inc2=" + inc2
 
                         //c.log("found motor")
-                        c.log(inletPress[chosenPump[chosenPump.length - 1][23]][it] + " Inlet pressure calc ")
-
+                        
                         let savm = chosenMotorPower * offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0]
                         let mpkp = savm / permeateFlowRate
 
