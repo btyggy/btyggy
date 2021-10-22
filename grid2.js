@@ -123,15 +123,6 @@ const errorMes = (er) => {
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
 }
 
-// *************************** no motor ***************************
-// const errorM = () => {
-//     var x = d.getElementById("errorM");
-//     // Add the "show" class to DIV
-//     x.className = "show";
-//     // After 3 seconds, remove the show class from DIV
-//     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
-// }
-
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
 
@@ -285,12 +276,7 @@ const looky = () => {
 
                         //graph values
                         let [start1, start2, inc1, inc2] = [18300, 25550, 500, -200]
-                        // let start2 = 25550
-                        // let inc1 = 500
-                        // let inc2 = -200
                         d.getElementById("graph").href = "graph2.html?start1=" + start1 + "&start2=" + start2 + "&inc1=" + inc1 + "&inc2=" + inc2
-
-                        //c.log("found motor")
 
                         let savm = chosenMotorPower * offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0]
                         let mpkp = savm / permeateFlowRate
