@@ -145,7 +145,7 @@ const looky = () => {
     getFlow()
     money = currency[parseInt(d.getElementById("money").value)]
 
-    var [membraneRecoveryRateVal, membraneInletPressure, costPerKWHour, membranePressureLoss, permeateFlowRatePerDayInput, permeateFlowRatePerDayInputRaw, hours, membrainInletFlow, permeateFlowRate] = ["mrr", "mpb", "cpkwh", "mpl", "PerFlRaMD", "PerFlRaMD", "hours", "mif", "pfr"].map(getv)
+    let [membraneRecoveryRateVal, membraneInletPressure, costPerKWHour, membranePressureLoss, permeateFlowRatePerDayInput, permeateFlowRatePerDayInputRaw, hours, membrainInletFlow, permeateFlowRate] = ["mrr", "mpb", "cpkwh", "mpl", "PerFlRaMD", "PerFlRaMD", "hours", "mif", "pfr"].map(getv)
     c.log("membraneRecoveryRateVal " + membraneRecoveryRateVal)
 
     // this is to be factored in after speaking with ben
@@ -290,10 +290,10 @@ const looky = () => {
                         c.log(inletPress[chosenPump[chosenPump.length - 1][23]][it] + " Inlet pressure calc ")
 
                         //graph values
-                        let start1 = 18300
-                        let start2 = 25550
-                        let inc1 = 500
-                        let inc2 = -200
+                        let[start1,start2,inc1,inc2] = [18300,25550,500,-200]
+                        // let start2 = 25550
+                        // let inc1 = 500
+                        // let inc2 = -200
                         d.getElementById("graph").href = "graph2.html?start1=" + start1 + "&start2=" + start2 + "&inc1=" + inc1 + "&inc2=" + inc2
 
                         //c.log("found motor")
