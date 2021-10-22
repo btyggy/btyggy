@@ -156,8 +156,8 @@ const looky = () => {
     membrainOutputPressureFig = membraneInletPressure - offSetMembrainOutputPressure[parseInt(membranePressureLoss)][1]
     c.log("membrain Output Pressure Fig  =" + membrainOutputPressureFig)
     //convert the multipler value
-    let membraneRecoveryRate = rates[membraneRecoveryRateVal][0]
-    let ERDmembraneRecoveryRate = rates[membraneRecoveryRateVal][1]
+    let [membraneRecoveryRate,ERDmembraneRecoveryRate] = [rates[membraneRecoveryRateVal][0],rates[membraneRecoveryRateVal][1]]
+    // let ERDmembraneRecoveryRate = rates[membraneRecoveryRateVal][1]
 
     c.log("value of mrr " + membraneRecoveryRateVal)
     c.log("ERD Membrain recovery rate " + ERDmembraneRecoveryRate) // this is part of the look-up
