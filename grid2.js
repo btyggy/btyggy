@@ -83,7 +83,7 @@ const outflow = (mif, k) => {
 const getFlow = f => {
     // let k = 0
     let [pr, prd, mif, mrr, rateFix] = ["pfr", "PerFlRaMD", "mif", "mrr", "rateFix"].map(getv)
-    let [id ,mifa,k]= [d.activeElement.id,,kVal[mrr]]
+    let [id, mifa, k] = [d.activeElement.id, , kVal[mrr]]
     // let mifa
     // k = kVal[mrr]
 
@@ -156,8 +156,8 @@ const looky = () => {
     membrainOutputPressureFig = membraneInletPressure - offSetMembrainOutputPressure[parseInt(membranePressureLoss)][1]
     c.log("membrain Output Pressure Fig  =" + membrainOutputPressureFig)
     //convert the multipler value
-    let [membraneRecoveryRate,ERDmembraneRecoveryRate] = [rates[membraneRecoveryRateVal][0],rates[membraneRecoveryRateVal][1]]
-    
+    let [membraneRecoveryRate, ERDmembraneRecoveryRate] = [rates[membraneRecoveryRateVal][0], rates[membraneRecoveryRateVal][1]]
+
 
     c.log("value of mrr " + membraneRecoveryRateVal)
     c.log("ERD Membrain recovery rate " + ERDmembraneRecoveryRate) // this is part of the look-up
@@ -195,14 +195,11 @@ const looky = () => {
                     d.getElementById("pum").innerText = pump
 
                     //set powercentre name
-                    let powCen = chosenPump[chosenPump.length - 1][10]
-                    let ERDLookUp = chosenPump[0][membraneRecoveryRateVal + 17]
-
+                    let [powCen, ERDLookUp, j, it] = [chosenPump[chosenPump.length - 1][10], chosenPump[0][membraneRecoveryRateVal + 17], 550, 0]
+                   
                     d.getElementById("powCen").innerText = powCen
 
                     //Pump Data
-                    j = 550
-                    let it = 0 //iteratetor
                     for (i = 11; i < 120; i = i + 3) {
                         j += 50
 
@@ -212,7 +209,7 @@ const looky = () => {
                             power = chosenLine[0][i + 2]
                             break
                         }
-                        it ++
+                        it++
                     }
                     let meters3PerDay = parseFloat(chosenLine[0][i])
                     let pumpVolumetricLoss = parseFloat(chosenLine[0][9])
@@ -290,7 +287,7 @@ const looky = () => {
                         c.log(inletPress[chosenPump[chosenPump.length - 1][23]][it] + " Inlet pressure calc ")
 
                         //graph values
-                        let[start1,start2,inc1,inc2] = [18300,25550,500,-200]
+                        let [start1, start2, inc1, inc2] = [18300, 25550, 500, -200]
                         // let start2 = 25550
                         // let inc1 = 500
                         // let inc2 = -200
