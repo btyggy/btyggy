@@ -212,7 +212,7 @@ const looky = () => {
                             power = chosenLine[0][i + 2]
                             break
                         }
-                        it += 1
+                        it ++
                     }
                     let meters3PerDay = parseFloat(chosenLine[0][i])
                     let pumpVolumetricLoss = parseFloat(chosenLine[0][9])
