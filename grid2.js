@@ -118,22 +118,22 @@ const getFlow = f => {
 }
 
 // *************************** no pump ***************************
-const errorP = () => {
-    var x = d.getElementById("errorP");
-    // Add the "show" class to DIV
+const errorMes = (er) => {
+er==1? x = d.getElementById("errorP"):x = d.getElementById("errorM")
+  // Add the "show" class to DIV
     x.className = "show";
     // After 3 seconds, remove the show class from DIV
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
 }
 
 // *************************** no motor ***************************
-const errorM = () => {
-    var x = d.getElementById("errorM");
-    // Add the "show" class to DIV
-    x.className = "show";
-    // After 3 seconds, remove the show class from DIV
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
-}
+// const errorM = () => {
+//     var x = d.getElementById("errorM");
+//     // Add the "show" class to DIV
+//     x.className = "show";
+//     // After 3 seconds, remove the show class from DIV
+//     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
+// }
 
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
@@ -333,7 +333,7 @@ const looky = () => {
                             d.getElementById("pfp").innerText = "Consult TWHC"
                         }
                     } else {
-                        errorM()
+                        errorMes(2)
                         c.log("No motor Found")
                     }
 
@@ -343,10 +343,10 @@ const looky = () => {
             }
         } else {
             // console.log("No pump Found")      
-            errorP()
+            errorMes(1)
         }
     } else {
-        errorP()
+        errorMes(1)
         c.log("this is the trap for being off the figures")
     }
 }
