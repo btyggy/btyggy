@@ -81,11 +81,11 @@ const outflow = (mif, k) => {
 }
 
 const getFlow = f => {
-    let k = 0
+    // let k = 0
     let [pr, prd, mif, mrr, rateFix] = ["pfr", "PerFlRaMD", "mif", "mrr", "rateFix"].map(getv)
-    let id = d.activeElement.id
-    let mifa
-    k = kVal[mrr]
+    let [k,id ,mifa,k]= [0,d.activeElement.id,,kVal[mrr]]
+    // let mifa
+    // k = kVal[mrr]
 
     if (id == "mrr" && rateFix == 1) {
         mifa = pr * k
@@ -157,7 +157,7 @@ const looky = () => {
     c.log("membrain Output Pressure Fig  =" + membrainOutputPressureFig)
     //convert the multipler value
     let [membraneRecoveryRate,ERDmembraneRecoveryRate] = [rates[membraneRecoveryRateVal][0],rates[membraneRecoveryRateVal][1]]
-    // let ERDmembraneRecoveryRate = rates[membraneRecoveryRateVal][1]
+    
 
     c.log("value of mrr " + membraneRecoveryRateVal)
     c.log("ERD Membrain recovery rate " + ERDmembraneRecoveryRate) // this is part of the look-up
