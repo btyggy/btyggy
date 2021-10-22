@@ -119,8 +119,8 @@ const getFlow = f => {
 
 // *************************** no pump ***************************
 const errorMes = (er) => {
-er==1? x = d.getElementById("errorP"):x = d.getElementById("errorM")
-  // Add the "show" class to DIV
+    er == 1 ? x = d.getElementById("errorP") : x = d.getElementById("errorM")
+    // Add the "show" class to DIV
     x.className = "show";
     // After 3 seconds, remove the show class from DIV
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
@@ -297,7 +297,7 @@ const looky = () => {
                         d.getElementById("graph").href = "graph2.html?start1=" + start1 + "&start2=" + start2 + "&inc1=" + inc1 + "&inc2=" + inc2
 
                         //c.log("found motor")
-                        
+
                         let savm = chosenMotorPower * offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0]
                         let mpkp = savm / permeateFlowRate
 
