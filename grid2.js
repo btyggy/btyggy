@@ -83,7 +83,7 @@ const outflow = (mif, k) => {
 const getFlow = f => {
     // let k = 0
     let [pr, prd, mif, mrr, rateFix] = ["pfr", "PerFlRaMD", "mif", "mrr", "rateFix"].map(getv)
-    let [k,id ,mifa,k]= [0,d.activeElement.id,,kVal[mrr]]
+    let [id ,mifa,k]= [d.activeElement.id,,kVal[mrr]]
     // let mifa
     // k = kVal[mrr]
 
