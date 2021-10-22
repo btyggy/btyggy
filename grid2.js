@@ -1,4 +1,4 @@
-// this is the code behind a look-up 
+//import * as values from "./values"
 
 d = document
 c = console
