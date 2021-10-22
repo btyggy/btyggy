@@ -55,7 +55,7 @@ const getv = id => parseFloat(d.getElementById(id).value)
 
 // ***************************this gets all the listerners for the doument ***************************
 const listen = () => {
-    var pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
+    let pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
     pageInputs.forEach(el => el.addEventListener('keyup', looky, false))
     listeners.forEach(value => d.getElementById(value).addEventListener('change', looky, false))
     looky()
