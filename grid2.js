@@ -43,16 +43,12 @@ const kVal = [
 ]
 const listeners = ["mpb", "mrr", "mpl", "money", "rateFix"]
 const currency = ["£", "$", "€"]
-
 // *************************************** functions *************************************************
 const blank = () => fields.forEach(value => pairs([["", value, " ", 2]]))
-
 //************************** set value pairs to the current document ****************************/
 const pairs = valueP => valueP.forEach(pair => pair[0] != 0 && isNaN(pair[0]) === false && isFinite(pair[0]) === true ? d.getElementById(pair[1]).innerHTML = pair[0].toFixed(pair[3]) : d.getElementById(pair[1]).innerHTML = pair[2])
-
 // ***************************get values***************************
 const getv = id => parseFloat(d.getElementById(id).value)
-
 // ***************************this gets all the listerners for the doument ***************************
 const listen = () => {
 	let pageInputs = d.querySelectorAll('.inp') // this gets the class "inp"
@@ -60,9 +56,6 @@ const listen = () => {
 	listeners.forEach(value => d.getElementById(value).addEventListener('change', looky, false))
 	looky()
 }
-
-
-
 const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
 	d.getElementById("PerFlRaMD").disabled = perfA
 	d.getElementById("pfr").disabled = pfrA
@@ -71,17 +64,14 @@ const able = (perfA, pfrA, mifA, mifB, perfB, pfrB) => {
 	d.getElementById("PerFlRaMD").style.background = perfB
 	d.getElementById("pfr").style.background = pfrB
 }
-
 //this disables the oposite value from edit so the you can set a value not to change and have the values around it change
 const disble = () => able(...abbs[d.getElementById("rateFix").value])
-
 // ***************************this is the bit to make the Pemeate flow rate go from hours between days***************************
 const outflow = (mif, k) => {
 	let mifa = mif / k
 	d.getElementById("pfr").value = mifa.toFixed(2)
 	d.getElementById("PerFlRaMD").value = (24 * mifa).toFixed(2)
 }
-
 const getFlow = f => {
 	let [pr, prd, mif, mrr, rateFix] = ["pfr", "PerFlRaMD", "mif", "mrr", "rateFix"].map(getv)
 	let [id, mifa, k] = [d.activeElement.id, , kVal[mrr]]
@@ -115,7 +105,6 @@ const getFlow = f => {
 	c.log("ratefix == " + rateFix)
 	c.log("MIFA=" + mifa + " * 24= " + mifa * 24)
 }
-
 // *************************** no pump ***************************
 const errorMes = (er) => {
 	er == 1 ? x = d.getElementById("errorP") : x = d.getElementById("errorM")
@@ -124,10 +113,8 @@ const errorMes = (er) => {
 	// After 3 seconds, remove the show class from DIV
 	setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
 }
-
 const emotorP = (powerX) => emotorChoise.find(a => a[0] >= powerX)
 const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
-
 //  *************************** new look-up function to find values from 2d array ***************************
 const looky = () => {
 	c.clear()
