@@ -113,54 +113,34 @@ const emotorM = (powerX) => emotorChoise.find(a => a[1] >= powerX)
 //  *************************** new look-up function to find values from 2d array ***************************
 const looky = () => {
 	c.clear()
+	// ********************************************get all the current values******************************
 	disble()
 	getFlow()
 	money = currency[parseInt(d.getElementById("money").value)]
-
 	let [membraneRecoveryRateVal, membraneInletPressure, costPerKWHour, membranePressureLoss, permeateFlowRatePerDayInput, permeateFlowRatePerDayInputRaw, hours, membrainInletFlow, permeateFlowRate] = ["mrr", "mpb", "cpkwh", "mpl", "PerFlRaMD", "PerFlRaMD", "hours", "mif", "pfr"].map(getv)
-	c.log("membraneRecoveryRateVal " + membraneRecoveryRateVal)
-
-	// this is to be factored in after speaking with ben
-	c.log("mp multiply " + offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0])
-
-	//if (parseFloat(membranePressureLoss)===0.98){membranePressureLoss=-1}
-
+	blank()
+	// **********************************************end of get Current Values******************************************************
 	membrainOutputPressureFig = membraneInletPressure - offSetMembrainOutputPressure[parseInt(membranePressureLoss)][1]
-	c.log("membrain Output Pressure Fig  =" + membrainOutputPressureFig)
 	//convert the multipler value
 	let [membraneRecoveryRate, ERDmembraneRecoveryRate] = [rates[membraneRecoveryRateVal][0], rates[membraneRecoveryRateVal][1]]
-
-
+	// this next section is dumped to change from permeateFlowRatePerDayInput to mif
+	membrainInletFlowDay = (membrainInletFlow * 24)//* membraneRecoveryRate// this will make the screen input look like its wrong as if you input 7 it may end up wanting 14.2
+	c.log("membraneRecoveryRateVal " + membraneRecoveryRateVal)
+	c.log("mp multiply " + offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0])
+	c.log("membrain Output Pressure Fig  =" + membrainOutputPressureFig)
 	c.log("value of mrr " + membraneRecoveryRateVal)
 	c.log("ERD Membrain recovery rate " + ERDmembraneRecoveryRate) // this is part of the look-up
 	c.log(" membraneRecoveryRate = " + membraneRecoveryRate)
-
-	blank()
-	// this next section is dumped to change from permeateFlowRatePerDayInput to mif
-
-	membrainInletFlowDay = (membrainInletFlow * 24)//* membraneRecoveryRate// this will make the screen input look like its wrong as if you input 7 it may end up wanting 14.2
 	c.log("membrainInletFlowDay  " + membrainInletFlowDay)
-
 	//MAIN LOOP - if no pump - no do
 	if (membrainInletFlowDay > 16.070000000000001 && membraneInletPressure > 0) { // guard to stop error, needs sence check - see ben/tony for correct figure
-
 		//************************************** jump at (filter), if this is wrong a per flow change will not trigger a set of figures, e.g gap in say 7 to 7.1
 		chosenPump = pumps.filter(a => a[16] >= membrainInletFlowDay && a[15] <= membrainInletFlowDay)
 		if (chosenPump != 0) {
-
 			let pump = chosenPump[chosenPump.length - 1][0] + " " + chosenPump[chosenPump.length - 1][1]
-
-			d.getElementById("pum").innerText = pump
-
-			c.log("membrainInletFlow" + " " + chosenPump[0][15] + " " + membrainInletFlow)
-			c.log("membrainInletFlow" + " " + chosenPump[0][16] + " " + membrainInletFlow)
-
+			d.getElementById("pum").innerText = pump		
 			if (chosenPump.length > 0) { // this checks if there is a figure to choose from
-
 				chosenLine = newPump.filter(a => a[0] === chosenPump[chosenPump.length - 1][0] && a[1] === chosenPump[chosenPump.length - 1][1] && a[2] === membraneInletPressure)
-
-				c.log("chosen Pump = " + chosenPump)
-				// c.log("chosen Pump Line = " + chosenLine)
 				if (chosenLine.length != 0) {
 					d.getElementById("pum").innerText = pump
 					//set powercentre name
@@ -202,6 +182,9 @@ const looky = () => {
 						[membrainOutputPressureFig, "pfpr", " ", 2],
 						[inletPress[chosenPump[chosenPump.length - 1][23]][it], "pfp", " ", 2]
 					])
+					c.log("chosen Pump = " + chosenPump)
+					c.log("membrainInletFlow" + " " + chosenPump[0][15] + " " + membrainInletFlow)
+					c.log("membrainInletFlow" + " " + chosenPump[0][16] + " " + membrainInletFlow)
 					c.log("Chosen Electric Motor Pump = " + emotorP(power))
 					c.log("Pump should be " + pump)
 					c.log("power centre is " + powCen)
