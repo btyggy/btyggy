@@ -55,15 +55,19 @@
     </div>
 
     <script>
+        let nam=[2,3,4,5,6,7,8,9,1]
         for (let i = 0; i < 9; i++) {
-            myFunction(i)
+            nam.unshift(nam.pop());
+            nam.unshift(nam.pop());
+            nam.unshift(nam.pop());
+            myFunction(nam)
         }
 
         function myFunction(nim) {
             var para = document.createElement("DIV");
             let sec = ""
-            for (i = 1; i < 10; i++) {
-                sec = sec + ' <div><input id="' + i + nim + '" type="text" size="1"  maxlength="1" value="'+i+'" ></div>';
+            for (i = 0; i < 9; i++) {
+                sec = sec + ' <div><input id="' + i + nim + '" type="text" size="1"  maxlength="1" value="'+nim[i]+'" ></div>';
             }
             para.innerHTML = sec
             para.id = "section"
