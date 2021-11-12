@@ -177,7 +177,7 @@ function myFunction() {
   var para = document.createElement("DIV");
  
  for (i=0;i<9;i++){
-sec=sec+' <div id="'+i+'"><input type="text" size="1"  maxlength="1" ></div>';
+sec=sec+' <div><input id="'+i+'" type="text" size="1"  maxlength="1" ></div>';
 
  }
  
@@ -189,6 +189,7 @@ sec=sec+' <div id="'+i+'"><input type="text" size="1"  maxlength="1" ></div>';
   
   
   document.getElementById("container").appendChild(para);
+  
 }
 </script>
 
