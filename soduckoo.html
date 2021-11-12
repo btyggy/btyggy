@@ -55,11 +55,19 @@
     </div>
 
     <script>
-        let nam=[2,3,4,5,6,7,8,9,1]
+        
+        const plu = (b) => b + 1
+
+
+        let nam = [...Array(9).keys()];
+        nam = nam.map(plu)
+        
+
         for (let i = 0; i < 9; i++) {
-            nam.unshift(nam.pop());
-            nam.unshift(nam.pop());
-            nam.unshift(nam.pop());
+            nam.sort( () => .5 - Math.random() ); // not random ,but ...fisher/yates later
+            // nam.unshift(nam.pop());
+            // nam.unshift(nam.pop());
+            // nam.unshift(nam.pop());
             myFunction(nam)
         }
 
@@ -67,7 +75,7 @@
             var para = document.createElement("DIV");
             let sec = ""
             for (i = 0; i < 9; i++) {
-                sec = sec + ' <div><input id="' + i + nim + '" type="text" size="1"  maxlength="1" value="'+nim[i]+'" ></div>';
+                sec = sec + ' <div><input id="' + i + nim + '" type="text" size="1"  maxlength="1" value="' + nim[i] + '" ></div>';
             }
             para.innerHTML = sec
             para.id = "section"
@@ -76,4 +84,5 @@
         }
     </script>
 </body>
+
 </html>
