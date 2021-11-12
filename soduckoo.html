@@ -172,9 +172,22 @@
 
 
 <script>
+sec=""
 function myFunction() {
   var para = document.createElement("DIV");
-  para.innerHTML = "This is a paragraph.";
+ 
+ for (i=0;i<9;i++){
+sec=sec+' <div id="'+i+'"><input type="text" size="1"  maxlength="1" ></div>';
+
+ }
+ 
+ 
+ 
+  para.innerHTML = sec 
+   para.id="section"
+  para.className="section"
+  
+  
   document.getElementById("container").appendChild(para);
 }
 </script>
