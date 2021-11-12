@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
     <style>
         body {
@@ -29,7 +27,6 @@
             gap: 6vw;
             padding: 2vw 2vw 2vw 2vw;
         }
-
 
         .wrapper {
             margin: 6vw 10vw 0vw 40vw;
@@ -168,12 +165,26 @@
         </div>
     </div>
 
-    <script>
-        // var inp = document.createElement("INPUT");
-        // inp.innerText = "CLICK ME";
+<div class="myDiv"></div>
+     
 
-        //     document.body.appendChild(inp);
-    </script>
+     <button onclick="myFunction()">Try it</button>
+
+
+<script>
+function myFunction() {
+  var para = document.createElement("DIV");
+  para.innerHTML = "This is a paragraph.";
+  document.getElementById("myDiv").appendChild(para);
+}
+</script>
+
+
+
+
+
+
+    
 </body>
 
 </html>
