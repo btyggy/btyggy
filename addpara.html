@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-#myDIV {
-  border: 1px solid black;
-  margin-bottom: 10px;
-}
-</style>
+    <style>
+        #myDIV {
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-<p>Click the button to create a P element with some text, and append it to DIV.</p>
+    <p>Click the button to create a P element with some text, and append it to DIV.</p>
+    <div id="wrapper">
+        <div id="container">
+            <div id="section" class="section">
+               
+            </div>
+        </div>
+    </div>
 
-<div id="container">
-A DIV element
-</div>
+    <button onclick="myFunction()">Try it</button>
 
-<button onclick="myFunction()">Try it</button>
+    <script>
+        function myFunction() {
+            var para = document.createElement("DIV");
+            para.innerHTML = '<div><input type="text" size="1" maxlength="1"></div>';
 
-<script>
-function myFunction() {
-  var para = document.createElement("DIV");
-  para.innerHTML = "This is a paragraph.";
-  
-  document.getElementById("container").appendChild(para);
+            document.getElementById("section").appendChild(para);
 
 
 
-}
-</script>
+        }
+    </script>
 
 </body>
+
 </html>
