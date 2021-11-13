@@ -55,22 +55,6 @@
     </div>
 
     <script>
-        
-        const plu = (b) => b + 1
-
-
-        let nam = [...Array(9).keys()];
-        nam = nam.map(plu)
-        
-
-        for (let i = 0; i < 9; i++) {
-            nam.sort( () => .5 - Math.random() ); // not random ,but ...fisher/yates later
-            // nam.unshift(nam.pop());
-            // nam.unshift(nam.pop());
-            // nam.unshift(nam.pop());
-            myFunction(nam)
-        }
-
         function myFunction(nim) {
             var para = document.createElement("DIV");
             let sec = ""
@@ -82,6 +66,37 @@
             para.className = "section"
             document.getElementById("container").appendChild(para);
         }
+
+        const square = () => {
+            let nam = [...Array(10).keys()];
+            nam.shift()
+
+            // randomise array not random ,but ...fisher/yates later
+            nam.sort(() => .5 - Math.random());
+            return nam
+        }
+
+        // create a array of 1 to 9
+        nam = square()
+        // add first block to the overall grid
+        let gri = [...Array(81).keys()]
+        [gri[0], gri[1], gri[2], gri[9], gri[10], gri[11], gri[18], gri[19], gri[20]] = [...nam]
+
+
+        // check row
+        // check column
+        // copy full array(full set)
+        // remove percentage from full set
+        // dispplay result
+        myFunction(nam)
+        for (let i = 1; i < 9; i++) {
+            // nam.unshift(nam.pop());
+            // nam.unshift(nam.pop());
+            // nam.unshift(nam.pop());
+            myFunction(nam)
+        }
+
+
     </script>
 </body>
 
