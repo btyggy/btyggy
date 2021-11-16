@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TWHC Calculator</title>
+    <link rel="stylesheet" href="cardStyle.css">
+    <style>
+
+
+    </style>
+    <script type="text/javascript" src="values.js"></script>
+    <script type="text/javascript" src="grid.js"></script>
+</head>
+
+<body>
+    <div id="errorP">No Pump Found, Consult TWHC</div>
+    <div id="errorM">No Motor Found, Consult TWHC</div>
+    <div class="wprint" style="text-align:right;"><button onclick="window.print()">Print this page</button></div>
+    <div class="wrapper">
+        <div class="box a">
+            <div>
+                <a href=""><img class="logo" src="images/logoG.jpg" alt=""></a>
+            </div>
+
+            <div class="fixr" align="right" style="color:grey">Fixed Rate<select id="rateFix">
+                    <option value="0">Membrain Inlet Flow</option>
+                    <option value="1">Permeate Flow Rate</option>
+                    <option value="2" selected>None</option>
+                </select></div>
+
+        </div>
+        <div class="box b cen"><img class="responsive" src="images/lat5.jpg">
+        </div>
+        <div class="box c1">
+
+            <div class="card">
+                <div>&nbsp;</div>
+                <span class="circle1">1</span>
+                <span>
+                    <span class="info">
+                        <div><a class="inLink" href="#open-modal1" Style="text-decoration: none;">?</a>
+                            <div id="open-modal1" class="modal-window1">
+                                <div>
+                                    <a href="#modal-close1" title="Close" class="modal-close1">close &times;</a>
+                                    <h1>Inlet</h1>
+                                    <div>Feed Pressure at inlet is the minimum inlet pressure required at the high
+                                        pressure pump inlet, pressure must be measured at the inlet port.<br><br> Larger
+                                        units have a designated pressure switch port.<br>
+
+                                        <br>When sizing a suitable boost pump, we recommend a margin of 25% to allow for
+                                        inlet filter and pipework losses. <br>
+                                        <br>
+                                        All inlet water must be filtered to 5µm<br><br>
+
+                                        <b>NB</b> – If the inlet pressure drops below the minimum level the unit must be
+                                        stopped immediately.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+                <div>&nbsp;</div>
+                <div class="container">
+
+                    <div class="grid-container">
+
+                        <div>Feed pressure at inlet</div>
+                        <div id="pfp">0</div>
+                        <div id="barp1"> bar </div>
+
+                        <div>High Pressure Pump Feed Flow</div>
+                        <div id="pfpa">0</div>
+                        <div id="barp1"> m&sup3;/h </div>
+                        <div>&nbsp;</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="box c2">
+            <div class="card">
+                <div>&nbsp;</div>
+                <span class="circle3">3
+
+                </span>
+
+                <span>
+
+                    <span class="info">
+                        <div><a class="inLink" href="#open-modal3" Style="text-decoration: none;">?</a>
+                            <div id="open-modal3" class="modal-window3">
+                                <div>
+                                    <a href="#modal-close3" title="Close" class="modal-close3">close &times;</a>
+                                    <h1>Recovery Rate</h1>
+                                    <div>Select the required recovery rate of the RO membrane, this will ensure the
+                                        correct ERD (Energy Recovery Device) is selected.<br><br>
+
+                                        Select the expected RO membrane pressure loss, the loss will have an impact on
+                                        the power consumption of the PowerCenter.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+
+                <div>&nbsp;</div>
+
+                <div class="container">
+                    <div class="grid-container">
+
+                        <div class="style7">Membrane Pressure Loss</div>
+
+                        <div> <select id="mpl">
+                                <option value="0">0</option>
+                                <option value="1">0.5</option>
+                                <option value="2">1</option>
+                                <option value="3">1.5</option>
+                                <option value="4" selected>2</option>
+                                <option value="5">2.5</option>
+                                <option value="6">3</option>
+                                <option value="7">3.5</option>
+                                <option value="8">4</option>
+                            </select>
+                        </div>
+
+                        <div>bar</div>
+
+                        <div class="style7">Membrane recovery rate</div>
+                        <div> <select id="mrr">
+                                <option value="0">25</option>
+                                <option value="1">30</option>
+                                <option value="2">35</option>
+                                <option value="3">40</option>
+                                <option value="4">45</option>
+                                <option value="5" selected>50</option>
+                            </select>
+                        </div>
+                        <div>%</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box c3">
+            <div class="card">
+                <div>&nbsp;</div>
+                <span class="circle5">5</span>
+
+                <span>
+
+                    <span class="info">
+                        <div><a class="inLink" href="#open-modal5" Style="text-decoration: none;">?</a>
+                            <div id="open-modal5" class="modal-window5">
+                                <div>
+                                    <a href="#modal-close5" title="Close" class="modal-close5">close &times;</a>
+                                    <h1>ERD Return Flow</h1>
+                                    <div>A minimum back pressure of 2.5 bar must be maintained on the ERD return
+                                        flow.<br><br>
+
+                                        <b>ERD Return Flow:</b> Low pressure concentrate flow from ERD.<br><br>
+                                        <b>ERD Leakage:</b> Lubrication/Cooling flow from the ERD.<br><br>
+
+                                        <b>NB</b> – Auto back pressure vales fitted into the ERD outlet are currently
+                                        under development and will be available for larger units.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+                <div>&nbsp;</div>
+                <div class="container">
+                    <div class="grid-container">
+
+                        <div>ERD Return Flow</div>
+                        <div id="erdReFl">0 </div>
+                        <div id="barp1"> m&sup3;/h </div>
+
+                        <div>ERD Leakage</div>
+                        <div id="erdLeakage">0 </div>
+                        <div id="barp1"> m&sup3;/h </div>
+
+                        <div>&nbsp;</div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="box d1">
+
+            <div class="card">
+                <div>&nbsp;</div>
+                <span class="circle2">2</span>
+
+                <span>
+
+                    <span class="info">
+                        <div><a class="inLink" href="#open-modal2" Style="text-decoration: none;">?</a>
+                            <div id="open-modal2" class="modal-window2">
+                                <div>
+                                    <a href="#modal-close2" title="Close" class="modal-close2">close &times;</a>
+                                    <h1>Outlet Pressure</h1>
+                                    <div>Refer to RO membrane manufacturer data for operating pressure and flow
+                                        rates.<br>Specifying the values will determine a suitable pump size.<br><br>
+                                        <b>Membrane Inlet Pressure:</b> Pressure supplied to the RO membrane from the
+                                        high pressure pump.<br><br>
+                                        <b>Membrane Inlet Flow:</b> Flow rate supplied to the RO membrane from the
+                                        pump.<br><br>
+                                        <b>Pump Leakage:</b> Lubrication/Cooling flow from the pump. This can be retuned
+                                        back to reservoir/boost pump inlet.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+                <div>&nbsp;</div>
+                <div class="container">
+                    <div class="grid-container">
+
+                        <div class="style7">Membrane inlet pressure</div>
+                        <div>
+                            <select id="mpb" class="inp">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                                <option value="35">35</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                                <option value="50" selected>50</option>
+                                <option value="55">55</option>
+                                <option value="60">60</option>
+                                <option value="65">65</option>
+                                <option value="70">70</option>
+                                <option value="75">75</option>
+                                <option value="80">80</option>
+                                <option value="85">85</option>
+                                <option value="90">90</option>
+                                <option value="95">95</option>
+                                <option value="100">100</option>
+                            </select>
+
+                            <!--<input name="mpb" class="inp" type="number" id="mpb" size="3" value="60"-->
+                            <!--                      onKeyPress="if(this.value.length==4) return false;" min="0" max="5000" step="0.01"-->
+                            <!--                      pattern="[0-9]{5}" required />-->
+
+                        </div>
+                        <div id="barp2">bar</div>
+
+                        <div>Membrane Inlet Flow</div>
+                        <div><input name="mif" class="inp" type="number" id="mif" size="6" value="0.67"
+                                onKeyPress="if(this.value.length==4) return false;" min="0" max="5000" step="0.01"
+                                pattern="[0-9]{5}" required /> </div>
+                        <div id="barp1"> m&sup3;/h </div>
+
+                        <div>Pump Leakage</div>
+                        <div id="pl">0</div>
+                        <div>m&sup3;/h</div>
+                        <div>&nbsp;</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box d2">
+            <div class="card">
+                <div>&nbsp;</div>
+                <span class="circle4">4</span>
+
+                <span>
+
+                    <span class="info">
+                        <div><a class="inLink" href="#open-modal4" Style="text-decoration: none;">?</a>
+                            <div id="open-modal4" class="modal-window4">
+                                <div>
+                                    <a href="#modal-close4" title="Close" class="modal-close4">close &times;</a>
+                                    <h1>RO Membrane Output Pressure</h1>
+                                    <div>This is calculated from the membrane inlet pressure minus the membrane pressure
+                                        loss.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+                <div>&nbsp;</div>
+                <div class="container">
+                    <div class="grid-container">
+
+                        <div>Membrane Output Pressure</div>
+                        <div id="pfpr">0 </div>
+                        <div id="barp1"> bar </div>
+                        <div>&nbsp;</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box d3">
+
+            <div class="card">
+                <div>&nbsp;</div>
+                <span class="circle6">6</span>
+
+                <span>
+
+                    <span class="info">
+                        <div><a class="inLink" href="#open-modal6" Style="text-decoration: none;">?</a>
+                            <div id="open-modal6" class="modal-window6">
+                                <div>
+                                    <a href="#modal-close6" title="Close" class="modal-close6">close &times;</a>
+                                    <h1>Permeate Flow Rate</h1>
+                                    <div>The amount of permeate expected to be produced by the system.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+                <div>&nbsp;</div>
+                <div class="container">
+                    <div class="grid-container">
+
+                        <div>Permeate Flow Rate</div>
+                        <div> <input name="pfr" class="inp" type="number" id="pfr" size="6" value="0.34"
+                                onKeyPress="if(this.value.length==4) return false;" min="0" max="5000" step="0.01"
+                                pattern="[0-9]{5}" required /> </div>
+                        <div id="barp1"> m&sup3;/hour </div>
+
+                        <div>Permeate Flow Rate</div>
+                        <div>
+
+                            <input type="number" id="PerFlRaMD" class="inp" name="PerFlRaMD" required minlength="4"
+                                maxlength="4" size="6" value="8.04" onKeyPress="if(this.value.length==4) return false;"
+                                min="0" max="5000" step="0.01" pattern="[0-9]{5}" />
+
+                        </div>
+                        <div>m&sup3;/day</div>
+
+                        <div>&nbsp;</div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box f card">
+            <div>&nbsp;</div>
+            <div><b>Operational costs</b>
+
+                <span class="info">
+                    <div><a class="inLink fBox" href="#open-modalF" Style="text-decoration: none;">?</a>
+                        <div id="open-modalF" class="modal-windowF">
+                            <div>
+                                <a href="#modal-closeF" title="Close" class="modal-closeF">close &times;</a>
+                                <h1>Operational Costs</h1>
+                                <div>Enter the cost per kW available and the expected operating hours to calculate the
+                                    running cost of the system. <br><br>Pump only and with ERD are displayed to easily
+                                    compare the two systems.<br><br>
+
+                                    Use the graph button to generate a potential cost saving chart based on the input
+                                    data entered.<br><br>
+
+                                    <b>NB</b> – The Assembly price used to generate the graph include the hydraulic
+                                    unit, electric motor, bellhousing, VFD (variable frequency drive) and mounting frame
+                                    if required. Hoses, valves and additional system components are not included but can
+                                    be supplied.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                </span>
+            </div>
+
+
+
+
+
+
+            <div class="cost">
+                <div>&nbsp;</div>
+                <div class="ti">Pump Only</div>
+                <div>&nbsp;</div>
+                <div class="ti">With<br>Energy<br>Recovery</div>
+                <div>&nbsp;</div>
+
+                <div>Pump</div>
+                <div id="pum"> 0 </div>
+                <div id="barp1"> &nbsp; </div>
+                <div>Power Centre</div>
+                <div id="powCen"> 0 </div>
+
+                <div>Power (kW)</div>
+                <div id="powe"> 0 </div>
+                <div id="barp1"> </div>
+                <div>Power (kW)</div>
+                <div id="saving">&nbsp;</div>
+
+                <div>Shaft Speed (RPM)</div>
+                <div id="PSS">0</div>
+                <div id="barp1"> &nbsp; </div>
+                <div>Shaft Speed (RPM)</div>
+                <div id="PSSm">0</div>
+
+                <div>Input Torque (Nm)</div>
+                <div id="tor">0</div>
+                <div id="barp1"> &nbsp; </div>
+                <div>Input Torque(Nm)</div>
+                <div id="erdTor">0</div>
+
+                <div>Power kW/m&sup3; Permeate</div>
+                <div id="pkp"> &nbsp; </div>
+                <div>&nbsp;</div>
+                <div>Power kW/m&sup3; Permeate</div>
+                <div id="mpkp"> &nbsp; </div>
+
+                <div>Hours Per Day</div>
+
+                <div><input name="hours" class="inp" type="number" id="hours" size="6" value="24"
+                        onkeypress="if(this.value.length==4) return false;" min="0" max="99" step="0.001"
+                        pattern="[0-9]{5}" required="required" /></div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+
+                <div>Cost Per kW</div>
+                <div><input name="cpkwh" class="inp" type="number" id="cpkwh" size="6" value="0.16"
+                        onkeypress="if(this.value.length==4) return false;" min="0" max="5000" step="0.001"
+                        pattern="[0-9]{5}" required="required" /></div>
+                <div> <select id="money" class="inp">
+                        <option value="e">&euro;</option>
+                        <option value="d">&dollar;</option>
+                        <option value="p" selected>&pound;</option>
+                    </select></div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+
+                <div>Cost Per Day</div>
+                <div id="cpd">0</div>
+                <div>&nbsp;</div>
+                <div>Cost Per Day</div>
+                <div id="cpdCS">0</div>
+
+                <div>Cost Per Month</div>
+                <div id="cpm">0</div>
+                <div>&nbsp;</div>
+                <div>Cost Per Month</div>
+                <div id="cpmCS">0</div>
+
+                <div>Cost Per Year</div>
+                <div id="cpy">0</div>
+                <div>&nbsp;</div>
+                <div>Cost Per Year</div>
+                <div id="cpyCS">0</div>
+
+                <div><b>Assembly Price</b></div>
+                <div id="pricePumpOnly">0</div>
+                <div>&nbsp;</div>
+                <div><b>Assembly Price</b></div>
+                <div id="priceERD">0</div>
+
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div class="but"><a id="graph" href="" target="_blank"><button>Graph</button></a></div>
+            </div>
+            <div>&nbsp;</div>
+            <div>
+            </div>
+            <div style="color: grey; font-size:x-small">All information contained needs to be confirmed by TWHC, at the
+                moment this is beta software</div>
+            <script>
+                listen();
+            </script>
+        </div>
+</body>
+
+</html>
