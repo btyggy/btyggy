@@ -218,8 +218,6 @@ if(pressureDifferential<0){
     alert("neg pressure diff")
     
     
-    
-    
 }
 
 d.getElementById("pressureDifferential").innerText = pressureDifferential
@@ -290,7 +288,7 @@ console.log(chosenPump[0]+" "+chosenPump[1])
             d.getElementById("pum").innerText = pump
 
 
-}}// remove before flight
+// }}// remove before flight
 
 
 //             if (chosenPump.length > 0) { // this checks if there is a figure to choose from
@@ -493,12 +491,12 @@ console.log(chosenPump[0]+" "+chosenPump[1])
 //                     // i = the position in the array to manipulated to get the array elemnt in the second array(erd figs)
 //                 }
 //             }
-//         } else {
-//             // console.log("No pump Found")      
-//             errorP()
-//         }
-//     } else {
-//         errorP()
-//         c.log("this is the trap for being off the figures")
-//     }
+        } else {
+            console.log("No pump Found")      
+            errorP()
+        }
+    } else {
+        errorP()
+        c.log("this is the trap for being off the figures")
+     }
 }
