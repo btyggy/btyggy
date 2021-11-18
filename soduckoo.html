@@ -55,59 +55,42 @@
     </div>
 
     <script>
+        let gri = []
+        let total = []
+        let ne
+        let flag
+
         const divBlock = (nim) => {
             var para = document.createElement("DIV");
             let sec = ""
-            for (i = 0; i < 9; i++) {
-                sec = sec + ' <div><input id="' + i + nim + '" type="text" size="1"  maxlength="1" value="' + nim[i] + '" ></div>';
-            }
+            nim.forEach(e => {
+                sec = sec + ' <div><input id="i" type="text" size="1"  maxlength="1" value="' + e + '" ></div>';
+            });
             para.innerHTML = sec
             para.id = "section"
             para.className = "section"
             document.getElementById("container").appendChild(para);
         }
 
+        for (let i = 0; i < 9; i++) {
 
-        const square = () => {
-            let nam = [...Array(10).keys()];
-            nam.shift()
-
-            // randomise array not random ,but ...fisher/yates later
-            nam.sort(() => .5 - Math.random());
-            return nam
+            for (let j = 0; j < 9; j++) {
+                flag = 0
+                while (flag == 0) {
+                    ne = Math.floor(Math.random() * 9) + 1
+                    if (gri.includes(ne) === false) {
+                        flag = 1
+                        gri.push(ne)
+                    }
+                }
+            }
+            total.push(gri)
+            gri = []
         }
 
-        // create a array of 1 to 9
-        nam = square()
-        // add first block to the overall grid
-        let gri = [...Array(81)]
-
-        //  [ gri[0], gri[1], gri[2], gri[9], gri[10], gri[11], gri[18], gri[19], gri[20]] = [...nam];
-
-        gri[0] = nam[0]
-        gri[1] = nam[1]
-        gri[2] = nam[2]
-
-        gri[9] = nam[3]
-        gri[10] = nam[4]
-        gri[11] = nam[5]
-
-        gri[18] = nam[6]
-        gri[19] = nam[7]
-        gri[20] = nam[8]
-
-        // check row
-        // check column
-        // copy full array(full set)
-        // remove percentage from full set
-        // dispplay result
-        divBlock(nam)
-        for (let i = 1; i < 9; i++) {
-            nam.unshift(nam.pop());
-            // nam.unshift(nam.pop());
-            // nam.unshift(nam.pop());
-            divBlock(nam)
-        }
+        total.forEach(e => {
+            divBlock(e)
+        });
     </script>
 </body>
 
