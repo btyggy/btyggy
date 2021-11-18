@@ -55,10 +55,6 @@
     </div>
 
     <script>
-        let gri = []
-        let total = []
-        let ne
-        let flag
 
         const divBlock = (nim) => {
             var para = document.createElement("DIV");
@@ -71,24 +67,32 @@
             para.className = "section"
             document.getElementById("container").appendChild(para);
         }
-
-        for (let i = 0; i < 9; i++) {
-
-            for (let j = 0; j < 9; j++) {
-                flag = 0
-                while (flag == 0) {
-                    ne = Math.floor(Math.random() * 9) + 1
-                    if (gri.includes(ne) === false) {
-                        flag = 1
-                        gri.push(ne)
+        const tots = () => {
+            
+        let gri = []
+        let total = []
+        let ne, flag
+            for (let i = 0; i < 9; i++) {
+                for (let j = 0; j < 9; j++) {
+                    flag = 0
+                    while (flag == 0) {
+                        ne = Math.floor(Math.random() * 9) + 1
+                        if (gri.includes(ne) === false) {
+                            flag = 1
+                            gri.push(ne)
+                        }
                     }
                 }
+                total.push(gri)
+                gri = []
             }
-            total.push(gri)
-            gri = []
+            return total
         }
 
-        total.forEach(e => {
+
+
+
+        tots().forEach(e => {
             divBlock(e)
         });
     </script>
