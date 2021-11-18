@@ -68,10 +68,10 @@
             document.getElementById("container").appendChild(para);
         }
         const tots = () => {
-            
-        let gri = []
-        let total = []
-        let ne, flag
+
+            let gri = []
+            let total = []
+            let ne, flag
             for (let i = 0; i < 9; i++) {
                 for (let j = 0; j < 9; j++) {
                     flag = 0
@@ -88,9 +88,6 @@
             }
             return total
         }
-
-
-
 
         tots().forEach(e => {
             divBlock(e)
