@@ -1,18 +1,25 @@
 <script>
     let gri = []
-    ne = 0
-    let ans = []
+    let ne
     let flag
+let total=[]
     for (let i = 0; i < 9; i++) {
-        flag = 0
-        while (flag == 0) {
-            ne = Math.floor(Math.random() * 9) + 1
-            if (gri.includes(ne)=== false) {
-                flag = 1
-                gri.push(ne)
+
+
+
+        for (let j = 0; j < 9; j++) {
+            flag = 0
+            while (flag == 0) {
+                ne = Math.floor(Math.random() * 9) + 1
+                if (gri.includes(ne) === false) {
+                    flag = 1
+                    gri.push(ne)
+                }
             }
         }
+total.push(gri)
 
+        gri = []
     }
-    console.log(gri)
+    console.log(total)
 </script>
