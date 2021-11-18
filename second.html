@@ -1,28 +1,19 @@
 <script>
-let gri=[]
-ne=0
-let ans=0
-for (let i = 0; i <9;i++){
+    let gri = []
+    ne = 0
+    let ans = []
+    let flag
+    for (let i = 0; i < 9; i++) {
+        flag = 0
+        while (flag == 0) {
+            ne = Math.floor(Math.random() * 9) + 1
+            if (gri.includes(ne)=== false) {
+                flag = 1
+                gri.push(ne)
+            }
+        }
 
-   
-   
-while (ans==0)
-{
+    }
+    console.log(gri)
 
-    ne=Math.floor(Math.random() * 9) + 1
-    
-    ans= gri.find(element => element == ne);
-
-console.log(ans)
-    
-}
-
-  
-
-
-gri.push(ne)
-
-}  
-console.log(gri)
-    
 </script>
