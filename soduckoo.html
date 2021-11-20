@@ -14,39 +14,66 @@
         }
 
         .container {
-            height: 10%;
-            max-height: 22vw;
-            width: 78%;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 2vw;
-            background-color: rgb(255, 255, 255);
-            display: grid;
-            grid-template-columns: 5% 5% 5%;
-            grid-template-rows: 7% 7% 7%;
-            border-radius: 10px;
-            gap: 6vw;
-            padding: 2vw 2vw 2vw 2vw;
+            height: 4%;
+    max-height: 17vw;
+    /* width: auto; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1vw;
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 5% 5% 5%;
+    grid-template-rows: 7% 7% 7%;
+    border-radius: 5px;
+    gap: 0vw;
+    padding: 4rem 2rem 4rem 2rem;
+    align-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
         }
 
         .wrapper {
-            margin: 6vw 10vw 0vw 40vw;
+            margin: 5% auto auto auto;
             width: 25%;
-            padding: 10px;
-
         }
 
         .section {
             display: grid;
             grid-template-columns: auto auto auto;
-            gap: 9px;
-            row-gap: 0vw;
         }
-    </style>
+
+@media screen and (max-width: 950px) {
+  body {
+    background-color:darkgray;
+  }
+
+  .wrapper {
+            margin: 5% auto auto auto;
+            width: 50%;
+        }
+
+}
+
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+  }
+  .wrapper {
+            margin: 5% auto auto auto;
+            width: 80%;
+        }
+
+}
+
+
+</style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="wrapper">
         <div id="container" class="container">
