@@ -15,21 +15,21 @@
 
         .container {
             height: 4%;
-    max-height: 17vw;
-    /* width: auto; */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1vw;
-    background-color: rgb(255, 255, 255);
-    display: grid;
-    grid-template-columns: 5% 5% 5%;
-    grid-template-rows: 7% 7% 7%;
-    border-radius: 5px;
-    gap: 0vw;
-    padding: 4rem 2rem 4rem 2rem;
-    align-content: space-between;
-    justify-content: space-around;
-    align-items: center;
-    justify-items: center;
+            max-height: 17vw;
+            /* width: auto; */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1vw;
+            background-color: rgb(255, 255, 255);
+            display: grid;
+            grid-template-columns: 5% 5% 5%;
+            grid-template-rows: 7% 7% 7%;
+            border-radius: 5px;
+            gap: 0vw;
+            padding: 4rem 2rem 4rem 2rem;
+            align-content: space-between;
+            justify-content: space-around;
+            align-items: center;
+            justify-items: center;
         }
 
         .wrapper {
@@ -42,32 +42,30 @@
             grid-template-columns: auto auto auto;
         }
 
-@media screen and (max-width: 950px) {
-  body {
-    background-color:darkgray;
-  }
+        @media screen and (max-width: 950px) {
+            body {
+                background-color: darkgray;
+            }
 
-  .wrapper {
-            margin: 5% auto auto auto;
-            width: 50%;
+            .wrapper {
+                margin: 5% auto auto auto;
+                width: 50%;
+            }
+
         }
 
-}
+        @media screen and (max-width: 600px) {
+            body {
+                background-color: olive;
+            }
 
+            .wrapper {
+                margin: 5% auto auto auto;
+                width: 80%;
+            }
 
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
-  }
-  .wrapper {
-            margin: 5% auto auto auto;
-            width: 80%;
         }
-
-}
-
-
-</style>
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,6 +78,11 @@
         </div>
     </div>
     <script>
+
+        // this is going tp be a two dimential array of all the rows
+        allRows = []
+        row = 0
+        ind = []// index within the row array
 
         const divBlock = (nim) => {
             var para = document.createElement("DIV");
@@ -97,6 +100,7 @@
             let gri = []
             let total = []
             let ne, flag
+
             for (let i = 0; i < 9; i++) {
                 for (let j = 0; j < 9; j++) {
                     flag = 0
@@ -105,21 +109,33 @@
                         if (gri.includes(ne) === false) {
                             flag = 1
                             gri.push(ne)
+
+ind.push(ne)
+
+if (ind.length==9){
+    ind=[]
+}
+
+                            if (row % 9 === 0) {
+                                // add to row array here if the row does not contain the scaler
+                                allRows.push(ind)
+                                
+
+                            }
                         }
                     }
                 }
                 total.push(gri)
                 gri = []
+                row += 1
             }
             return total
         }
 
-
-
-
         tots().forEach(e => {
             divBlock(e)
         });
+        console.log(allRows);
     </script>
 </body>
 
