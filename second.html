@@ -1,17 +1,35 @@
-<div id="demo" class="demo">0</div>
+<div id="0" class="demo">0</div>
+<div id="1" class="demo">0</div>
+<div id="2" class="demo">0</div>
+<div id="3" class="demo">0</div>
+<div id="4" class="demo">0</div>
+<div id="5" class="demo">0</div>
+<div id="6" class="demo">0</div>
+<div id="7" class="demo">0</div>
+<div id="8" class="demo">0</div>
+
 
 <script>
     let gri = []
-    let total = []
-   let section=[]
-    for (let i=1; i<80; i+=9) {
-for (let index = 0; index <= 8; index++) {
-    section.push(i+index)    
-    
-}
-total.push(section)
-section=[]
-}
- 
-document.getElementById("demo").innerText=total
-</script>
+    let allRows = []
+    let row = []
+    for (let i = 1; i < 80; i += 9) {
+        for (let index = 0; index <= 8; index++) {
+            row.push(i + index)
+
+        }
+        allRows.push(row)
+        row = []
+    }
+
+k=0
+allRows.forEach(element => {
+
+     let h=k.toString()
+
+     console.log(h);
+    document.getElementById(h).innerText = element
+k++
+});
+
+    </script>
