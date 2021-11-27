@@ -31,12 +31,23 @@
     <div id="16" class="coll">0</div>
     <div id="17" class="coll">0</div>
 
+    <div id="18" class="coll">0</div>
+    <div id="19" class="coll">0</div>
+    <div id="20" class="coll">0</div>
+    <div id="21" class="coll">0</div>
+    <div id="22" class="coll">0</div>
+    <div id="23" class="coll">0</div>
+    <div id="24" class="coll">0</div>
+    <div id="25" class="coll">0</div>
+    <div id="26" class="coll">0</div>
+
 
     <script>
         let gri = []
         let allRows = []
         let allColumns = new Array(9).fill([0, 0, 0, 0, 0, 0, 0, 0, 0]);
         let row = []
+        let col = []
         let coun = 0
         let k = 0
         let flag = 0
@@ -55,15 +66,17 @@
                     checkArray(row, ne) ? flag = 0 : flag = 1
                 }
                 flag = 0
-                
+
                 row.push(ne)
-                
-                allColumns[index][coun] = row[index]
+                col.push(ne)
+
 
             }
-            coun++
             allRows.push(row)
+            allColumns.push(col)
             row = []
+            col=[]
+            coun++
         }
 
         allRows.forEach(element => {
@@ -71,7 +84,6 @@
             document.getElementById(h).innerText = element
             k++
         });
-
         allColumns.forEach(element => {
             let f = k.toString()
             document.getElementById(f).innerText = element
