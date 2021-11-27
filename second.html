@@ -71,13 +71,12 @@
                     if (checkArray(row, ne)) {
                         flag = 0
                     } else {
-
-if(allColumns[index],ne  ){
-
-                        flag = 1
-}
+                        if (allColumns[index], ne) {
+                            flag = 0
+                        } else {
+                            flag = 1
+                        }
                     }
-
                 }
                 flag = 0
 
