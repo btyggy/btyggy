@@ -31,8 +31,6 @@
     <div id="16" class="coll">0</div>
     <div id="17" class="coll">0</div>
 
-
-
     <script>
         let gri = []
         let allRows = []
@@ -47,7 +45,6 @@
         allColumns[6] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         allColumns[7] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         allColumns[8] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[9] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
         let row = []
         let col = []
@@ -68,22 +65,35 @@
                     ne = Math.floor(Math.random() * 9) + 1
                     // checkArray(row, ne) ? flag = 0 : flag = 1
 
+                    console.log(checkArray(allColumns[index], ne))
+
                     if (checkArray(row, ne)) {
-                        flag = 0
-                    } else {
-                        if (allColumns[index], ne) {
-                            flag = 0
-                        } else {
-                            flag = 1
-                        }
-                    }
+                         flag = 0
+                     } else {
+                        flag = 1
+
+// this is the section that does not loop properly
+                        console.log(checkArray(allColumns[index], ne))
+
+
+
+                     }
+
+                    //     if (allColumns[index], ne) {
+
+                    //         flag = 0
+                    //     } else {
+                    //         flag = 1
+                    //     }
+                    // }
+
                 }
                 flag = 0
 
                 row.push(ne)
 
                 allColumns[index][b] = ne
-                console.log(index, b, ne);
+                //  console.log(index, b, ne);
 
                 // if(index>7){b=0}
 
