@@ -1,35 +1,83 @@
-<div id="0" class="demo">0</div>
-<div id="1" class="demo">0</div>
-<div id="2" class="demo">0</div>
-<div id="3" class="demo">0</div>
-<div id="4" class="demo">0</div>
-<div id="5" class="demo">0</div>
-<div id="6" class="demo">0</div>
-<div id="7" class="demo">0</div>
-<div id="8" class="demo">0</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logical array</title>
+</head>
+
+<body>
+    rows
+    <div id="0" class="demo">0</div>
+    <div id="1" class="demo">0</div>
+    <div id="2" class="demo">0</div>
+    <div id="3" class="demo">0</div>
+    <div id="4" class="demo">0</div>
+    <div id="5" class="demo">0</div>
+    <div id="6" class="demo">0</div>
+    <div id="7" class="demo">0</div>
+    <div id="8" class="demo">0</div>
+    <p></p>
+    columns
+    <div id="9" class="coll">0</div>
+    <div id="10" class="coll">0</div>
+    <div id="11" class="coll">0</div>
+    <div id="12" class="coll">0</div>
+    <div id="13" class="coll">0</div>
+    <div id="14" class="coll">0</div>
+    <div id="15" class="coll">0</div>
+    <div id="16" class="coll">0</div>
+    <div id="17" class="coll">0</div>
 
 
-<script>
-    let gri = []
-    let allRows = []
-    let row = []
-    for (let i = 1; i < 80; i += 9) {
-        for (let index = 0; index <= 8; index++) {
-            row.push(i + index)
+    <script>
+        let gri = []
+        let allRows = []
+        let allColumns = new Array(9).fill([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        let row = []
+        let coun = 0
+        let k = 0
+        let flag = 0
 
+        // the array to check is ar, 
+        // toCheck is the figure so see if
+        // it is in the array
+        const checkArray = (ar, toCheck) => ar.includes(toCheck)
+
+        for (let i = 1; i < 80; i += 9) {
+            for (let index = 0; index <= 8; index++) {
+
+                while (flag == 0) {
+
+                    ne = Math.floor(Math.random() * 9) + 1
+                    checkArray(row, ne) ? flag = 0 : flag = 1
+                }
+                flag = 0
+                
+                row.push(ne)
+                
+                allColumns[index][coun] = row[index]
+
+            }
+            coun++
+            allRows.push(row)
+            row = []
         }
-        allRows.push(row)
-        row = []
-    }
 
-k=0
-allRows.forEach(element => {
+        allRows.forEach(element => {
+            let h = k.toString()
+            document.getElementById(h).innerText = element
+            k++
+        });
 
-     let h=k.toString()
-
-     console.log(h);
-    document.getElementById(h).innerText = element
-k++
-});
-
+        allColumns.forEach(element => {
+            let f = k.toString()
+            document.getElementById(f).innerText = element
+            k++
+        });
     </script>
+</body>
+
+</html>
