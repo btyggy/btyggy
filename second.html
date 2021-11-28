@@ -41,6 +41,8 @@
         let k = 0
         let flag = 0
         let b = 0
+
+        //empty 2d array
         let allColumns = new Array(9).fill(0)
         let ppp = [[0, 0, 0, 0, 0, 0, 0, 0, 0],]
         for (let index = 0; index < 9; index++) {
@@ -62,15 +64,11 @@
 
                     console.log(checkArray(allColumns[index], ne))
 
-                    if (checkArray(row, ne)) {
-                        flag = 0
-                    } else {
-                        flag = 1
+                    // !checkArray(row, ne)?flag = 1:console.log()
 
-                        // this is the section that does not loop properly
-                        console.log(checkArray(allColumns[index], ne))
-                    }
+                    if (!checkArray(row, ne)) flag = 1
 
+                    if (!checkArray(allColumns[index], ne)) flag = 1
                     //     if (allColumns[index], ne) {
 
                     //         flag = 0
@@ -85,9 +83,6 @@
                 row.push(ne)
 
                 allColumns[index][b] = ne
-                //  console.log(index, b, ne);
-
-                // if(index>7){b=0}
 
             }
             allRows.push(row)
