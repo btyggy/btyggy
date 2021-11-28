@@ -31,27 +31,22 @@
     <div id="16" class="coll">0</div>
     <div id="17" class="coll">0</div>
 
+
     <script>
         let gri = []
         let allRows = []
-        let allColumns = new Array(9).fill(0)
-
-        allColumns[0] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[1] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[2] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[3] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[4] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[5] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[6] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[7] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        allColumns[8] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-
         let row = []
         let col = []
         let coun = 0
         let k = 0
         let flag = 0
         let b = 0
+        let allColumns = new Array(9).fill(0)
+        let ppp = [[0, 0, 0, 0, 0, 0, 0, 0, 0],]
+        for (let index = 0; index < 9; index++) {
+            allColumns[index] = [...ppp]
+        }
+
         // the array to check is ar, 
         // toCheck is the figure so see if
         // it is in the array
@@ -68,16 +63,13 @@
                     console.log(checkArray(allColumns[index], ne))
 
                     if (checkArray(row, ne)) {
-                         flag = 0
-                     } else {
+                        flag = 0
+                    } else {
                         flag = 1
 
-// this is the section that does not loop properly
+                        // this is the section that does not loop properly
                         console.log(checkArray(allColumns[index], ne))
-
-
-
-                     }
+                    }
 
                     //     if (allColumns[index], ne) {
 
