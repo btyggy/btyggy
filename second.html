@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    
+body{
+    margin:2% 20% 20% 40%;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 2vw;
+}
 
+</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="1">
     <title>logical array</title>
 </head>
 
@@ -58,27 +67,9 @@
             for (let index = 0; index <= 8; index++) {
 
                 while (flag == 0) {
-
                     ne = Math.floor(Math.random() * 9) + 1
-                    // checkArray(row, ne) ? flag = 0 : flag = 1
-
-                    console.log(checkArray(allColumns[index], ne))
-
-                    // !checkArray(row, ne)?flag = 1:console.log()
-
                     if (!checkArray(row, ne)) flag = 1
-
                     if (!checkArray(allColumns[index], ne)) flag = 1
-
-
-                    //     if (allColumns[index], ne) {
-
-                    //         flag = 0
-                    //     } else {
-                    //         flag = 1
-                    //     }
-                    // }
-
                 }
                 flag = 0
 
