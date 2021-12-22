@@ -195,9 +195,6 @@ const errorNPD = () => {
 }
 
 
-
-
-
 // not used but the general template is usefull, e.g. multi-line tenerey
 const membrainPressureLossMultiplier = (mult) => {
     return mult === 2 ? 1
