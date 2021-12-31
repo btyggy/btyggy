@@ -127,7 +127,7 @@ const looky = () => {
 	// this next section is dumped to change from permeateFlowRatePerDayInput to mif
 	membrainInletFlowDay = (membrainInletFlow * 24)//* membraneRecoveryRate// this will make the screen input look like its wrong as if you input 7 it may end up wanting 14.2
 	c.log("membraneRecoveryRateVal " + membraneRecoveryRateVal)
-	c.log("mp multiply " + offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0])
+	// c.log("mp multiply " + offSetMembrainOutputPressure[parseInt(membranePressureLoss)][0])
 	c.log("membrain Output Pressure Fig  =" + membrainOutputPressureFig)
 	c.log("value of mrr " + membraneRecoveryRateVal)
 	c.log("ERD Membrain recovery rate " + ERDmembraneRecoveryRate) // this is part of the look-up
