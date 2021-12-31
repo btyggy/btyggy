@@ -23,6 +23,10 @@
             reader.onload = function () {
                 document.getElementById('out').innerHTML = reader.result;
                 console.log(reader.result);
+                const myArray = reader.result.split("\n");
+                console.log(myArray);
+
+
             };
             // start reading the file. When it is done, calls the onload event defined above.
             reader.readAsBinaryString(fileInput.files[0]);
