@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let y = true
+    let q = document
+    let k = 0
+    let turn = 0
+    let totX = 0
+    let tot0 = 0
+    let player
+    let tim = 100
+    let cl = [...Array(9).keys()]              // for i= 1to10
+
+    const arr = [
+        [1, 5, 9],
+        [3, 5, 7],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+
+    minmax = () => {
+    }
+    // number of players , zero
+    window.onload = () => setInterval(() => aut(), tim)
+    const aut = () => butClick(ran())
+
+    butClick = (x) => {
+        if (turn == 0) { clear() }
+        if (human(x)) {
+            k = win()
+            if (!k) {
+                machine()
+                k = win()
+            }
+        }
+
+    }
+
+    ran = () => parseInt(Math.random() * 9) + 1
+
+    // number of players 1
+    machine = () => {
+        if (k != 1) {
+            while (butty(ran(), "O")) { }
+        }
+    }
+
+    human = (x) => {
+        b = butty(x, "X")
+        if (b) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+
+    butty = (xbb, player) => {
+        d = q.getElementById(xbb).innerText
+        if (d === "") {
+            turn++
+            // q.getElementById("turn").innerText = turn
+            player == "X" ? q.getElementById(xbb).innerText = "X" : q.getElementById(xbb).innerText = "0"
+        }
+        return d
+    }
+
+    dr = (m) => {
+        q.getElementById("score").innerText = m === "X" ? "Game Over: X won" : "Game Over: 0 won"
+        m === "X" ? totX++ : tot0++
+        q.getElementById("total").innerText = `X: ${totX} -- 0:${tot0}`
+        turn = 0
+        return 1
+    }
+
+    win = () => {
+        k = 0
+        arr.forEach((ele) => {
+            a = q.getElementById(ele[0]).innerText + q.getElementById(ele[1]).innerText + q.getElementById(ele[2]).innerText
+            if (a === "XXX") {
+                k = dr(a[0])
+            } else if (a === "000") {
+                k = dr(a[0])
+            } else if (
+                turn >= 9) {
+                q.getElementById("score").innerText = "draw"
+                k = 1
+                turn = 0
+            }
+        })
+        return k
+    }
+
+    clear = () => {
+        cl.forEach(e => q.getElementById(e + 1).innerText = "")
+        q.getElementById("score").innerText = ""
+    }
+</script>
+<style>
+    html,
+    body,
+    .lt-grid-container {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+    .lt-grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        height: 600px;
+        background-color: white;
+    }
+
+    .lt-one {
+        background-color: black;
+        line-height: 90%;
+        color: grey;
+    }
+
+    .lt-one:hover {
+        background-color: grey;
+        color: black;
+    }
+
+    .score {
+        color: white;
+        font-size: 0.5rem;
+    }
+
+    .total {
+        color: white;
+        font-size: 0.2rem;
+    }
+</style>
+
+<body style="background-color: black;">
+    <div class="total" id="total"></div>
+
+    <div class="lt-grid-container">
+
+        <div class="lt-one" id="1" onclick="butClick(1)"></div>
+        <div class="lt-one" id="2" onclick="butClick(2)"></div>
+        <div class="lt-one" id="3" onclick="butClick(3)"></div>
+        <div class="lt-one" id="4" onclick="butClick(4)"></div>
+        <div class="lt-one" id="5" onclick="butClick(5)"></div>
+        <div class="lt-one" id="6" onclick="butClick(6)"></div>
+        <div class="lt-one" id="7" onclick="butClick(7)"></div>
+        <div class="lt-one" id="8" onclick="butClick(8)"></div>
+        <div class="lt-one" id="9" onclick="butClick(9)"></div>
+    </div>
+    <div class="score" id="score"></div>
+    <div class="score" id="turn"></div>
+</body>
+
+</html>
+<!--
+function minimax(node, depth, maximizingPlayer) is
+    if depth = 0 or node is a terminal node then
+        return the heuristic value of node
+    if maximizingPlayer then
+        value := −∞
+        for each child of node do
+            value := max(value, minimax(child, depth − 1, FALSE))
+        return value
+    else (* minimizing player *)
+        value := +∞
+        for each child of node do
+            value := min(value, minimax(child, depth − 1, TRUE))
+        return value -->
