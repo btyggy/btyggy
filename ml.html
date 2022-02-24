@@ -53,7 +53,10 @@ net.train(trainingData,{log: error => console.log(error),logPeriod:200})
 
 console.log(Math.round(net.run([1])))
 
-console.log(Math.round(net.run([1,2])))
+console.log(Math.round(net.run([1,2,3,5,6])))
 
 </script>
+
+let dog=train.map(e=>e.map(v=>v/100))
+
 </html>
