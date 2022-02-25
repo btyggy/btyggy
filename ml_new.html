@@ -14,24 +14,58 @@
 const a = character(
     '*..' +
     '...' +
-    '...#'
+    '...'
   );
-
-
 
   const b = character(
     '.*.' +
     '...' +
-    '...#'
+    '...'
   );
-
 
   const c = character(
     '..*' +
     '...' +
-    '...#'
+    '...'
   );
 
+  const d = character(
+    
+    '...' +
+    '*..' +
+    '...'
+  );
+
+  const e = character(
+    '...' +
+    '.*.' +
+    '...'
+  );
+
+  const f = character(
+    '...' +
+    '..*' +
+    '...'
+  );
+
+  const g = character(
+    
+    '...' +    
+    '...'+
+    '*..'
+  );
+
+  const h = character(
+    '...' +
+    '...' +
+    '.*.'
+  );
+
+  const i = character(
+    '...' +
+    '...' +
+    '..*'
+  );
 
   
   /**
@@ -55,16 +89,54 @@ const a = character(
       output: {
         c: 1
       }
+    },
+
+    {
+      input: d,
+      output: {
+        d: 1
+      }
+    },
+    {
+      input: e,
+      output: {
+        e: 1
+      }
+    },
+    {
+      input: f,
+      output: {
+        f: 1
+      }
+    },
+    {
+      input: g,
+      output: {
+        g: 1
+      }
+    },
+    {
+      input: h,
+      output: {
+        h: 1
+      }
+    },
+    {
+      input: i,
+      output: {
+        i: 1
+      }
     }
+
   ], {log: error => console.log(error)});
   
   /**
    * Predict the letter A, even with a pixel off.
    */
   const result = brain.likely(character(
-    '*..' +
     '...' +
-    '...#'
+    '.*.' +
+    '...'
   ), net);
   
   
@@ -93,7 +165,6 @@ const a = character(
     if ('*' === character) return 1;
     return 0;
   }
-
 
 
 </script>
