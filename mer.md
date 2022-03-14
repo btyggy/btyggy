@@ -1,9 +1,11 @@
 ```mermaid
-flowchart LR
-participant -->client
+flowchart 
+hey -->client
 client-->kay;
 client-->monday
-monday -->tyggy;
+monday -->tyggy
+kay --> tyggy
+tyggy-->client
 ```
 
 
