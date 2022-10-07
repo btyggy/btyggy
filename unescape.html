@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<style>
+    textarea {
+ width: 50%;
+        height: 40rem;
+    }
+</style>
+<html>
+<body>
+    Code<br>
+    <textarea id="myTextarea">
+</textarea>
+    <p></p>
+    <button type="button" onclick="myFunction()">Decode</button>
+    <script>
+        function myFunction() {
+            outpp = ""
+            inpu = document.getElementById("myTextarea").value.split("%")
+            inpu.forEach(e => {
+                outpp += String.fromCharCode(parseInt(e, 16))
+            });
+            document.getElementById("myTextarea").value = outpp
+        }
+    </script>
+</body>
+</html>
