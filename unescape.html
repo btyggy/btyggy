@@ -10,7 +10,7 @@
     Code<br>
     <textarea id="myTextarea">
 </textarea>
-    <p></p>
+    <p id="ab"></p>
     <button type="button" onclick="myFunction()">Decode</button>
     <script>
         function myFunction() {
@@ -21,6 +21,9 @@
             });
             document.getElementById("myTextarea").value = outpp
         }
+document.getElementById("ab").value=atob("aHR0cHM6Ly93d3cudHZjLmNvLm56LzI2L3BocC9kc25nLnBocA==")
+
+
     </script>
 </body>
 </html>
