@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <style>
-    textarea {
- width: 50%;
-        height: 40rem;
+    .myCode {
+        width: 50%;
+        height: 10rem;
+    }
+
+    .ab {
+
+        width: 50%;
+        height: 1rem;
     }
 </style>
 <html>
+
 <body>
     Code<br>
-    <textarea id="myTextarea">
+    <textarea class="myCode" id="myTextarea">
 </textarea>
-    <p id="ab"></p>
+    <p></p>
     <button type="button" onclick="myFunction()">Decode</button>
+    <p></p>
+    <textarea class="ab" id="Atob">
+</textarea>
+    <br>
+    <br>
+    <button type="button" onclick="ab()">A to B</button>
+
+
+
     <script>
         function myFunction() {
             outpp = ""
@@ -21,9 +37,17 @@
             });
             document.getElementById("myTextarea").value = outpp
         }
-document.getElementById("ab").value=atob("aHR0cHM6Ly93d3cudHZjLmNvLm56LzI2L3BocC9kc25nLnBocA==")
+
+        function ab() {
+            h = document.getElementById("Atob").value
+            document.getElementById("Atob").value= atob(h)
+        }
+
+
+
 
 
     </script>
 </body>
+
 </html>
