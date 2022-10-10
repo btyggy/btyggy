@@ -52,37 +52,21 @@
         }
 
 
-        function rot1() {
+        const rot1 = () => {
             rot = []
-            konk = []
-
-
             inpu = document.getElementById("myTextarea").value.split("")
             x = 0
             inpu.forEach(e => {
                 if (e == "%") {
                     x = -4
-                    // rot.push(" ")
+                    rot.push(" ")
 
                 }
 
                 if (x > 0) {
-                    konk = []
-                    // rot.push(String.fromCharCode(e.charCodeAt(0) - 1))
+
+                    rot.push(String.fromCharCode(e.charCodeAt(0) - 1))
                 }
-
-                else {
-
-                    konk += e
-                }
-
-                if (konk.length > 0) {
-                    rot += konk
-                    konk = []
-
-                }
-            
-
 
 
 
@@ -93,7 +77,7 @@
                 // else conk e to previous so to make a string to convert to extended char e.g space or brackets...
                 x++
             })
-        document.getElementById("myRot1").value = rot.join("")
+            document.getElementById("myRot1").value = rot.join("")
         }
 
     </script>
