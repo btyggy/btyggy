@@ -54,23 +54,67 @@
 
         const rot1 = () => {
             rot = []
+            konk = []
+
+
             inpu = document.getElementById("myTextarea").value.split("")
             x = 0
             inpu.forEach(e => {
                 if (e == "%") {
                     x = -4
-                    rot.push(" ")
-
+                    konk = []
                 }
                 
+
+
+                // a is not covered
+
 
                 if (x > 0) {
 
                     rot.push(String.fromCharCode(e.charCodeAt(0) - 1))
+                } else {
+
+                    konk += e
+
+
                 }
 
 
+                if (konk.length > 4) {
+                    if (konk == "%264D") {
+                        konk = "<"
+                    }
 
+                    if (konk == "%2631") {
+                        konk = " "
+                    }
+
+                    if (konk == "%264E") {
+                        konk = "="
+                    }
+
+                    if (konk == "%2633") {
+                        konk = "'"
+                    }
+
+                    if (konk == "%264F") {
+                        konk = ">"
+                    }
+
+
+
+                    if (konk == "%261B") {
+                        konk = "\n"
+                    }
+
+
+                    
+                    
+
+                    rot.push(konk)
+                    konk = []
+                }
 
 
 
