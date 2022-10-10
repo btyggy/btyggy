@@ -10,24 +10,30 @@
         width: 50%;
         height: 1rem;
     }
+
+    .myRot1 {
+        width: 50%;
+        height: 10rem;
+    }
 </style>
 <html>
 
 <body>
     Code<br>
-    <textarea class="myCode" id="myTextarea">
-</textarea>
+    <textarea class="myCode" id="myTextarea"></textarea>
     <p></p>
     <button type="button" onclick="myFunction()">Decode</button>
     <p></p>
-    <textarea class="ab" id="Atob">
-</textarea>
+    <textarea class="ab" id="Atob"></textarea>
     <br>
     <br>
     <button type="button" onclick="ab()">A to B</button>
-
-
-
+    <br>
+    <br>
+    <textarea class="myRot1" id="myRot1"></textarea>
+    <br>
+    <br>
+    <button type="button" onclick="rot1()">Roti 1</button>
     <script>
         function myFunction() {
             outpp = ""
@@ -44,8 +50,21 @@
         }
 
 
+        function rot1() {
+            rot=[]
+            
+            inpu = document.getElementById("myRot1").value.split("")
+
+            inpu.forEach(e => {
 
 
+                 rot.push( String.fromCharCode(e-1) )
+
+        })
+
+        document.getElementById("myRot1").value=rot.join()
+
+    }
 
     </script>
 </body>
