@@ -22,6 +22,12 @@
     Code<br>
     <textarea class="myCode" id="myTextarea"></textarea>
     <p></p>
+
+
+    <textarea class="myCode" id="oot"></textarea>
+    <p></p>
+
+
     <button type="button" onclick="myFunction()">Decode</button>
     <p></p>
     <textarea class="ab" id="Atob"></textarea>
@@ -41,7 +47,7 @@
             inpu.forEach(e => {
                 outpp += String.fromCharCode(parseInt(e, 16))
             });
-            document.getElementById("myTextarea").value = outpp
+            document.getElementById("oot").value = outpp
         }
 
         function ab() {
@@ -53,7 +59,7 @@
         function rot1() {
             rot = []
 
-            inpu = document.getElementById("myRot1").value.split("")
+            inpu = document.getElementById("myTextarea").value.split("")
 x=0
             inpu.forEach(e => {
                 if (e == "%") {
