@@ -38,24 +38,7 @@
     <button type="button" onclick="rot1()">Roti 1</button>
     <script>
 
-        slash = {
-            "%264D": "<",
-            "%2631": " ",
-            "%264E": "=",
-            "%2633": "'",
-            "%264F": ">",
-            "%261B": "\n",
-            "%263D": ",",
-            "%264B": ":",
-            "%264C": ")",
-            "%266C": "[",
-            "%266F": "^",
-            "%268C": "{",
-            "%2639": "(",
-            "%2638": "'"
-        }
-
-        function myFunction() {
+        const myFunction = () => {
             outpp = ""
             inpu = document.getElementById("myTextarea").value.split("%")
             inpu.forEach(e => {
@@ -64,7 +47,7 @@
             document.getElementById("oot").value = outpp
         }
 
-        function ab() {
+        const ab = () => {
             h = document.getElementById("Atob").value
             document.getElementById("Atob").value = atob(h)
         }
@@ -72,6 +55,22 @@
         const rot1 = () => {
             rot = []
             konk = []
+            slash = {
+                "%264D": "<",
+                "%2631": " ",
+                "%264E": "=",
+                "%2633": "\"",
+                "%264F": ">",
+                "%261B": "\n",
+                "%263D": ",",
+                "%264B": ":",
+                "%264C": ")",
+                "%266C": "[",
+                "%266F": "^",
+                "%268C": "{",
+                "%2639": "(",
+                "%2638": "'"
+            }
 
             inpu = document.getElementById("myTextarea").value.split("")
             x = 0
@@ -89,17 +88,13 @@
                 }
 
                 if (konk.length > 4) {
-                    konk = slash[konk]
-                    rot.push(konk)
+                    rot.push(slash[konk])
                     konk = []
                 }
-
-                // else conk e to previous so to make a string to convert to extended char e.g space or brackets...
                 x++
             })
             document.getElementById("myRot1").value = rot.join("")
         }
-
     </script>
 </body>
 
