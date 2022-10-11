@@ -37,6 +37,28 @@
     <br>
     <button type="button" onclick="rot1()">Roti 1</button>
     <script>
+
+slash={
+"%264D":"<",
+"%2631":" ",
+"%264E":"=",
+"%2633":"'",
+"%264F":">",
+"%261B":"\n",
+"%263D":",",
+"%264B":":",
+"%264C":")",
+"%266C":"[",
+"%266F":"^",
+"%268C":"{",
+"%2639":"(",
+"%2638":"'"
+}
+
+
+
+
+
         function myFunction() {
             outpp = ""
             inpu = document.getElementById("myTextarea").value.split("%")
@@ -80,64 +102,66 @@
 
                 }
 
-
                 if (konk.length > 4) {
-                    if (konk == "%264D") {
-                        konk = "<"
-                    }
+                 
+                 konk=slash[konk]
+                 
+                    // if (konk == "%264D") {
+                    //     konk = "<"
+                    // }
 
-                    if (konk == "%2631") {
-                        konk = " "
-                    }
+                    // if (konk == "%2631") {
+                    //     konk = " "
+                    // }
 
-                    if (konk == "%264E") {
-                        konk = "="
-                    }
+                    // if (konk == "%264E") {
+                    //     konk = "="
+                    // }
 
-                    if (konk == "%2633") {
-                        konk = "'"
-                    }
+                    // if (konk == "%2633") {
+                    //     konk = "'"
+                    // }
 
-                    if (konk == "%264F") {
-                        konk = ">"
-                    }
+                    // if (konk == "%264F") {
+                    //     konk = ">"
+                    // }
 
-                    if (konk == "%261B") {
-                        konk = "\n"
-                    }
+                    // if (konk == "%261B") {
+                    //     konk = "\n"
+                    // }
 
-                    if (konk == "%263D") {
-                        konk = ","
-                    }
+                    // if (konk == "%263D") {
+                    //     konk = ","
+                    // }
 
 
-                    if (konk == "%264B") {
-                        konk = ":"
-                    }
+                    // if (konk == "%264B") {
+                    //     konk = ":"
+                    // }
 
-                    if (konk == "%264C") {
-                        konk = ")"
-                    }
+                    // if (konk == "%264C") {
+                    //     konk = ")"
+                    // }
 
-                    if (konk == "%266C") {
-                        konk = "["
-                    }
+                    // if (konk == "%266C") {
+                    //     konk = "["
+                    // }
 
-                    if (konk == "%266F") {
-                        konk = "^"
-                    }
+                    // if (konk == "%266F") {
+                    //     konk = "^"
+                    // }
 
-                    if (konk == "%268C") {
-                        konk = "{"
-                    }
+                    // if (konk == "%268C") {
+                    //     konk = "{"
+                    // }
 
-                    if (konk == "%2639") {
-                        konk = "("
-                    }
+                    // if (konk == "%2639") {
+                    //     konk = "("
+                    // }
 
-                    if (konk == "%2638") {
-                        konk = "'"
-                    }
+                    // if (konk == "%2638") {
+                    //     konk = "'"
+                    // }
 
                     rot.push(konk)
                     konk = []
