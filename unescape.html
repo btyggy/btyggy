@@ -38,26 +38,22 @@
     <button type="button" onclick="rot1()">Roti 1</button>
     <script>
 
-slash={
-"%264D":"<",
-"%2631":" ",
-"%264E":"=",
-"%2633":"'",
-"%264F":">",
-"%261B":"\n",
-"%263D":",",
-"%264B":":",
-"%264C":")",
-"%266C":"[",
-"%266F":"^",
-"%268C":"{",
-"%2639":"(",
-"%2638":"'"
-}
-
-
-
-
+        slash = {
+            "%264D": "<",
+            "%2631": " ",
+            "%264E": "=",
+            "%2633": "'",
+            "%264F": ">",
+            "%261B": "\n",
+            "%263D": ",",
+            "%264B": ":",
+            "%264C": ")",
+            "%266C": "[",
+            "%266F": "^",
+            "%268C": "{",
+            "%2639": "(",
+            "%2638": "'"
+        }
 
         function myFunction() {
             outpp = ""
@@ -73,11 +69,9 @@ slash={
             document.getElementById("Atob").value = atob(h)
         }
 
-
         const rot1 = () => {
             rot = []
             konk = []
-
 
             inpu = document.getElementById("myTextarea").value.split("")
             x = 0
@@ -87,82 +81,15 @@ slash={
                     konk = []
                 }
 
-
-
                 // a is not covered
-
-
                 if (x > 0) {
-
                     rot.push(String.fromCharCode(e.charCodeAt(0) - 1))
                 } else {
-
                     konk += e
-
-
                 }
 
                 if (konk.length > 4) {
-                 
-                 konk=slash[konk]
-                 
-                    // if (konk == "%264D") {
-                    //     konk = "<"
-                    // }
-
-                    // if (konk == "%2631") {
-                    //     konk = " "
-                    // }
-
-                    // if (konk == "%264E") {
-                    //     konk = "="
-                    // }
-
-                    // if (konk == "%2633") {
-                    //     konk = "'"
-                    // }
-
-                    // if (konk == "%264F") {
-                    //     konk = ">"
-                    // }
-
-                    // if (konk == "%261B") {
-                    //     konk = "\n"
-                    // }
-
-                    // if (konk == "%263D") {
-                    //     konk = ","
-                    // }
-
-
-                    // if (konk == "%264B") {
-                    //     konk = ":"
-                    // }
-
-                    // if (konk == "%264C") {
-                    //     konk = ")"
-                    // }
-
-                    // if (konk == "%266C") {
-                    //     konk = "["
-                    // }
-
-                    // if (konk == "%266F") {
-                    //     konk = "^"
-                    // }
-
-                    // if (konk == "%268C") {
-                    //     konk = "{"
-                    // }
-
-                    // if (konk == "%2639") {
-                    //     konk = "("
-                    // }
-
-                    // if (konk == "%2638") {
-                    //     konk = "'"
-                    // }
-
+                    konk = slash[konk]
                     rot.push(konk)
                     konk = []
                 }
