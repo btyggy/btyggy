@@ -38,11 +38,10 @@
     <button type="button" onclick="rot1()">Roti 1</button>
     <script>
         const d = document
-        
+
         const myFunction = () => {
             outpp = ""
-            inpu = d.getElementById("myTextarea").value.split("%")
-            inpu.forEach(e => {
+            d.getElementById("myTextarea").value.split("%").forEach(e => {
                 outpp += String.fromCharCode(parseInt(e, 16))
             });
             d.getElementById("oot").value = outpp
