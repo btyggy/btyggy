@@ -37,24 +37,27 @@
     <br>
     <button type="button" onclick="rot1()">Roti 1</button>
     <script>
-
+        const d = document
+        
         const myFunction = () => {
             outpp = ""
-            inpu = document.getElementById("myTextarea").value.split("%")
+            inpu = d.getElementById("myTextarea").value.split("%")
             inpu.forEach(e => {
                 outpp += String.fromCharCode(parseInt(e, 16))
             });
-            document.getElementById("oot").value = outpp
+            d.getElementById("oot").value = outpp
         }
 
         const ab = () => {
-            h = document.getElementById("Atob").value
-            document.getElementById("Atob").value = atob(h)
+            h = d.getElementById("Atob").value
+            d.getElementById("Atob").value = atob(h)
         }
 
         const rot1 = () => {
             rot = []
             konk = []
+            x = 0
+
             slash = {
                 "%264D": "<",
                 "%2631": " ",
@@ -72,9 +75,7 @@
                 "%2638": "'"
             }
 
-            inpu = document.getElementById("myTextarea").value.split("")
-            x = 0
-            inpu.forEach(e => {
+            d.getElementById("myTextarea").value.split("").forEach(e => {
                 if (e == "%") {
                     x = -4
                     konk = []
@@ -93,7 +94,7 @@
                 }
                 x++
             })
-            document.getElementById("myRot1").value = rot.join("")
+            d.getElementById("myRot1").value = rot.join("")
         }
     </script>
 </body>
