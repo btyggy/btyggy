@@ -157,8 +157,10 @@
 // const uni=()=>{uniCode(d.getElementById("uni").value)}
 
 
-        const uni =()=> d.getElementById("uni").value= d.getElementById("uni").value=String.fromCharCode(parseInt(d.getElementById("uni").value,16))
-
+        const uni =()=>{ 
+            bit=d.getElementById("uni").value
+             bit=String.fromCharCode(parseInt(bit,16))
+    }
     </script>
 </body>
 </html>
