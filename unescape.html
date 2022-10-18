@@ -32,6 +32,12 @@
     <br>
     <br>
     <button type="button" onclick="rot1()">Roti 1</button>
+    <br>
+    <br>
+    <textarea class="uni" id="uni"></textarea>
+    <br>
+    <br>
+    <button type="button" onclick="uni()">UniCode</button>
     <script>
         const d = document
         const myFunction = () => {
@@ -145,6 +151,14 @@
             })
             d.getElementById("myRot1").value = rot.join("")
         }
+
+        // const uni=()=>d.getElementById("uni").value =String.fromCharCode(parseInt(d.getElementById("uni").value,16))
+
+// const uni=()=>{uniCode(d.getElementById("uni").value)}
+
+
+        const uni =()=> d.getElementById("uni").value= d.getElementById("uni").value=String.fromCharCode(parseInt(d.getElementById("uni").value,16))
+
     </script>
 </body>
 </html>
