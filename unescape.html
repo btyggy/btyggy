@@ -4,16 +4,19 @@
         width: 50%;
         height: 5rem;
     }
+
     .ab {
         width: 50%;
         height: 1rem;
     }
+
     .myRot1 {
         width: 50%;
         height: 5rem;
     }
 </style>
 <html>
+
 <body>
     Input Below<br>
     <textarea class="myCode" id="myTextarea"></textarea>
@@ -50,7 +53,7 @@
             rot = []
             konk = []
             x = 0
- 
+
             // seems to be minus 11 on the last 2 char
             slash = {
                 "%264D": "<",// n 3c
@@ -73,7 +76,7 @@
                 "%268E": "}", // n 7d
                 "%60": "_",//n 5f
                 "%3A": ".",//n  2e
- 
+
                 "%0A": "***1**",
                 "%20": "*2****",
                 "%22": "**3***",
@@ -99,7 +102,7 @@
                 "%5B": "Z",
                 "%5D": "*24****",
                 "%5F": "**25***",
-             
+
                 "%61": "*27****",
                 "%62": "28*****",
                 "%63": "**29***",
@@ -124,24 +127,24 @@
                 "%7B": "ze",
                 "%7D": "**50***"
             }
- 
+
             d.getElementById("myTextarea").value.split("").map(e => {
- 
+
                 if (e == "%") {
                     x = -3
                     konk = []
                 }
- 
+
                 if (konk == "%26") x -= 1
- 
+
                 // a is not covered
                 x > 0 ? rot.push(String.fromCharCode(e.charCodeAt(0) - 1)) : konk += e
                 if (konk.length > 4) {
                     rot.push(slash[konk])
                     konk = []
- 
+
                 }
- 
+
                 if (konk.length == 3 && konk != "%26") {
                     rot.push(slash[konk])
                     console.log(konk)
@@ -154,13 +157,14 @@
 
         // const uni=()=>d.getElementById("uni").value =String.fromCharCode(parseInt(d.getElementById("uni").value,16))
 
-// const uni=()=>{uniCode(d.getElementById("uni").value)}
+        // const uni=()=>{uniCode(d.getElementById("uni").value)}
 
 
-        const uni =()=>{ 
-            bit=d.getElementById("uni").value
-             bit=String.fromCharCode(parseInt(bit,16))
-    }
+        const uni = () => {
+            bit = d.getElementById("uni")
+            bit.value = String.fromCharCode(parseInt(bit.value, 16))
+        }
     </script>
 </body>
+
 </html>
