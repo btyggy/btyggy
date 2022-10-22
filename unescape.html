@@ -14,6 +14,11 @@
         width: 50%;
         height: 5rem;
     }
+
+    .uni {
+        width: 20%;
+        height: 1rem;
+    }
 </style>
 <html>
 
@@ -155,15 +160,7 @@
             d.getElementById("myRot1").value = rot.join("")
         }
 
-        // const uni=()=>d.getElementById("uni").value =String.fromCharCode(parseInt(d.getElementById("uni").value,16))
-
-        // const uni=()=>{uniCode(d.getElementById("uni").value)}
-
-
-        const uni = () => {
-            bit = d.getElementById("uni")
-            bit.value = String.fromCharCode(parseInt(bit.value, 16))
-        }
+        const uni = () => d.getElementById("uni").value = String.fromCharCode(parseInt(d.getElementById("uni").value, 16))
     </script>
 </body>
 
