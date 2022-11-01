@@ -1,52 +1,125 @@
 <!DOCTYPE html>
 <style>
-    .myCode {
-        width: 50%;
-        height: 5rem;
+  body {
+    background-color: rgb(200, 200, 220);
+        width: 25rem;
+    margin: 3%;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+ 
+  .myCode {
+    width:92%;
+    height: 5rem;
+    border-radius: 4px;
 
-    .ab {
-        width: 50%;
-        height: 1rem;
-    }
+ }
 
-    .myRot1 {
-        width: 50%;
-        height: 5rem;
-    }
+  .ab {
+    width: 92%;
+    height: 1rem;
+    border-radius: 4px;
+  }
 
-    .uni {
-        width: 20%;
-        height: 1rem;
+  .myRot1 {
+    width: 92%;
+    height: 5rem;
+    border-radius: 4px;
+  }
+
+  .uni {
+    width: 92%;
+    height: 1rem;
+    border-radius: 4px;
+  }
+  input {
+    display: none;
+  }
+  input + label {
+    display: inline-block;
+  }
+
+  input ~ .tab {
+    display: none;
+  }
+
+  #tab1:checked ~ .tab.content1,
+
+  #tab2:checked ~ .tab.content2,
+
+  #tab3:checked ~ .tab.content3,
+
+  #tab4:checked ~ .tab.content4,
+
+  #tab5:checked ~ .tab.content5 {
+    display: block;
+  }
+  input + label {
+    border: 1px solid #999;
+    background: #ddd;
+    padding: 4px 10px;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    top: 1px;
+  }
+  input:checked + label {
+    background: #fff;
+  }
+  input ~ .tab {
+    padding: 12px;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+
+  @keyframes fadeEffect {
+    from {
+      opacity: 0;
     }
+    to {
+      opacity: 1;
+    }
+  }
 </style>
 <html>
-
-<body>
-    Input Below<br>
+  <body>
+    Input<br />
+    <br />
     <textarea class="myCode" id="myTextarea"></textarea>
     <p></p>
-    <textarea class="myCode" id="oot"></textarea>
-    <p></p>
-    <button type="button" onclick="myFunction()">Decode</button>
-    <p></p>
-    <textarea class="ab" id="Atob"></textarea>
-    <br>
-    <br>
-    <button type="button" onclick="ab()">A to B</button>
-    <br>
-    <br>
-    <textarea class="myRot1" id="myRot1"></textarea>
-    <br>
-    <br>
-    <button type="button" onclick="rot1()">Roti 1</button>
-    <br>
-    <br>
-    <textarea class="uni" id="uni"></textarea>
-    <br>
-    <br>
-    <button type="button" onclick="uni()">UniCode</button>
-    
-</body>
-<script src="script.js"></script>
+    <input type="radio" name="tabs" id="tab1" checked />
+    <label for="tab1">Decode</label>
+    <input type="radio" name="tabs" id="tab2" />
+    <label for="tab2">A to B</label>
+    <input type="radio" name="tabs" id="tab3" />
+    <label for="tab3">Roti</label>
+    <input type="radio" name="tabs" id="tab4" />
+    <label for="tab4">UniCode</label>
+    <div class="tab content1">
+      <textarea class="myCode" id="oot"></textarea>
+      <p></p>  
+         <button id="myFunction" type="button">Decode</button>
+      <p></p>
+    </div>
+    <div class="tab content2">    <br />
+      <textarea class="ab" id="Atob"></textarea>
+      <br />
+      <br />
+      <button id="ab" type="button">A to B</button>
+      <br />
+      <br />
+    </div>
+    <div class="tab content3">
+      <textarea class="myRot1" id="myRot1"></textarea>
+      <br />
+      <br />
+      <button id="rot1" type="button">Roti 1</button>
+      <br />
+      <br />
+    </div>
+    <div class="tab content4">
+      <textarea class="uni" id="uni"></textarea>
+      <br />
+      <br />
+      <button id="uniB" type="button">UniCode</button>
+    </div>
+    </body>
+  <script src="script.js"></script>
 </html>
