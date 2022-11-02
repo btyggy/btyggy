@@ -25,8 +25,9 @@
     </div>
 </body>
 <script>
-    const main = document.getElementById("main")
-    const edit = document.getElementById("edit")
+    d = document
+    const main = d.getElementById("main")
+    const edit = dS.getElementById("edit")
     edit.style.visibility = "hidden"
 
     const swop = () => {
@@ -39,7 +40,7 @@
      main.style.visibility = "hidden"
     }
 
-    d = document
+    
     d.getElementById("back").addEventListener("click", swop)
     d.getElementById("add").addEventListener("click", swopBack)
 
