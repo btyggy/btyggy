@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="b1" id="b1">
+    <button id="now" type="button">   now</button>
+</div>
+    
+    
+    <button id="later" >later</button>
+</body>
+
+
+
+<script>
+
+const now =document.getElementById("now")
+const later =document.getElementById("later")
+later.style.visibility="hidden"
+
+const swop=()=>{
+    later.style.visibility="hidden"
+    now.style.visibility="visible"
+    }
+    
+
+const swopBack=()=>{
+        later.style.visibility="visible"
+    now.style.visibility="hidden"
+    }
+
+
+    d=document
+    d.getElementById("now").addEventListener("click", swopBack)
+    d.getElementById("later").addEventListener("click", swop)
+    
+    
+    </script>
+</html>
