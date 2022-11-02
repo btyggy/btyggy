@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        .edit {
+            display: none;
+        }
+
+        .edit:target {
+            display: block;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+</head>
+
+<body>
+    <div class="main" id="main">
+        <button class="add" id="add">Add</button>
+        <div class="todoList" id="todoList">
+        </div>
+    </div>
+    <div class="edit" id="edit">
+        <button class="back" id="back">Back</button>
+        <button class="delete" id="delete">Delete</button>
+        <div class="title" id="title">Title
+            <input type="text" name="titleBox" id="titleBox">
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+</body>
+
+</html>
