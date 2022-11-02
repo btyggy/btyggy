@@ -25,20 +25,18 @@
     </div>
 </body>
 <script>
-
-
-    const now = document.getElementById("main")
-    const later = document.getElementById("edit")
-    later.style.visibility = "hidden"
+    const main = document.getElementById("main")
+    const edit = document.getElementById("edit")
+    edit.style.visibility = "hidden"
 
     const swop = () => {
-        later.style.visibility = "hidden"
-        now.style.visibility = "visible"
+        edit.style.visibility = "hidden"
+     main.style.visibility = "visible"
     }
 
     const swopBack = () => {
-        later.style.visibility = "visible"
-        now.style.visibility = "hidden"
+        edit.style.visibility = "visible"
+     main.style.visibility = "hidden"
     }
 
     d = document
