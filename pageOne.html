@@ -2,15 +2,6 @@
 <html lang="en">
 
 <head>
-    <style>
-        /* .edit {
-            display: none;
-        }
-
-        .edit:target {
-            display: block;
-        } */
-    </style>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,5 +24,27 @@
         </div>
     </div>
 </body>
+<script>
+
+
+    const now = document.getElementById("main")
+    const later = document.getElementById("edit")
+    later.style.visibility = "hidden"
+
+    const swop = () => {
+        later.style.visibility = "hidden"
+        now.style.visibility = "visible"
+    }
+
+    const swopBack = () => {
+        later.style.visibility = "visible"
+        now.style.visibility = "hidden"
+    }
+
+    d = document
+    d.getElementById("back").addEventListener("click", swop)
+    d.getElementById("add").addEventListener("click", swopBack)
+
+</script>
 
 </html>
