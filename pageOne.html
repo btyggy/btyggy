@@ -2,44 +2,56 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do</title>
+    <style>
+        .container {
+
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* grid-template-rows: 7% 7% 7%; */
+
+        }
+    </style>
 </head>
 
 <body>
-    <div class="main" id="main">
-        <button class="add" id="add">Add</button>
-        <div class="todoList" id="todoList">
+    <div class="container" id="container">
+        <div class="main" id="main">
+            <button class="add" id="add">Add</button>
+            <div class="todoList" id="todoList">
+            </div>
         </div>
-    </div>
-    <div class="edit" id="edit">
-        <button class="back" id="back">Back</button>
-        <button class="delete" id="delete">Delete</button>
-        <div class="title" id="title">Title
-            <input type="text" name="titleBox" id="titleBox">
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <div class="edit" id="edit">
+            <button class="back" id="back">Back</button>
+            <button class="delete" id="delete">Delete</button>
+            <div class="title" id="title">Title
+                <input type="text" name="titleBox" id="titleBox">
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            </div>
         </div>
+
     </div>
 </body>
 <script>
     d = document
     const main = d.getElementById("main")
     const edit = d.getElementById("edit")
-    edit.style.visibility = "hidden"
+    edit.style.visibility = "collapse"
 
     const swop = () => {
-        edit.style.visibility = "hidden"
-     main.style.visibility = "visible"
+        edit.style.visibility = "collapse"
+        main.style.visibility = "visible"
     }
 
     const swopBack = () => {
         edit.style.visibility = "visible"
-     main.style.visibility = "hidden"
+        main.style.visibility = "collapse"
     }
-    
+
     d.getElementById("back").addEventListener("click", swop)
     d.getElementById("add").addEventListener("click", swopBack)
 
