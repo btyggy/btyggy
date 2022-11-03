@@ -11,7 +11,7 @@
 
 
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
             /* grid-template-rows: 7% 7% 7%; */
 
         }
@@ -20,20 +20,30 @@
 
 <body>
     <div class="container" id="container">
-        <div class="main" id="main">
-            <button class="add" id="add">Add</button>
-            <div class="todoList" id="todoList">
-            </div>
-        </div>
-        <div class="edit" id="edit">
-            <button class="back" id="back">Back</button>
-            <button class="delete" id="delete">Delete</button>
-            <div class="title" id="title">Title
-                <input type="text" name="titleBox" id="titleBox">
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            </div>
-        </div>
+        <div class="wrapper">
+            <div class="main" id="main">
+                <button class="add" id="add">Add</button>
+                <div class="todoList" id="todoList">
+<ol>
+    <li>thing one</li>
+    <li>thing two</li>
+    <li>thing three</li>
+    <li>thing four</li>
 
+</ol>
+
+
+                </div>
+            </div>
+            <div class="edit" id="edit">
+                <button class="back" id="back">Back</button>
+                <button class="delete" id="delete">Delete</button>
+                <div class="title" id="title">Title
+                    <input type="text" name="titleBox" id="titleBox">
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script>

@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrap">
+        <ul class="list">
+          <li class="list--item">Dave</li>
+          <li class="list--item">Dee</li>
+          <li class="list--item">Dozy</li>
+        </ul>
+      </div>
+    
+      <script>
+    
+    var wrap = document.getElementById('wrap')
+    
+    wrap.addEventListener('click', event => {
+      // Check if it’s the list element, we want the clicks only from them
+      if (event.target.classList.contains('list--item')) {
+        document.write('The item ' + event.target.innerHTML + ' was just clicked')
+      }
+    })
+      </script>
+</body>
+</html>
