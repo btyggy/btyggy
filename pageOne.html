@@ -8,12 +8,9 @@
     <title>To Do</title>
     <style>
         .container {
-
-
             display: grid;
             grid-template-columns: 1fr;
             /* grid-template-rows: 7% 7% 7%; */
-
         }
     </style>
 </head>
@@ -24,15 +21,23 @@
             <div class="main" id="main">
                 <button class="add" id="add">Add</button>
                 <div class="todoList" id="todoList">
-<ol>
-    <li>thing one</li>
-    <li>thing two</li>
-    <li>thing three</li>
-    <li>thing four</li>
-
-</ol>
-
-
+                    <div id="wrap">
+                        <ul class="list">
+                            <li class="list--item">Dave</li>
+                            <li class="list--item">Dee</li>
+                            <li class="list--item">Dozy</li>
+                        </ul>
+                    </div>
+                    <div class="output" id="output"></div>
+                    <script>
+                        var wrap = document.getElementById('wrap')
+                        wrap.addEventListener('click', event => {
+                            // Check if it’s the list element, we want the clicks only from them
+                            if (event.target.classList.contains('list--item')) {
+                                document.getElementById("output").innerText = 'The item ' + event.target.innerHTML + ' was just clicked'
+                            }
+                        })
+                    </script>
                 </div>
             </div>
             <div class="edit" id="edit">
