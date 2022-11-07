@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <style>
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr) 3fr repeat(2, 1fr);
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            max-width: 300px;
+        }
+
+        .div1 {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        .div2 {
+            grid-area: 1 / 2 / 2 / 3;
+        }
+
+        .div3 {
+            grid-area: 1 / 3 / 2 / 4;
+        }
+
+        .div4 {
+            grid-area: 2 / 1 / 3 / 4;
+        }
+
+        .div5 {
+            grid-area: 3 / 1 / 4 / 4;
+        }
+
+
+        .title {
+            min-width: 100%;
+        }
+
+        .desc {
+            min-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="div1"><button>back</button></div>
+        <div class="div2">
+            <div class="space"></div>
+        </div>
+        <div class="div3"><button>Delete</button></div>
+        <div class="div4">Title <input class="title" type="text"> </div>
+        <div class="div5"><textarea class="desc" rows="10" name="desc" id=""> </textarea></div>
+    </div>
+
+</body>
+<script>
+    d = document
+    const main = d.getElementById("main")
+    const edit = d.getElementById("edit")
+    edit.style.visibility = "collapse"
+
+    const swop = () => {
+        edit.style.visibility = "collapse"
+        main.style.visibility = "visible"
+    }
+
+    const swopBack = () => {
+        edit.style.visibility = "visible"
+        main.style.visibility = "collapse"
+    }
+
+    d.getElementById("back").addEventListener("click", swop)
+    d.getElementById("add").addEventListener("click", swopBack)
+
+</script>
+
+</html>
