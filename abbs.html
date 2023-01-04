@@ -10,23 +10,30 @@
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr 0.8fr 1.2fr;
-            grid-template-rows: 1.1fr 2em 1fr;
+            grid-template-rows: 1fr 0.1fr 0.2fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
                 "canvas canvas canvas input"
                 "buttons buttons buttons buttons"
                 "male male female female";
+                margin: 1rem;
+                padding: 1rem;
+                border-radius: 5px;
+                box-shadow: 20px 20px 50px grey;
         }
 
         .canvas {
+            margin: 1rem;
+                padding: 1rem;
             grid-area: canvas;
+            background-color: black;
         }
 
         .input {
             display: grid;
             grid-template-columns: 0.3fr 2.4fr 0.3fr;
-            grid-template-rows: 0.2fr 2.6fr 0.2fr;
+            grid-template-rows: 0.2fr 1.5fr 0.2fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
@@ -86,14 +93,29 @@
     <div class="container">
         <div class="canvas">canvas</div>
         <div class="input">
-            <div class="inputAreat">input</div>
+            <div class="inputAreat">
+                Sheep name 
+                <input type="text" name="sheepName" id="sheepName">
+            Gender
+            <br>
+              <input type="radio" id="sex" name="male" value="1">
+              <label for="html">male</label>
+              <input type="radio" id="sex" name="female" value="0">
+              <label for="sex">female</label>
+            <br>
+            Age
+            <input type="number" name="age" id="age">
+            <br>
+<button>Add</button>
+
+            </div>
         </div>
-        <div class="buttons">breed</div>
+        <div class="buttons"><button>breed</button></div>
         <div class="male">
-            <div class="maleNames">male names</div>
+            <div class="maleNames"><textarea rows="4" cols="50" name="maleNames" id=""></textarea></div>
         </div>
         <div class="female">
-            <div class="femaleNames">female names</div>
+            <div class="femaleNames" ><textarea rows="4" cols="50" name="femaleNames" id=""></textarea></div>
         </div>
     </div>
 </body>
