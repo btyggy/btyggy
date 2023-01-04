@@ -7,10 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+        }
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr 0.8fr 1fr;
-            grid-template-rows: 1fr 0.05fr 0.1fr;
+            grid-template-rows: 0.1fr 0.01fr 0.01fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
@@ -18,7 +23,7 @@
                 "buttons buttons buttons buttons"
                 "male male female female";
             margin: 1rem;
-            padding: 1rem;
+            padding: 2%;
             border-radius: 5px;
             box-shadow: 5px 5px 10px grey;
         }
@@ -90,7 +95,7 @@
 </head>
 
 <body>
-    <img id="sheep" width="20" height="20" src="sheep.jpg" hidden>
+    <img id="sheep"  src="sheep.jpg" hidden>
 
     <div class="container">
         <div class="canvas">
@@ -117,14 +122,16 @@
         </div>
         <div class="buttons"><button>breed</button></div>
         <div class="male">
-            <div class="maleNames"><textarea rows="5" cols="30" name="maleNames" id=""></textarea></div>
+            <div class="maleNames"><p>Male</p>
+                <textarea rows="4" cols="30" name="maleNames" id=""></textarea></div>
         </div>
         <div class="female">
-            <div class="femaleNames"><textarea rows="5" cols="30" name="femaleNames" id=""></textarea></div>
+            <div class="femaleNames"><p>Female</p><textarea rows="4" cols="30" name="femaleNames" id=""></textarea></div>
         </div>
     </div>
 </body>
 <script>
+    
     window.onload = function () {
         var canvas = document.getElementById("canvas");
         var ctx = canvas.getContext("2d");
