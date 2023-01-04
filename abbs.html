@@ -9,8 +9,8 @@
     <style>
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr 0.8fr 1.2fr;
-            grid-template-rows: 1fr 0.1fr 0.2fr;
+            grid-template-columns: 1fr 1fr 0.8fr 1fr;
+            grid-template-rows: 1fr 0.05fr 0.1fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
@@ -20,7 +20,7 @@
             margin: 1rem;
             padding: 1rem;
             border-radius: 5px;
-            box-shadow: 20px 20px 50px grey;
+            box-shadow: 5px 5px 10px grey;
         }
 
         .canvas {
@@ -90,8 +90,13 @@
 </head>
 
 <body>
+    <img id="sheep" width="20" height="20" src="sheep.jpg" hidden>
+
     <div class="container">
-        <div class="canvas">canvas</div>
+        <div class="canvas">
+            <canvas id="canvas" style="border:1px solid;">
+            </canvas>
+        </div>
         <div class="input">
             <div class="inputAreat">
                 Sheep name
@@ -112,12 +117,22 @@
         </div>
         <div class="buttons"><button>breed</button></div>
         <div class="male">
-            <div class="maleNames"><textarea rows="4" cols="50" name="maleNames" id=""></textarea></div>
+            <div class="maleNames"><textarea rows="5" cols="30" name="maleNames" id=""></textarea></div>
         </div>
         <div class="female">
-            <div class="femaleNames"><textarea rows="4" cols="50" name="femaleNames" id=""></textarea></div>
+            <div class="femaleNames"><textarea rows="5" cols="30" name="femaleNames" id=""></textarea></div>
         </div>
     </div>
 </body>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var img = document.getElementById("sheep");
+        ctx.drawImage(img, 10, 10);
+        ctx.drawImage(img, 40, 40);
+    };
+
+</script>
 
 </html>
