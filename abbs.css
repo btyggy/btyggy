@@ -1,0 +1,61 @@
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 0.8fr 1.2fr;
+    grid-template-rows: 1.1fr 2em 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "canvas canvas canvas input"
+      "buttons buttons buttons buttons"
+      "male male female female";
+  }
+  
+  .canvas { grid-area: canvas; }
+  
+  .input {  display: grid;
+    grid-template-columns: 0.3fr 2.4fr 0.3fr;
+    grid-template-rows: 0.2fr 2.6fr 0.2fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". inputArea ."
+      ". . .";
+    grid-area: input;
+  }
+  
+  .inputArea { grid-area: inputArea; }
+  
+  .buttons {
+    justify-self: center;
+    align-self: center;
+    grid-area: buttons;
+  }
+  
+  .male {  display: grid;
+    grid-template-columns: 0.2fr 2.6fr 0.2fr;
+    grid-template-rows: 0.4fr 1.6fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". maleNames ."
+      ". . .";
+    grid-area: male;
+  }
+  
+  .maleNames { grid-area: maleNames; }
+  
+  .female {  display: grid;
+    grid-template-columns: 0.2fr 2.5fr 0.3fr;
+    grid-template-rows: 0.4fr 1.6fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". femaleNames ."
+      ". . .";
+    grid-area: female;
+  }
+  
+  .femaleNames { grid-area: femaleNames; }
+  
