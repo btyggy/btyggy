@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(203, 223, 224);
 
         }
+
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr 0.8fr 1fr;
-            grid-template-rows: 0.1fr 0.01fr 0.01fr;
-            gap: 0px 0px;
+            grid-template-columns: 1fr 1fr 0.7fr 1fr;
+            grid-template-rows: 0.01fr 0.001fr;
+            gap: 4px 4px;
             grid-auto-flow: row;
             grid-template-areas:
                 "canvas canvas canvas input"
@@ -26,19 +27,31 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
             padding: 2%;
             border-radius: 5px;
             box-shadow: 5px 5px 10px grey;
+            background-color: whitesmoke;
         }
 
         .canvas {
             margin: 1rem;
             padding: 1rem;
             grid-area: canvas;
-            background-color: black;
         }
+button {
+            border-radius: 5px;
+            outline-color: transparent;
+         height: 40px;
+         width: 50px;
+        }
+
+
+button:hover{
+background-color:bisque;
+S
+}
 
         .input {
             display: grid;
             grid-template-columns: 0.3fr 2.4fr 0.3fr;
-            grid-template-rows: 0.2fr 1.5fr 0.2fr;
+            grid-template-rows: 0.1fr .01fr 0.1fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
@@ -60,8 +73,8 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 
         .male {
             display: grid;
-            grid-template-columns: 0.2fr 2.6fr 0.2fr;
-            grid-template-rows: 0.4fr 1.6fr 1fr;
+            grid-template-columns: 0.2fr 2fr 0.2fr;
+            grid-template-rows: 0.4fr 1fr 0.4fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
@@ -77,8 +90,8 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 
         .female {
             display: grid;
-            grid-template-columns: 0.2fr 2.5fr 0.3fr;
-            grid-template-rows: 0.4fr 1.6fr 1fr;
+            grid-template-columns: 0.2fr 2fr 0.2fr;
+            grid-template-rows: 0.4fr 1fr 0.4fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
@@ -95,17 +108,19 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 </head>
 
 <body>
-    <img id="sheep"  src="sheep.jpg" hidden>
+    <img id="sheep" src="sheep.png" hidden>
 
     <div class="container">
         <div class="canvas">
-            <canvas id="canvas" style="border:1px solid;">
+            <canvas id="canvas" width="600px" height="300px" style="border:1px solid white;">
             </canvas>
         </div>
         <div class="input">
             <div class="inputAreat">
                 Sheep name
                 <input type="text" name="sheepName" id="sheepName">
+                <br>
+                <br>
                 Gender
                 <br>
                 <input type="radio" id="sex" name="sex" value="1">
@@ -113,27 +128,40 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
                 <input type="radio" id="sex" name="sex" value="0">
                 <label for="sex">female</label>
                 <br>
+                <br>
                 Age
                 <input type="number" name="age" id="age">
                 <br>
+                <br>
                 <button>Add</button>
-
+                <br>
+                <br>
+                <hr>
+                <br>
+                <button>breed</button>
             </div>
         </div>
-        <div class="buttons"><button>breed</button></div>
+
         <div class="male">
-            <div class="maleNames"><p>Male</p>
-                <textarea rows="4" cols="30" name="maleNames" id=""></textarea></div>
+            <div class="maleNames">
+                <p>Male</p>
+                <textarea rows="3" cols="30" name="maleNames" id=""></textarea>
+            </div>
         </div>
         <div class="female">
-            <div class="femaleNames"><p>Female</p><textarea rows="4" cols="30" name="femaleNames" id=""></textarea></div>
+            <div class="femaleNames">
+                <p>Female</p>
+                <textarea rows="3" cols="30" name="femaleNames" id=""></textarea>
+            </div>
         </div>
     </div>
 </body>
 <script>
-    
+
     window.onload = function () {
         var canvas = document.getElementById("canvas");
+
+        canvas.style.background = "green"
         var ctx = canvas.getContext("2d");
         var img = document.getElementById("sheep");
         ctx.drawImage(img, 10, 10);
