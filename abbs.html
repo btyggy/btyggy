@@ -1,13 +1,101 @@
-<div class="container">
-    <div class="canvas"></div>
-    <div class="input">
-      <div class="inputArea"></div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 0.8fr 1.2fr;
+            grid-template-rows: 1.1fr 2em 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "canvas canvas canvas input"
+                "buttons buttons buttons buttons"
+                "male male female female";
+        }
+
+        .canvas {
+            grid-area: canvas;
+        }
+
+        .input {
+            display: grid;
+            grid-template-columns: 0.3fr 2.4fr 0.3fr;
+            grid-template-rows: 0.2fr 2.6fr 0.2fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                ". . ."
+                ". inputArea ."
+                ". . .";
+            grid-area: input;
+        }
+
+        .inputArea {
+            grid-area: inputArea;
+        }
+
+        .buttons {
+            justify-self: center;
+            align-self: center;
+            grid-area: buttons;
+        }
+
+        .male {
+            display: grid;
+            grid-template-columns: 0.2fr 2.6fr 0.2fr;
+            grid-template-rows: 0.4fr 1.6fr 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                ". . ."
+                ". maleNames ."
+                ". . .";
+            grid-area: male;
+        }
+
+        .maleNames {
+            grid-area: maleNames;
+        }
+
+        .female {
+            display: grid;
+            grid-template-columns: 0.2fr 2.5fr 0.3fr;
+            grid-template-rows: 0.4fr 1.6fr 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                ". . ."
+                ". femaleNames ."
+                ". . .";
+            grid-area: female;
+        }
+
+        .femaleNames {
+            grid-area: femaleNames;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="canvas">canvas</div>
+        <div class="input">
+            <div class="inputArea"input></div>
+        </div>
+        <div class="buttons">breed</div>
+        <div class="male">
+            <div class="maleNames"male names></div>
+        </div>
+        <div class="female">
+            <div class="femaleNames"female names></div>
+        </div>
     </div>
-    <div class="buttons"></div>
-    <div class="male">
-      <div class="maleNames"></div>
-    </div>
-    <div class="female">
-      <div class="femaleNames"></div>
-    </div>
-  </div>
+</body>
+
+</html>
