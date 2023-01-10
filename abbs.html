@@ -7,6 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+div.border * { 
+  font-family: Verdana;
+  font-size: 8pt;
+}
+
+div.border {
+  border: 1px solid #000;
+  width: 268px;
+  height: 100px;
+  overflow-y: scroll;
+}
+table {
+  background: #fff;
+  border-collapse: collapse;
+}
+table, table tr, table td {
+  margin: 0;
+  padding: 0;
+}
+
+table td {
+  border: 1px solid #ccc;
+  width: 125px;
+}
+
+table td:nth-child(2) {
+  color: red;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+table input[type="text"] {
+  border: none;
+  outline: none;
+  width: 125px;
+}
+
+
+
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color: rgb(203, 223, 224);
@@ -142,6 +182,74 @@
             </div>
         </div>
 
+        <div class="border">
+            <table>
+             <tr>
+              <td id="msn1"></td>
+              <td id="msa1" ></td>
+             </tr>
+             <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+                <td></td>
+                <td></td>
+               </tr>
+               
+             <!-- More repeated rows -->
+            </table>
+           </div>
+
+
+
+
+
+
         <div class="male">
             <div class="maleNames">
                 <p>Male</p>
@@ -174,7 +282,8 @@
         sex = document.querySelector('input[name="sex"]:checked').value;
         age = document.getElementById("age").value
         sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-        document.getElementById("maleNames").value = fieldM
+        document.getElementById("msn1").innerText = fieldM[0][0]
+        document.getElementById("msa1").innerText = fieldM[0][1]
         document.getElementById("femaleNames").value = fieldF
     }
     document.getElementById("addBut").addEventListener("click", box1)
