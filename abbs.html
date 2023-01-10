@@ -134,7 +134,7 @@
                 <input type="number" name="age" id="age">
                 <br>
                 <br>
-                <button id="addBut" >Add</button>
+                <button id="addBut">Add</button>
                 <br>
                 <br>
                 <hr>
@@ -152,13 +152,14 @@
         <div class="female">
             <div class="femaleNames">
                 <p>Female</p>
-                <textarea rows="3" cols="30" name="femaleNames" id=""></textarea>
+                <textarea rows="3" cols="30" name="femaleNames" id="femaleNames"></textarea>
             </div>
         </div>
     </div>
 </body>
 <script>
-let field=[]
+    let fieldM = []
+    let fieldF = []
     window.onload = function () {
         var canvas = document.getElementById("canvas");
 
@@ -169,22 +170,17 @@ let field=[]
         ctx.drawImage(img, 40, 40);
     };
 
-const box1=()=>{
-    
-    sheepName=document.getElementById("sheepName").value
-    sex=document.querySelector('input[name="sex"]:checked').value;
-    age=document.getElementById("age").value
-    field.push([sheepName,sex,age])
+    const box1 = () => {
+        sheepName = document.getElementById("sheepName").value
+        sex = document.querySelector('input[name="sex"]:checked').value;
+        age = document.getElementById("age").value
+        fieldM.push([sheepName, sex, age])
+        fieldF.push([sheepName, sex, age])
+        document.getElementById("maleNames").value = fieldM
+        document.getElementById("femaleNames").value = fieldF
 
-
-
-    document.getElementById("maleNames").value=field
-    doucment.getElementById("maleNames").innerHTML="<br>"
-}
-document.getElementById("addBut").addEventListener("click",box1)
-
-
-
+    }
+    document.getElementById("addBut").addEventListener("click", box1)
 </script>
 
 </html>
