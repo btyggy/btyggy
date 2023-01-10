@@ -161,21 +161,23 @@
     let fieldM = []
     let fieldF = []
     window.onload = function () {
-        var canvas = document.getElementById("canvas");
+        var canvas = document.getElementById("canvas")
 
         canvas.style.background = "green"
-        var ctx = canvas.getContext("2d");
-        var img = document.getElementById("sheep");
-        ctx.drawImage(img, 10, 10);
-        ctx.drawImage(img, 40, 40);
-    };
+        var ctx = canvas.getContext("2d")
+        var img = document.getElementById("sheep")
+        ctx.drawImage(img, 10, 10)
+        ctx.drawImage(img, 40, 40)
+    }
 
     const box1 = () => {
         sheepName = document.getElementById("sheepName").value
         sex = document.querySelector('input[name="sex"]:checked').value;
         age = document.getElementById("age").value
-        fieldM.push([sheepName, sex, age])
-        fieldF.push([sheepName, sex, age])
+
+        sex==1?fieldM.push([sheepName,age]):fieldF.push([sheepName, age])
+        
+        
         document.getElementById("maleNames").value = fieldM
         document.getElementById("femaleNames").value = fieldF
 
