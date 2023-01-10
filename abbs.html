@@ -46,7 +46,6 @@
 
         button:hover {
             background-color: bisque;
-            S
         }
 
         .input {
@@ -174,13 +173,9 @@
         sheepName = document.getElementById("sheepName").value
         sex = document.querySelector('input[name="sex"]:checked').value;
         age = document.getElementById("age").value
-
-        sex==1?fieldM.push([sheepName,age]):fieldF.push([sheepName, age])
-        
-        
+        sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
         document.getElementById("maleNames").value = fieldM
         document.getElementById("femaleNames").value = fieldF
-
     }
     document.getElementById("addBut").addEventListener("click", box1)
 </script>
