@@ -7,43 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        div.border * {
+            font-family: Verdana;
+            font-size: 8pt;
+        }
 
-div.border * { 
-  font-family: Verdana;
-  font-size: 8pt;
-}
+        div.border {
+            border: 1px solid #000;
+            width: 268px;
+            height: 100px;
+            overflow-y: scroll;
+        }
 
-div.border {
-  border: 1px solid #000;
-  width: 268px;
-  height: 100px;
-  overflow-y: scroll;
-}
-table {
-  background: #fff;
-  border-collapse: collapse;
-}
-table, table tr, table td {
-  margin: 0;
-  padding: 0;
-}
+        table {
+            background: #fff;
+            border-collapse: collapse;
+        }
 
-table td {
-  border: 1px solid #ccc;
-  width: 125px;
-}
+        table,
+        table tr,
+        table td {
+            margin: 0;
+            padding: 0;
+        }
 
-table td:nth-child(2) {
-  color: red;
-  font-weight: bold;
-  padding: 0 5px;
-}
+        table td {
+            border: 1px solid #ccc;
+            width: 125px;
+        }
 
-table input[type="text"] {
-  border: none;
-  outline: none;
-  width: 125px;
-}
+        table td:nth-child(2) {
+            color: red;
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        table input[type="text"] {
+            border: none;
+            outline: none;
+            width: 125px;
+        }
 
 
 
@@ -184,72 +187,66 @@ table input[type="text"] {
 
         <div class="border">
             <table>
-             <tr>
-              <td id="msn1"></td>
-              <td id="msa1" ></td>
-             </tr>
-             <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               <tr>
-                <td></td>
-                <td></td>
-               </tr>
-               
-             <!-- More repeated rows -->
+                <tr>
+                    <td id="msn1"></td>
+                    <td id="msa1"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <!-- More repeated rows -->
             </table>
-           </div>
-
-
-
-
-
-
+        </div>
         <div class="male">
             <div class="maleNames">
                 <p>Male</p>
@@ -263,6 +260,44 @@ table input[type="text"] {
             </div>
         </div>
     </div>
+
+
+    <div id="images"></div>
+    <canvas
+        style="border:1px solid #000000;margin:0;padding:0;position:relative;left:50px;top:50px;width:300px;height:300px"
+        id="imgCanvas" width="150" height="150"></canvas>
+
+
+    <script>var canvas = document.getElementById("imgCanvas");
+        var context = canvas.getContext("2d");
+
+        function createImageOnCanvas(imageId) {
+            //canvas.style.display = "block";
+            //document.getElementById("images").style.overflowY = "hidden";
+            //var img = new Image(300, 300);
+            //img.src = document.getElementById(imageId).src;
+            //context.drawImage(img, (0), (0)); //onload....
+        }
+
+        function draw(e) {
+            var pos = getMousePos(canvas, e);
+            posx = pos.x;
+            posy = pos.y;
+            context.fillStyle = "#000000";
+            context.fillRect(posx, posy, 4, 4);
+        }
+        window.addEventListener('mousemove', draw, false);
+
+        function getMousePos(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+                y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+            };
+        }</script>
+
+
+
 </body>
 <script>
     let fieldM = []
