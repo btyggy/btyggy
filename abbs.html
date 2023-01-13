@@ -203,6 +203,7 @@
     let y1 = 0
     let x2 = 0
     let y2 = 0
+    let sheeps = []
 
     function draw(e) {
         var pos = getMousePos(canvas, e);
@@ -228,12 +229,22 @@
         sex = document.querySelector('input[name="sex"]:checked').value;
         age = document.getElementById("age").value
         sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-
+        sheeps.push([sheepName, sex, age, brand, xx, yy])
     }
 
+<<<<<<< HEAD
+    const moveS = () => {
+        colourRect(0, 0, 500, 500, "green")
+=======
     const moveS = (sheepX,sheepYm ,sheepId) => {
        colourRect(0, 0, 500, 500, "green")
+>>>>>>> 956e3db252d1068b9971383779afdb1bfcadfe65
         i > 500 ? i = 0 : i += 0.5
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 956e3db252d1068b9971383779afdb1bfcadfe65
         if (x1 > 460) x2 = -1
         if (x1 < 1) x2 = Math.random() * 2;
         x1 = x2 + x1
