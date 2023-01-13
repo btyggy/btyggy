@@ -229,49 +229,37 @@
         sex = document.querySelector('input[name="sex"]:checked').value
         age = document.getElementById("age").value
         sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-        sheeps.push([sheepName, sex, age, 0, Math.floor(Math.random() * 499), Math.floor(Math.random() * 499),1,1])
+        sheeps.push([sheepName, sex, age, 0, Math.floor(Math.random() * 499), Math.floor(Math.random() * 499), 1, 1])
     }
 
-
-    const moveS = (sheepX,sheepY,x2,y2) => {
-    
+    const moveS = (sheepX, sheepY, x2, y2) => {
         // i > 500 ? i = 0 : i += 0.5
-
         if (sheepX > 460) x2 = -1
-        if (sheepX < 1) x2 = Math.random() * 2
+        if (sheepX < 1) x2 = Math.random() * 1
         sheepX = x2 + sheepX
         if (sheepY > 460) y2 = -1
-        if (sheepY < 1) y2 = Math.random() * 2
+        if (sheepY < 1) y2 = Math.random() * 1
         sheepY = y2 + sheepY
         // ctx.drawImage(imgG, 40, 40 + i)
         ctx.drawImage(img, sheepX, sheepY)
         // ctx.drawImage(img, posx, posy)// sheep to mouse
         document.getElementById("listy").innerHTML = sheeps
-   return [sheepX,sheepY,x2,y2]
+        return [sheepX, sheepY, x2, y2]
     }
 
-
-const moveSA=()=>{
-colourRect(0, 0, 500, 500, "green")
-t=0
-    sheeps.forEach(e=>{
-     
-    r=moveS(e[4],e[5],e[6],e[7])
-[sheeps[t][4],sheeps[t][5],sheeps[t][6],sheeps[t][7]
-
-    t+=1
-
-console.log(e[0][4])
-
-
-})
-
-}
-
+    const moveSA = () => {
+        colourRect(0, 0, 500, 500, "green")
+        t = 0
+        sheeps.forEach(e => {
+            [sheeps[t][4], sheeps[t][5], sheeps[t][6], sheeps[t][7]] = moveS(e[4], e[5], e[6], e[7])
+            t += 1
+            // console.log(e[0][4])
+        })
+    }
 
     document.getElementById("addBut").addEventListener("click", box1)
     window.addEventListener('mousemove', draw, false);
-    setInterval(moveSA, 5);
+    setInterval(moveSA, 40);
 </script>
 
 </html>
