@@ -231,19 +231,15 @@
 
     }
 
-    const moveS = () => {
+    const moveS = (sheepX,sheepYm ,sheepId) => {
        colourRect(0, 0, 500, 500, "green")
         i > 500 ? i = 0 : i += 0.5
-        
-
         if (x1 > 460) x2 = -1
         if (x1 < 1) x2 = Math.random() * 2;
         x1 = x2 + x1
-
         if (y1 > 460) y2 = -1
         if (y1 < 1) y2 = Math.random() * 2;
         y1 = y2 + y1
-
         ctx.drawImage(imgG, 40, 40 + i)
         ctx.drawImage(img, x1, y1)
         ctx.drawImage(img, posx, posy)
