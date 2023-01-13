@@ -222,13 +222,15 @@
         ctx.fillStyle = drawColor
         ctx.fillRect(leftX, topY, width, height)
     }
+const rando=(i)=>Math.floor(Math.random() * i)
+
 
     const box1 = () => {
         sheepName = document.getElementById("sheepName").value
         sex = document.querySelector('input[name="sex"]:checked').value
         age = document.getElementById("age").value
         sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-        sheeps.push([sheepName, sex, age, 0, Math.floor(Math.random() * 499), Math.floor(Math.random() * 499), 1, 1])
+        sheeps.push([sheepName, sex, age, 0, rando(499), rando(499), rando(10)>5?1:-1, rando(10)>5?1:-1])
     }
 
     const moveS = (sheepX, sheepY, x2, y2) => {
@@ -252,13 +254,12 @@
         sheeps.forEach(e => {
             [sheeps[t][4], sheeps[t][5], sheeps[t][6], sheeps[t][7]] = moveS(e[4], e[5], e[6], e[7])
             t += 1
-            // console.log(e[0][4])
         })
     }
 
     document.getElementById("addBut").addEventListener("click", box1)
     window.addEventListener('mousemove', draw, false);
-    setInterval(moveSA, 40);
+    setInterval(moveSA, 5);
 </script>
 
 </html>
