@@ -188,6 +188,7 @@
     <div id="listy"></div>
 
 </body>
+
 <script>
     let fieldM = []
     let fieldF = []
@@ -217,11 +218,6 @@
         ctx.fillRect(leftX, topY, width, height)
     }
 
-    window.onload = function () {
-        ctx.drawImage(img, 10, 10)
-        ctx.drawImage(imgG, 40, 40)
-    }
-
     const box1 = () => {
         sheepName = document.getElementById("sheepName").value
         sex = document.querySelector('input[name="sex"]:checked').value;
@@ -229,17 +225,18 @@
         sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
       
     }
+
     const moveS = () => {
         colourRect(0, 0, 600, 400, "green")
-        i > 240 ? i = 0 : i += 2
+        i > 340 ? i = 0 : i += 2
         ctx.drawImage(imgG, 40, 40 + i)
         ctx.drawImage(img, 50 + i, 80)
         document.getElementById("listy").innerText = i
     }
+
     document.getElementById("addBut").addEventListener("click", box1)
-    window.addEventListener('mousemove', draw, false);
-    
-    setInterval(moveS, 20);
+    window.addEventListener('mousemove', draw, false); 
+    setInterval(moveS, 10);
 </script>
 
 </html>
