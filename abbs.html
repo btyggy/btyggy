@@ -197,12 +197,13 @@
     let imgG = document.getElementById("sheepG")
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d")
+    let posx
+    let posy
 
     function draw(e) {
         var pos = getMousePos(canvas, e);
         posx = pos.x;
         posy = pos.y;
-        ctx.drawImage(img, posx, posy)
     }
 
     function getMousePos(canvas, evt) {
@@ -228,9 +229,10 @@
 
     const moveS = () => {
         colourRect(0, 0, 600, 400, "green")
-        i > 340 ? i = 0 : i += 2
+        i > 340 ? i = 0 : i += 0.5
         ctx.drawImage(imgG, 40, 40 + i)
         ctx.drawImage(img, 50 + i, 80)
+        ctx.drawImage(img, posx, posy)
         document.getElementById("listy").innerText = i
     }
 
