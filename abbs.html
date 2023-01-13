@@ -242,8 +242,8 @@
         sheepY = y2 + sheepY
         // ctx.drawImage(imgG, 40, 40 + i)
         ctx.drawImage(img, sheepX, sheepY)
-        // ctx.drawImage(img, posx, posy)// sheep to mouse
-        document.getElementById("listy").innerHTML = sheeps
+        ctx.drawImage(img, posx, posy)// sheep to mouse
+        // document.getElementById("listy").innerHTML = sheeps
         return [sheepX, sheepY, x2, y2]
     }
 
