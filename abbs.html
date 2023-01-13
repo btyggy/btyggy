@@ -194,8 +194,7 @@
     let i = 0
 
     var canvas = document.getElementById("canvas");
-    var context = canvas.getContext("2d");
-
+    var ctx = canvas.getContext("2d")
 
     function draw(e) {
         var pos = getMousePos(canvas, e);
@@ -221,7 +220,7 @@
     var canvas = document.getElementById("canvas")
 
     canvas.style.background = "white"
-    var ctx = canvas.getContext("2d")
+   
     var img = document.getElementById("sheep")
     var imgG = document.getElementById("sheepG")
 
