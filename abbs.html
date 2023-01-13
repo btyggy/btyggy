@@ -192,17 +192,13 @@
 <script>
     let fieldM = []
     let fieldF = []
+    let sheeps = []
     let i = 0
     let img = document.getElementById("sheep")
     let imgG = document.getElementById("sheepG")
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d")
-    let posx, posy
-    let x1 = 0
-    let y1 = 0
-    let x2 = 0
-    let y2 = 0
-    let sheeps = []
+    let x1 ,y1 ,x2 ,y2,posx, posy
 
     function draw(e) {
         var pos = getMousePos(canvas, e);
