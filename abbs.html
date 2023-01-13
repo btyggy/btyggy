@@ -226,32 +226,52 @@
 
     const box1 = () => {
         sheepName = document.getElementById("sheepName").value
-        sex = document.querySelector('input[name="sex"]:checked').value;
+        sex = document.querySelector('input[name="sex"]:checked').value
         age = document.getElementById("age").value
         sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-        sheeps.push([sheepName, sex, age, brand, xx, yy])
+        sheeps.push([sheepName, sex, age, 0, Math.floor(Math.random() * 499), Math.floor(Math.random() * 499),1,1])
     }
 
 
-    const moveS = (sheepX,sheepYm ,sheepId) => {
-       colourRect(0, 0, 500, 500, "green")
-        i > 500 ? i = 0 : i += 0.5
+    const moveS = (sheepX,sheepY,x2,y2) => {
+    
+        // i > 500 ? i = 0 : i += 0.5
 
-        if (x1 > 460) x2 = -1
-        if (x1 < 1) x2 = Math.random() * 2;
-        x1 = x2 + x1
-        if (y1 > 460) y2 = -1
-        if (y1 < 1) y2 = Math.random() * 2;
-        y1 = y2 + y1
-        ctx.drawImage(imgG, 40, 40 + i)
-        ctx.drawImage(img, x1, y1)
-        ctx.drawImage(img, posx, posy)
-        document.getElementById("listy").innerText = i
+        if (sheepX > 460) x2 = -1
+        if (sheepX < 1) x2 = Math.random() * 2
+        sheepX = x2 + sheepX
+        if (sheepY > 460) y2 = -1
+        if (sheepY < 1) y2 = Math.random() * 2
+        sheepY = y2 + sheepY
+        // ctx.drawImage(imgG, 40, 40 + i)
+        ctx.drawImage(img, sheepX, sheepY)
+        // ctx.drawImage(img, posx, posy)// sheep to mouse
+        document.getElementById("listy").innerHTML = sheeps
+   return [sheepX,sheepY,x2,y2]
     }
+
+
+const moveSA=()=>{
+colourRect(0, 0, 500, 500, "green")
+t=0
+    sheeps.forEach(e=>{
+     
+    r=moveS(e[4],e[5],e[6],e[7])
+[sheeps[t][4],sheeps[t][5],sheeps[t][6],sheeps[t][7]
+
+    t+=1
+
+console.log(e[0][4])
+
+
+})
+
+}
+
 
     document.getElementById("addBut").addEventListener("click", box1)
     window.addEventListener('mousemove', draw, false);
-    setInterval(moveS, 5);
+    setInterval(moveSA, 5);
 </script>
 
 </html>
