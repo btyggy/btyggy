@@ -153,7 +153,7 @@
 
     <div class="container">
         <div class="canvas">
-            <canvas id="canvas" width="600px" height="300px" style="border:1px solid white;">
+            <canvas id="canvas" width="500px" height="500px" style="border:1px solid white;">
             </canvas>
         </div>
         <div class="input">
@@ -199,6 +199,10 @@
     let ctx = canvas.getContext("2d")
     let posx
     let posy
+    let x1 = 0
+    let y1 = 0
+    let x2 = 0
+    let y2 = 0
 
     function draw(e) {
         var pos = getMousePos(canvas, e);
@@ -224,21 +228,31 @@
         sex = document.querySelector('input[name="sex"]:checked').value;
         age = document.getElementById("age").value
         sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-      
+
     }
 
     const moveS = () => {
-        colourRect(0, 0, 600, 400, "green")
-        i > 340 ? i = 0 : i += 0.5
+       colourRect(0, 0, 500, 500, "green")
+        i > 500 ? i = 0 : i += 0.5
+        
+
+        if (x1 > 460) x2 = -1
+        if (x1 < 1) x2 = Math.random() * 2;
+        x1 = x2 + x1
+
+        if (y1 > 460) y2 = -1
+        if (y1 < 1) y2 = Math.random() * 2;
+        y1 = y2 + y1
+
         ctx.drawImage(imgG, 40, 40 + i)
-        ctx.drawImage(img, 50 + i, 80)
+        ctx.drawImage(img, x1, y1)
         ctx.drawImage(img, posx, posy)
         document.getElementById("listy").innerText = i
     }
 
     document.getElementById("addBut").addEventListener("click", box1)
-    window.addEventListener('mousemove', draw, false); 
-    setInterval(moveS, 10);
+    window.addEventListener('mousemove', draw, false);
+    setInterval(moveS, 5);
 </script>
 
 </html>
