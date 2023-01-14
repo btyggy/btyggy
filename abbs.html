@@ -312,20 +312,20 @@
 
     let canvas = d.getElementById("canvas");
     let ctx = canvas.getContext("2d")
-    let x1, y1, x2, y2, posx, posy
+    let x1, y1, x2, y2, posx, posy, br
+    let q = 0
 
 
     const types = {
         0: img,
-        1: imgG,
+        1: onion,
         2: otherSheep,
-        3: onion
+        3: imgG
     }
 
+    const rando = (i) => Math.floor(Math.random() * i)
 
-
-
-    function draw(e) {
+    const draw = (e) => {
         var pos = getMousePos(canvas, e);
         posx = pos.x;
         posy = pos.y;
@@ -346,23 +346,24 @@
         ctx.fillRect(leftX, topY, width, height)
     }
 
-    const rando = (i) => Math.floor(Math.random() * i)
+
 
     const box1 = () => {
         sheepName = d.getElementById("sheepName").value
         sex = d.querySelector('input[name="sex"]:checked').value
         age = d.getElementById("age").value
-        // sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-        
-        
-        sheeps.push([sheepName, sex, age, rando(4), rando(499), rando(499), rando(10) > 5 ? 1 : -1, rando(10) > 5 ? 1 : -1])
+        if (q > 9) {
+            sheepName = "Onion"
+            sex = 1
+            age = 6
+            br = 1
+            q = 0
+        } else {
+            br = 0
+            q += 1
+        }
+        sheeps.push([sheepName, sex, age, br, rando(499), rando(499), rando(10) > 5 ? 1 : -1, rando(10) > 5 ? 1 : -1])
     }
-
-
-
-
-
-
 
     const moveS = (sheepX, sheepY, x2, y2, brand) => {
         // i > 500 ? i = 0 : i += 0.5
@@ -372,21 +373,14 @@
         if (sheepY > 460) y2 = -1
         if (sheepY < 1) y2 = Math.random() * 1
         sheepY = y2 + sheepY
-
-
-
-
-
-        // ctx.drawImage(imgG, 40, 40 + i)
-     ctx.drawImage(types[brand], sheepX, sheepY)
-        ctx.drawImage(otherSheep, posx, posy)// sheep to mouse
-        // d.getElementById("listy").innerHTML = sheeps
+        ctx.drawImage(types[brand], sheepX, sheepY)
+        // sheep to mouse
+        ctx.drawImage(otherSheep, posx, posy)
         return [sheepX, sheepY, x2, y2]
     }
 
     const moveSA = () => {
         colourRect(0, 0, 500, 500, "green")
-
         sheeps.forEach((e, i) => {
             [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(e[4], e[5], e[6], e[7], e[3])
         })
