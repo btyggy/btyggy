@@ -67,7 +67,7 @@
         sheepY = y2 + sheepY
         ctx.drawImage(types[brand], sheepX, sheepY)
         // sheep to mouse
-        ctx.drawImage(otherSheep, posx, posy)
+        ctx.drawImage(types[2], posx, posy)
         return [sheepX, sheepY, x2, y2]
     }
 
