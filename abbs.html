@@ -200,6 +200,16 @@
         }
 
         /* edit */
+
+        .inputAreat{
+
+background-color: whitesmoke;
+padding: 10px;
+margin: 10px;
+border-radius: 5px;
+box-shadow: 5px 5px 10px rgb(47, 47, 47);
+
+        }
     </style>
 </head>
 
@@ -212,10 +222,10 @@
 
             <!-- edit -->
             <div class="wrapper">
-                <a href="#demo-modal">Rules and About</a>
+                <a href="#modal">Rules</a>
             </div>
 
-            <div id="demo-modal" class="modal">
+            <div id="modal" class="modal">
                 <div class="modal__content">
                     <h2>Rules</h2>
                     <p>
@@ -232,7 +242,7 @@
                     <ul>
                         <li>Google</li>
                         <li>Youtube</li>
-                        <li>Stackoverflow</li>
+                        <li>w3schools/Stackoverflow</li>
                     </ul>
                     </p>
                     <h2>
@@ -302,6 +312,8 @@
         var pos = getMousePos(canvas, e);
         posx = pos.x;
         posy = pos.y;
+
+        d.getElementById("listy").innerText=posx
     }
 
     function getMousePos(canvas, evt) {
