@@ -68,7 +68,7 @@
             padding: 2%;
             border-radius: 5px;
             box-shadow: 5px 5px 10px grey;
-            background-color: whitesmoke;
+            background-color: green;
         }
 
         .canvas {
@@ -144,6 +144,62 @@
         .femaleNames {
             grid-area: femaleNames;
         }
+
+
+        /* edit */
+        .wrapper {
+            background-color: green;
+
+        }
+
+        .wrapper a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 5px;
+            background-color: #ccc;
+            border-radius: 5px;
+            color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .modal {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(77, 77, 77, .7);
+            transition: all .4s;
+        }
+
+        .modal:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal__content {
+            border-radius: 5px;
+            position: relative;
+            width: 400px;
+            max-width: 90%;
+            background: #fff;
+            padding: 1em 2em;
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #585858;
+            text-decoration: none;
+        }
+
+        /* edit */
     </style>
 </head>
 
@@ -153,6 +209,48 @@
 
     <div class="container">
         <div class="canvas">
+
+            <!-- edit -->
+            <div class="wrapper">
+                <a href="#demo-modal">Rules and About</a>
+            </div>
+
+            <div id="demo-modal" class="modal">
+                <div class="modal__content">
+                    <h2>Rules</h2>
+                    <p>
+                    <ul>
+                        <li>Click anywhere to add sheep.</li>
+                        <li>For sheep, you must provide a name , sex, and age.</li>
+                        <li>You can brand/breed sheep by clicking on them.</li>
+                        <li>You need to click two sheep to breed.</li>
+                        <li>When sheep get to 15, they will be given two pair of boots, a bacpack and hat. They will then go off to travel the world.</li>
+                    </ul>
+
+                    <p>Thanks to:</p>
+                    <ul>
+                        <li>Google</li>
+                        <li>Youtube</li>
+                        <li>Stackoverflow</li>
+                    </ul>
+                    </p>
+<h2>
+
+Other Rules
+</h2>
+
+
+<p>
+    Branded sheep are not supposed to breed , I am not doing that.
+    </p>
+<p> Onion the cat will slip under the fence now and again. She will invite sheep from other farms to stay. She will come and go as she feels, she is a cat.
+</p>
+
+                    <a href="#" class="modal__close">&times;</a>
+                </div>
+            </div>
+            <!-- edit -->
+
             <canvas id="canvas" width="500px" height="500px" style="border:1px solid white;">
             </canvas>
         </div>
@@ -244,11 +342,8 @@
 
     const moveSA = () => {
         colourRect(0, 0, 500, 500, "green")
-        colourRect(10, 10, 70, 30, "white")
 
-        ctx.font = "30px Arial";
-ctx.fillText("sheeps", 12, 12);
-        sheeps.forEach((e,i) => {
+        sheeps.forEach((e, i) => {
             [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(e[4], e[5], e[6], e[7], e[3])
         })
     }
