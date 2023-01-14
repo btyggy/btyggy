@@ -277,8 +277,6 @@
         var pos = getMousePos(canvas, e);
         posx = pos.x;
         posy = pos.y;
-
-        // d.getElementById("listy").innerText = posx
     }
 
     function getMousePos(canvas, evt) {
@@ -331,17 +329,12 @@
         })
     }
     const clicky = () => {
-
         let cr = " "
         sheeps.forEach(e => {
             if (e[4] >= posx - 20 && e[4] <= posx + 20 && e[5] >= posy - 20 && e[5] <= posy + 20) {
                 cr = e[0]
-
-
             }
             d.getElementById("listy2").innerText = cr
-
-
         })
     }
 
