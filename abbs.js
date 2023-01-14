@@ -18,9 +18,7 @@
 
     const rando = (i) => Math.floor(Math.random() * i)
 
-    const playAudio = (url) => {
-        new Audio(url).play();
-    }
+    const playAudio = (url) => new Audio(url).play()
 
     const draw = (e) => {
         var pos = getMousePos(canvas, e);
