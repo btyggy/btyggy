@@ -240,6 +240,7 @@
     </div>
 
     <div id="listy"></div>
+    <div id="listy2"></div>
 
 </body>
 
@@ -267,9 +268,9 @@
 
     const rando = (i) => Math.floor(Math.random() * i)
 
-    const playAudio=(url)=> {
-  new Audio(url).play();
-}
+    const playAudio = (url) => {
+        new Audio(url).play();
+    }
 
 
     const draw = (e) => {
@@ -277,7 +278,7 @@
         posx = pos.x;
         posy = pos.y;
 
-        d.getElementById("listy").innerText = posx
+        // d.getElementById("listy").innerText = posx
     }
 
     function getMousePos(canvas, evt) {
@@ -332,10 +333,32 @@
             [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(e[4], e[5], e[6], e[7], e[3])
         })
     }
+    const clicky = () => {
+        sheeps.forEach(e =>{
+    
+    
+    if (e[4] >= posx - 20 && e[4] <= posx + 20 &&e[5] >= posy - 20 && e[5] <= posy + 20) { 
+
+
+        d.getElementById("listy2").innerText=e[0]
+    }
+    
+    
+    
+        })
+
+
+        // d.getElementById("listy2").innerText = "mouse"
+
+
+
+    }
+
 
     d.getElementById("addBut").addEventListener("click", box1)
     window.addEventListener('mousemove', draw, false);
-    setInterval(moveSA, 5);
+    window.addEventListener('click', clicky, false)
+    setInterval(moveSA, 40);
 </script>
 
 </html>
