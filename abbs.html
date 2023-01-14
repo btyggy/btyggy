@@ -201,13 +201,13 @@
 
         /* edit */
 
-        .inputAreat{
+        .inputAreat {
 
-background-color: whitesmoke;
-padding: 10px;
-margin: 10px;
-border-radius: 5px;
-box-shadow: 5px 5px 10px rgb(47, 47, 47);
+            background-color: whitesmoke;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px rgb(47, 47, 47);
 
         }
     </style>
@@ -216,8 +216,8 @@ box-shadow: 5px 5px 10px rgb(47, 47, 47);
 <body>
     <img id="sheep" src="sheep.png" hidden>
     <img id="sheepG" src="sheepG.png" hidden>
-    <img id="onion" src="cat.png" >
-    <img id="otherSheep" src="sheepP.png" >
+    <img id="onion" src="cat.png" hidden>
+    <img id="otherSheep" src="sheepP.png" hidden>
 
     <div class="container">
         <div class="canvas">
@@ -306,16 +306,31 @@ box-shadow: 5px 5px 10px rgb(47, 47, 47);
     let sheeps = []
     let img = d.getElementById("sheep")
     let imgG = d.getElementById("sheepG")
+
+    let onion = d.getElementById("onion")
+    let otherSheep = d.getElementById("otherSheep")
+
     let canvas = d.getElementById("canvas");
     let ctx = canvas.getContext("2d")
     let x1, y1, x2, y2, posx, posy
+
+
+    const types = {
+        0: img,
+        1: imgG,
+        2: otherSheep,
+        3: onion
+    }
+
+
+
 
     function draw(e) {
         var pos = getMousePos(canvas, e);
         posx = pos.x;
         posy = pos.y;
 
-        d.getElementById("listy").innerText=posx
+        d.getElementById("listy").innerText = posx
     }
 
     function getMousePos(canvas, evt) {
@@ -338,8 +353,16 @@ box-shadow: 5px 5px 10px rgb(47, 47, 47);
         sex = d.querySelector('input[name="sex"]:checked').value
         age = d.getElementById("age").value
         // sex == 1 ? fieldM.push([sheepName, age]) : fieldF.push([sheepName, age])
-        sheeps.push([sheepName, sex, age, rando(2), rando(499), rando(499), rando(10) > 5 ? 1 : -1, rando(10) > 5 ? 1 : -1])
+        
+        
+        sheeps.push([sheepName, sex, age, rando(4), rando(499), rando(499), rando(10) > 5 ? 1 : -1, rando(10) > 5 ? 1 : -1])
     }
+
+
+
+
+
+
 
     const moveS = (sheepX, sheepY, x2, y2, brand) => {
         // i > 500 ? i = 0 : i += 0.5
@@ -349,9 +372,14 @@ box-shadow: 5px 5px 10px rgb(47, 47, 47);
         if (sheepY > 460) y2 = -1
         if (sheepY < 1) y2 = Math.random() * 1
         sheepY = y2 + sheepY
+
+
+
+
+
         // ctx.drawImage(imgG, 40, 40 + i)
-        brand == 0 ? ctx.drawImage(img, sheepX, sheepY) : ctx.drawImage(imgG, sheepX, sheepY)
-        ctx.drawImage(img, posx, posy)// sheep to mouse
+     ctx.drawImage(types[brand], sheepX, sheepY)
+        ctx.drawImage(otherSheep, posx, posy)// sheep to mouse
         // d.getElementById("listy").innerHTML = sheeps
         return [sheepX, sheepY, x2, y2]
     }
