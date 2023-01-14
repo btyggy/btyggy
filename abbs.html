@@ -208,7 +208,9 @@
             <!-- edit -->
 
             <canvas id="canvas" width="500px" height="500px" style="border:1px solid white; cursor: none;">
+
             </canvas>
+            <div id="listy2"></div>
         </div>
         <div class="input">
             <div class="inputAreat">
@@ -240,7 +242,7 @@
     </div>
 
     <div id="listy"></div>
-    <div id="listy2"></div>
+
 
 </body>
 
@@ -258,7 +260,6 @@
     let x1, y1, x2, y2, posx, posy, br
     let q = 0
 
-
     const types = {
         0: img,
         1: onion,
@@ -271,7 +272,6 @@
     const playAudio = (url) => {
         new Audio(url).play();
     }
-
 
     const draw = (e) => {
         var pos = getMousePos(canvas, e);
@@ -294,8 +294,6 @@
         ctx.fillRect(leftX, topY, width, height)
     }
 
-
-
     const box1 = () => {
         sheepName = d.getElementById("sheepName").value
         sex = d.querySelector('input[name="sex"]:checked').value
@@ -314,7 +312,6 @@
     }
 
     const moveS = (sheepX, sheepY, x2, y2, brand) => {
-        // i > 500 ? i = 0 : i += 0.5
         if (sheepX > 460) x2 = -1
         if (sheepX < 1) x2 = Math.random() * 1
         sheepX = x2 + sheepX
@@ -334,26 +331,19 @@
         })
     }
     const clicky = () => {
-        sheeps.forEach(e =>{
-    
-    
-    if (e[4] >= posx - 20 && e[4] <= posx + 20 &&e[5] >= posy - 20 && e[5] <= posy + 20) { 
+
+        let cr = " "
+        sheeps.forEach(e => {
+            if (e[4] >= posx - 20 && e[4] <= posx + 20 && e[5] >= posy - 20 && e[5] <= posy + 20) {
+                cr = e[0]
 
 
-        d.getElementById("listy2").innerText=e[0]
-    }
-    
-    
-    
+            }
+            d.getElementById("listy2").innerText = cr
+
+
         })
-
-
-        // d.getElementById("listy2").innerText = "mouse"
-
-
-
     }
-
 
     d.getElementById("addBut").addEventListener("click", box1)
     window.addEventListener('mousemove', draw, false);
