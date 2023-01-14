@@ -210,7 +210,28 @@
             box-shadow: 5px 5px 10px rgb(47, 47, 47);
 
         }
-    </style>
+
+
+        .age{
+
+    width: 20px;
+}
+
+
+        /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+</style>
 </head>
 
 <body>
@@ -265,7 +286,7 @@
             </div>
             <!-- edit -->
 
-            <canvas id="canvas" width="500px" height="500px" style="border:1px solid white;">
+            <canvas id="canvas" width="500px" height="500px" style="border:1px solid white; cursor: none;">
             </canvas>
         </div>
         <div class="input">
@@ -283,7 +304,7 @@
                 <br>
                 <br>
                 Age
-                <input type="number" name="age" id="age">
+                <input type="tel" class="age" name="age" id="age" maxlength="2" min="1" max="14" >
                 <br>
                 <br>
                 <button id="addBut">Add</button>
