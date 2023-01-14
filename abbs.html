@@ -167,6 +167,7 @@
     <img id="sheepG" src="sheepG.png" hidden>
     <img id="onion" src="cat.png" hidden>
     <img id="otherSheep" src="sheepP.png" hidden>
+
     <div class="container">
         <div class="canvas">
             <!-- edit -->
@@ -227,7 +228,7 @@
                 <input type="tel" class="age" name="age" id="age" maxlength="2" min="1" max="14">
                 <br>
                 <br>
-                <button id="addBut">Add</button>
+                <button id="addBut" onclick="playAudio('sheep.mp3')">Add</button>
                 <br>
                 <br>
                 <hr>
@@ -265,6 +266,11 @@
     }
 
     const rando = (i) => Math.floor(Math.random() * i)
+
+    const playAudio=(url)=> {
+  new Audio(url).play();
+}
+
 
     const draw = (e) => {
         var pos = getMousePos(canvas, e);
