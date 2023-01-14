@@ -6,6 +6,10 @@
     let otherSheep = d.getElementById("otherSheep")
     let canvas = d.getElementById("canvas");
     let ctx = canvas.getContext("2d")
+    let sheepName = d.getElementById("sheepName")
+    let sex = d.querySelector('input[name="sex"]:checked')
+    let age = d.getElementById("age")
+
     let x1, y1, x2, y2, posx, posy, br
     let q = 0
 
@@ -40,9 +44,6 @@
     }
 
     const addSheep = () => {
-        sheepName = d.getElementById("sheepName").value
-        sex = d.querySelector('input[name="sex"]:checked').value
-        age = d.getElementById("age").value
         if (q > 9) {
             sheepName = "Onion"
             sex = 1
@@ -53,7 +54,7 @@
             br = 0
             q += 1
         }
-        sheeps.push([sheepName, sex, age, br, rando(499), rando(499), rando(10) > 5 ? 1 : -1, rando(10) > 5 ? 1 : -1])
+        sheeps.push([sheepName.value, sex.value, age.value, br, rando(499), rando(499), rando(10) > 5 ? 1 : -1, rando(10) > 5 ? 1 : -1])
     }
 
     const moveS = (sheepX, sheepY, x2, y2, brand) => {
