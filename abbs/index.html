@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="abbs.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <img id="sheep" src="sheep.png" hidden>
+    <img id="sheepG" src="sheepG.png" hidden>
+    <img id="onion" src="cat.png" hidden>
+    <img id="otherSheep" src="sheepP.png" hidden>
+
+    <div class="container">
+        <div class="canvas">
+            <!-- edit -->
+            <div class="wrapper">
+                <a href="#modal">Rules</a>
+            </div>
+            <div id="modal" class="modal">
+                <div class="modal__content">
+                    <h2>Rules</h2>
+                    <p>
+                    <ul>
+                        <li>Click anywhere to add sheep.</li>
+                        <li>For sheep, you must provide a name , sex, and age.</li>
+                        <li>You can brand/breed sheep by clicking on them.</li>
+                        <li>You need to click two sheep to breed.</li>
+                        <li>When sheep get to 15, they will be given two pair of boots, a bacpack and hat. They will
+                            then go off to travel the world.</li>
+                    </ul>
+                    <p>Thanks to:</p>
+                    <ul>
+                        <li>Google</li>
+                        <li>Youtube</li>
+                        <li>w3schools/Stackoverflow</li>
+                    </ul>
+                    </p>
+                    <h2>
+                        Other Rules
+                    </h2>
+                    <p>
+                        Branded sheep are not supposed to breed , I am not doing that.
+                    </p>
+                    <p> Onion the cat will slip under the fence now and again. She will invite sheep from other farms to
+                        stay. She will come and go as she feels, she is a cat.
+                    </p>
+                    <a href="#" class="modal__close">&times;</a>
+                </div>
+            </div>
+            <!-- edit -->
+
+            <canvas id="canvas" width="500px" height="500px" style="border:1px solid white; cursor: none;">
+
+            </canvas>
+            <div id="listy2"></div>
+        </div>
+        <div class="input">
+            <div class="inputAreat">
+                Sheep name
+                <input type="text" name="sheepName" id="sheepName">
+                <br>
+                <br>
+                Gender
+                <br>
+                <input type="radio" id="sex" name="sex" value="1">
+                <label for="sex">male</label>
+                <input type="radio" id="sex" name="sex" value="0">
+                <label for="sex">female</label>
+                <br>
+                <br>
+                Age
+                <input type="tel" class="age" name="age" id="age" maxlength="2" min="1" max="14">
+                <br>
+                <br>
+                <button id="addBut" >Add</button>
+                <br>
+                <br>
+                <hr>
+                <br>
+                <button>breed</button>
+            </div>
+        </div>
+    </div>
+    <div id="listy"></div>
+</body>
+
+<script type="text/javascript" src="script.js"></script>
+</html>
