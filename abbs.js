@@ -54,6 +54,7 @@ const addSheep = () => {
     br = 1;
     q = 0;
   } else {
+    onionProb=rando(30)
     br = 0;
     q += 1;
   }
