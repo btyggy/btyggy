@@ -18,7 +18,7 @@ const types = {
 };
 
 const rando = (i) => Math.floor(Math.random() * i);
-let onionProb = rando(100)+10;
+let onionProb = rando(100) + 10;
 const playAudio = (url) => new Audio("sheep.mp3").play();
 
 const draw = (e) => {
@@ -51,7 +51,7 @@ const addSheep = () => {
     br = 1;
     q = 0;
   } else {
-    onionProb = rando(100)+10;
+    onionProb = rando(100) + 10;
     br = 0;
     q += 1;
   }
@@ -94,8 +94,6 @@ const moveSA = () => {
 };
 
 const clicky = () => {
-d.getElementById("modal2").style="#modal2"
-  
   let cr = " ";
   sheeps.forEach((e) => {
     if (
@@ -105,7 +103,20 @@ d.getElementById("modal2").style="#modal2"
       e[5] <= posy + 20
     ) {
       cr = e[0];
+    }else{
+
+cr="add pos "+posx
+
+// modal.classList.remove("hidden");
+
+// document.getElementById("modal3").style.visibility = "visible";
     }
+
+
+
+
+
+
     d.getElementById("listy2").innerText = cr;
   });
 };
