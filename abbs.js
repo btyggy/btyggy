@@ -7,9 +7,6 @@ let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-
-
-
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
 
@@ -21,7 +18,7 @@ const types = {
 };
 
 const rando = (i) => Math.floor(Math.random() * i);
-let onionProb=rando(30)
+let onionProb = rando(30);
 const playAudio = (url) => new Audio("sheep.mp3").play();
 
 const draw = (e) => {
@@ -54,7 +51,7 @@ const addSheep = () => {
     br = 1;
     q = 0;
   } else {
-    onionProb=rando(30)
+    onionProb = rando(30);
     br = 0;
     q += 1;
   }
