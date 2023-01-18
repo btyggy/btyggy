@@ -166,7 +166,7 @@ body {
 .modal__content2 {
   border-radius: 5px;
   position: relative;
-  width: 400px;
+  width: 200px;
   max-width: 90%;
   background: #fff;
   padding: 1em 2em;
@@ -188,14 +188,14 @@ body {
 
 
 
-  .inputAreat {
+  /* .inputAreat {
     background-color: whitesmoke;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    box-shadow: 5px 5px 10px rgb(47, 47, 47);
+    box-shadow: 5px 5px 10px rgb(47, 47, 47); */
   
-  }
+  /* } */
   
   .age {
     width: 20px;

@@ -18,7 +18,7 @@ const types = {
 };
 
 const rando = (i) => Math.floor(Math.random() * i);
-let onionProb = rando(30)+10;
+let onionProb = rando(100)+10;
 const playAudio = (url) => new Audio("sheep.mp3").play();
 
 const draw = (e) => {
@@ -51,7 +51,7 @@ const addSheep = () => {
     br = 1;
     q = 0;
   } else {
-    onionProb = rando(30)+10;
+    onionProb = rando(100)+10;
     br = 0;
     q += 1;
   }
@@ -94,6 +94,8 @@ const moveSA = () => {
 };
 
 const clicky = () => {
+d.getElementById("modal2").style="#modal2"
+  
   let cr = " ";
   sheeps.forEach((e) => {
     if (
@@ -110,6 +112,6 @@ const clicky = () => {
 
 d.getElementById("addBut").addEventListener("click", addSheep);
 window.addEventListener("mousemove", draw, false);
-window.addEventListener("click", clicky, false);
+d.getElementById("canvas").addEventListener("click", clicky, false);
 
 setInterval(moveSA, 40);
