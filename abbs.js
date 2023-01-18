@@ -18,7 +18,7 @@ const types = {
 };
 
 const rando = (i) => Math.floor(Math.random() * i);
-let onionProb = rando(30);
+let onionProb = rando(30)+10;
 const playAudio = (url) => new Audio("sheep.mp3").play();
 
 const draw = (e) => {
@@ -51,7 +51,7 @@ const addSheep = () => {
     br = 1;
     q = 0;
   } else {
-    onionProb = rando(30);
+    onionProb = rando(30)+10;
     br = 0;
     q += 1;
   }
