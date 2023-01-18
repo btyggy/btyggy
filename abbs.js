@@ -7,6 +7,9 @@ let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
+let onionProb=rando(30)
+
+
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
 
@@ -44,7 +47,7 @@ const addSheep = () => {
   sheepName = d.getElementById("sheepName").value;
   sex = d.querySelector('input[name="sex"]:checked').value;
   age = d.getElementById("age").value;
-  if (q > 9) {
+  if (q > onionProb) {
     sheepName = "Onion";
     sex = 1;
     age = 6;
