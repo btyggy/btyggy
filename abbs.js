@@ -6,6 +6,7 @@ let onion = d.getElementById("onion");
 let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
+let sheepName = d.getElementById("sheepName").value;
 
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
@@ -41,7 +42,6 @@ const colourRect = (leftX, topY, width, height, drawColor) => {
 };
 
 const addSheep = () => {
-  sheepName = d.getElementById("sheepName").value;
   sex = d.querySelector('input[name="sex"]:checked').value;
   age = d.getElementById("age").value;
   if (q > onionProb) {
@@ -103,26 +103,23 @@ const clicky = () => {
       e[5] <= posy + 20
     ) {
       cr = e[0];
-    }else{
+    } else {
+      cr = "add pos " + posx;
 
-cr="add pos "+posx
-
-// modal.classList.remove("hidden");
-
-document.getElementById("modal2").style.visibility = "visible";
-document.getElementById("modal2").style.opacity = "1";
-
+      d.getElementById("modal2").style.visibility = "visible";
+      d.getElementById("modal2").style.opacity = "1";
     }
-
-
-
-
-
 
     d.getElementById("listy2").innerText = cr;
   });
 };
 
+const close = () => {
+  d.getElementById("modal2").style.visibility = "hidden";
+  d.getElementById("modal2").style.opacity = "0";
+};
+
+d.getElementById("close").addEventListener("click", close);
 d.getElementById("addBut").addEventListener("click", addSheep);
 window.addEventListener("mousemove", draw, false);
 d.getElementById("canvas").addEventListener("click", clicky, false);
