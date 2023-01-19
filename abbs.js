@@ -20,7 +20,7 @@ const types = {
 
 const rando = (i) => Math.floor(Math.random() * i);
 let onionProb = rando(100) + 10;
-const playAudio = (url) => new Audio("sheep.mp3").play();
+const playAudio = (url) => new Audio(url).play();
 
 const draw = (e) => {
   var pos = getMousePos(canvas, e);
@@ -42,6 +42,7 @@ const colourRect = (leftX, topY, width, height, drawColor) => {
 };
 
 const addSheep = () => {
+  playAudio("sheep.mp3")
   sex = d.querySelector('input[name="sex"]:checked').value;
   age = d.getElementById("age").value;
   if (q > onionProb) {
@@ -125,3 +126,8 @@ window.addEventListener("mousemove", draw, false);
 d.getElementById("canvas").addEventListener("click", clicky, false);
 
 setInterval(moveSA, 40);
+
+
+
+d.getElementById("modal2").style.visibility = "visible";
+d.getElementById("modal2").style.opacity = "1";
