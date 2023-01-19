@@ -21,9 +21,14 @@ const types = {
 const rando = (i) => Math.floor(Math.random() * i);
 let onionProb = rando(100) + 10;
 const playAudio = (url) => new Audio(url).play();
-const show = () => {
-  d.getElementById("modal2").style.visibility = "visible";
-  d.getElementById("modal2").style.opacity = "1";
+const show = (on) => {
+  if (on == 1) {
+    d.getElementById("modal2").style.visibility = "visible";
+    d.getElementById("modal2").style.opacity = "1";
+  } else {
+    d.getElementById("modal2").style.visibility = "hidden";
+    d.getElementById("modal2").style.opacity = "0";
+  }
 };
 const draw = (e) => {
   var pos = getMousePos(canvas, e);
@@ -107,17 +112,17 @@ const clicky = () => {
       e[5] <= posy + 20
     ) {
       cr = e[0];
+      d.getElementById("listy").innerText = cr;
     } else {
       cr = "add pos " + posx;
     }
-    show();
+    show(1);
     d.getElementById("listy2").innerText = cr;
   });
 };
 
 const close = () => {
-  d.getElementById("modal2").style.visibility = "hidden";
-  d.getElementById("modal2").style.opacity = "0";
+  show(0);
 };
 
 d.getElementById("close").addEventListener("click", close);
@@ -126,4 +131,4 @@ window.addEventListener("mousemove", draw, false);
 d.getElementById("canvas").addEventListener("click", clicky, false);
 setInterval(moveSA, 40);
 
-show();
+show(1);
