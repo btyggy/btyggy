@@ -109,7 +109,9 @@ cr="add pos "+posx
 
 // modal.classList.remove("hidden");
 
-// document.getElementById("modal3").style.visibility = "visible";
+document.getElementById("modal2").style.visibility = "visible";
+document.getElementById("modal2").style.opacity = "1";
+
     }
 
 
