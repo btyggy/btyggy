@@ -3,18 +3,6 @@ body {
     background-color: rgb(203, 223, 224);
   }
   
-  div.border * {
-    font-family: Verdana;
-    font-size: 8pt;
-  }
-  
-  div.border {
-    border: 1px solid #000;
-    width: 268px;
-    height: 100px;
-    overflow-y: scroll;
-  }
-  
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr 0.7fr 1fr;
@@ -85,7 +73,7 @@ body {
     background-color: #ccc;
     border-radius: 5px;
     color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   }
   
   .modal {
@@ -140,7 +128,7 @@ body {
   background-color: #ccc;
   border-radius: 5px;
   color: black;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }
 
 .modal2 {
