@@ -7,7 +7,7 @@ let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let breeding=0
-let tol = 4;
+let tol = 20;
 
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
@@ -44,8 +44,12 @@ const showDets = (n, s, a) => {
     d.getElementById("modal3").style.visibility = "visible";
     d.getElementById("modal3").style.opacity = "1";
     d.getElementById("sheepName3").value = n;
+
+s==1?d.getElementById("sex3F").checked=true:d.getElementById("sex3M").checked=true;
+
+
     d.getElementById("age3").value = a;
-    d.getElementById("sex3").value = s;
+    
   } else {
     d.getElementById("modal3").style.visibility = "hidden";
     d.getElementById("modal3").style.opacity = "0";
@@ -138,16 +142,20 @@ const moveSA = () => {
       e[3]
     );
   });
+
+
+
+
 };
 
 const clicky = () => {
   let cr = " ";
   sheeps.forEach((e) => {
     if (
-      e[4] >= posx - 20 &&
-      e[4] <= posx + 20 &&
-      e[5] >= posy - 20 &&
-      e[5] <= posy + 20
+      e[4] >= posx - tol &&
+      e[4] <= posx + tol &&
+      e[5] >= posy - tol &&
+      e[5] <= posy + tol
     ) {
       cr = e[0];
       showDets(e[0], e[1], e[2]);
