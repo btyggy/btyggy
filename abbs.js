@@ -143,13 +143,13 @@ const clicky = () => {
     ) {
       cr = e[0];
       showDets(e[0],e[1],e[2]);
-      console.log(e[0]);
+      // console.log(e[0]);
     } else {
     }
   });
   if (cr == " ") show(1);
-  d.getElementById("listy2").innerText = cr;
-  d.getElementById("listy").innerText = cr;
+  // d.getElementById("listy2").innerText = cr;
+  // d.getElementById("listy").innerText = cr;
 };
 
 const close = () => {
@@ -157,7 +157,7 @@ const close = () => {
 };
 
 const close3 = () => {
-  showDet();
+  showDets();
 };
 
 d.getElementById("close").addEventListener("click", close);
