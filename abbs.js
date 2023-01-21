@@ -86,7 +86,7 @@ const addSheep = () => {
   sex = d.getElementById("sexF").checked == true ? 0 : 4;
   age = d.getElementById("age").value;
   if (q > onionProb) {
-    [sheepName,sex,age,br,q] = ["Onion",0,6,1,0];
+    [sheepName, sex, age, br, q] = ["Onion", 0, 6, 1, 0];
   } else {
     onionProb = rando(100) + 10;
     br = sex;
