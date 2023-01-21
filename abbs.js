@@ -154,6 +154,13 @@ const close3 = () => {
   showDets();
 };
 
+
+const aging=()=>{
+
+sheeps=sheeps.map(e=>e+1)
+
+}
+
 d.getElementById("close").addEventListener("click", close);
 d.getElementById("close3").addEventListener("click", close3);
 d.getElementById("addBut").addEventListener("click", addSheep);
