@@ -161,6 +161,17 @@ sheeps=sheeps.map(e=>e+1)
 
 }
 
+
+const breed=()=>{
+
+
+// breeding bit goes here :-) maybe
+
+
+
+}
+
+
 d.getElementById("close").addEventListener("click", close);
 d.getElementById("close3").addEventListener("click", close3);
 d.getElementById("addBut").addEventListener("click", addSheep);
