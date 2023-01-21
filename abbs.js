@@ -6,7 +6,7 @@ let onion = d.getElementById("onion");
 let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-
+let breeding=0
 let tol = 4;
 
 let x1, y1, x2, y2, posx, posy, br;
@@ -75,7 +75,7 @@ const addSheep = () => {
   playAudio("sheep.mp3");
 
   sheepName = d.getElementById("sheepName").value;
-  sex = d.querySelector('input[name="sex"]:checked').value;
+  sex = 1//d.querySelector('sex').value;
   age = d.getElementById("age").value;
   if (q > onionProb) {
     sheepName = "Onion";
@@ -97,6 +97,8 @@ const addSheep = () => {
     rando(499),
     rando(10) > 5 ? 1 : -1,
     rando(10) > 5 ? 1 : -1,
+
+    console.log("se "+sex)
   ]);
 };
 
@@ -116,13 +118,14 @@ const moveS = (sheepX, sheepY, x2, y2, brand) => {
 const moveSA = () => {
   colourRect(0, 0, 500, 500, "green");
   sheeps.forEach((e, i) => {
+    if(e[1]){// show only female
     [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(
       e[4],
       e[5],
       e[6],
       e[7],
       e[3]
-    );
+    );}
   });
 };
 
@@ -160,6 +163,8 @@ const aging = () => {
 
 const breed = () => {
   showDets();
+
+  breeding=1
 
   // breeding bit goes here :-) maybe
 };
