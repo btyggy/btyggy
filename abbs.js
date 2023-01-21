@@ -154,23 +154,15 @@ const close3 = () => {
   showDets();
 };
 
+const aging = () => {
+  sheeps = sheeps.map((e) => e + 1);
+};
 
-const aging=()=>{
+const breed = () => {
+  showDets();
 
-sheeps=sheeps.map(e=>e+1)
-
-}
-
-
-const breed=()=>{
-showDets()
-
-// breeding bit goes here :-) maybe
-
-
-
-}
-
+  // breeding bit goes here :-) maybe
+};
 
 d.getElementById("close").addEventListener("click", close);
 d.getElementById("close3").addEventListener("click", close3);
