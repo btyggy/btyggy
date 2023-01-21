@@ -39,23 +39,17 @@ const show = (on) => {
 };
 
 //this is the detail and breed button/set
-const showDets = (n,s,a) => {
-
-if(n){
-  d.getElementById("modal3").style.visibility = "visible";
-  d.getElementById("modal3").style.opacity = "1";
-  d.getElementById("sheepName3").value = n;
-  d.getElementById("age3").value = a;
-  d.getElementById("sex3").value = s;
-}else{
-
-
-  d.getElementById("modal3").style.visibility = "hidden";
-  d.getElementById("modal3").style.opacity = "0";
-}
-
-
-
+const showDets = (n, s, a) => {
+  if (n) {
+    d.getElementById("modal3").style.visibility = "visible";
+    d.getElementById("modal3").style.opacity = "1";
+    d.getElementById("sheepName3").value = n;
+    d.getElementById("age3").value = a;
+    d.getElementById("sex3").value = s;
+  } else {
+    d.getElementById("modal3").style.visibility = "hidden";
+    d.getElementById("modal3").style.opacity = "0";
+  }
 };
 
 const draw = (e) => {
@@ -142,7 +136,7 @@ const clicky = () => {
       e[5] <= posy + 20
     ) {
       cr = e[0];
-      showDets(e[0],e[1],e[2]);
+      showDets(e[0], e[1], e[2]);
       // console.log(e[0]);
     } else {
     }
