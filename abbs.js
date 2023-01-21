@@ -41,12 +41,20 @@ const show = (on) => {
 //this is the detail and breed button/set
 const showDets = (n,s,a) => {
 
-
+if(n){
   d.getElementById("modal3").style.visibility = "visible";
   d.getElementById("modal3").style.opacity = "1";
   d.getElementById("sheepName3").value = n;
   d.getElementById("age3").value = a;
   d.getElementById("sex3").value = s;
+}else{
+
+
+  d.getElementById("modal3").style.visibility = "hidden";
+  d.getElementById("modal3").style.opacity = "0";
+}
+
+
 
 };
 
@@ -148,7 +156,12 @@ const close = () => {
   show(0);
 };
 
+const close3 = () => {
+  showDet();
+};
+
 d.getElementById("close").addEventListener("click", close);
+d.getElementById("close3").addEventListener("click", close3);
 d.getElementById("addBut").addEventListener("click", addSheep);
 window.addEventListener("mousemove", draw, false);
 d.getElementById("canvas").addEventListener("click", clicky, false);
