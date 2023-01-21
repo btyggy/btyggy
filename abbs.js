@@ -28,8 +28,6 @@ const show = (on) => {
   if (on == 1) {
     d.getElementById("modal2").style.visibility = "visible";
     d.getElementById("modal2").style.opacity = "1";
-    // d.getElementById("sheepName").innerText=""
-    // d.getElementById("sheepName").innerHTML=""
     d.getElementById("sheepName").value = "";
     d.getElementById("age").value = "";
     d.getElementById("sexM").checked = false;
@@ -95,11 +93,9 @@ const addSheep = () => {
     q = 0;
   } else {
     onionProb = rando(100) + 10;
-
     br = sex;
     q += 1;
   }
-
   sheeps.push([
     sheepName,
     sex,
@@ -109,8 +105,6 @@ const addSheep = () => {
     rando(499),
     rando(10) > 5 ? 1 : -1,
     rando(10) > 5 ? 1 : -1,
-
-    console.log("se " + sex),
   ]);
 };
 
