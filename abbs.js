@@ -157,6 +157,9 @@ const close3 = () => {
 d.getElementById("close").addEventListener("click", close);
 d.getElementById("close3").addEventListener("click", close3);
 d.getElementById("addBut").addEventListener("click", addSheep);
+
+d.getElementById("breed").addEventListener("click", breed);
+
 window.addEventListener("mousemove", draw, false);
 d.getElementById("canvas").addEventListener("click", clicky, false);
 setInterval(moveSA, 40);
