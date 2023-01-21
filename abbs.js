@@ -31,7 +31,7 @@ const show = (on) => {
     // d.getElementById("sheepName").innerHTML=""
     d.getElementById("sheepName").value = "";
     d.getElementById("age").value = "";
-    d.getElementById("sex").value = "";
+    // d.getElementById("sex").value = "";
   } else {
     d.getElementById("modal2").style.visibility = "hidden";
     d.getElementById("modal2").style.opacity = "0";
@@ -75,7 +75,7 @@ const addSheep = () => {
   playAudio("sheep.mp3");
 
   sheepName = d.getElementById("sheepName").value;
-  sex = 1//d.querySelector('sex').value;
+  sex = d.getElementById("sexF").checked==true?1:0
   age = d.getElementById("age").value;
   if (q > onionProb) {
     sheepName = "Onion";
@@ -118,7 +118,17 @@ const moveS = (sheepX, sheepY, x2, y2, brand) => {
 const moveSA = () => {
   colourRect(0, 0, 500, 500, "green");
   sheeps.forEach((e, i) => {
-    if(e[1]){// show only female
+    if(breeding==1){// show only male
+    
+    if(e[1]==0){
+
+// continue
+
+    }
+    
+
+
+
     [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(
       e[4],
       e[5],
