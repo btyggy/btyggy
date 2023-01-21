@@ -17,6 +17,7 @@ const types = {
   1: onion,
   2: otherSheep,
   3: imgG,
+  4: sheepM,
 };
 
 const rando = (i) => Math.floor(Math.random() * i);
@@ -31,7 +32,8 @@ const show = (on) => {
     // d.getElementById("sheepName").innerHTML=""
     d.getElementById("sheepName").value = "";
     d.getElementById("age").value = "";
-    // d.getElementById("sex").value = "";
+    d.getElementById("sexM").checked = false;
+    d.getElementById("sexF").checked = false;
   } else {
     d.getElementById("modal2").style.visibility = "hidden";
     d.getElementById("modal2").style.opacity = "0";
@@ -45,9 +47,13 @@ const showDets = (n, s, a) => {
     d.getElementById("modal3").style.opacity = "1";
     d.getElementById("sheepName3").value = n;
 
-    s == 1
-      ? (d.getElementById("sex3F").checked = true)
-      : (d.getElementById("sex3M").checked = true);
+    if (s == 0) {
+      d.getElementById("sex3F").checked = true;
+      d.getElementById("sex3M").checked = false;
+    } else {
+      d.getElementById("sex3F").checked = false;
+      d.getElementById("sex3M").checked = true;
+    }
 
     d.getElementById("age3").value = a;
   } else {
@@ -79,7 +85,7 @@ const addSheep = () => {
   playAudio("sheep.mp3");
 
   sheepName = d.getElementById("sheepName").value;
-  sex = d.getElementById("sexF").checked == true ? 1 : 0;
+  sex = d.getElementById("sexF").checked == true ? 0 : 4;
   age = d.getElementById("age").value;
   if (q > onionProb) {
     sheepName = "Onion";
@@ -89,9 +95,11 @@ const addSheep = () => {
     q = 0;
   } else {
     onionProb = rando(100) + 10;
-    br = 0;
+
+    br = sex;
     q += 1;
   }
+
   sheeps.push([
     sheepName,
     sex,
