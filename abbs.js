@@ -163,7 +163,7 @@ sheeps=sheeps.map(e=>e+1)
 
 
 const breed=()=>{
-
+showDets()
 
 // breeding bit goes here :-) maybe
 
@@ -175,9 +175,7 @@ const breed=()=>{
 d.getElementById("close").addEventListener("click", close);
 d.getElementById("close3").addEventListener("click", close3);
 d.getElementById("addBut").addEventListener("click", addSheep);
-
 d.getElementById("breed").addEventListener("click", breed);
-
 window.addEventListener("mousemove", draw, false);
 d.getElementById("canvas").addEventListener("click", clicky, false);
 setInterval(moveSA, 40);
