@@ -9,6 +9,8 @@ let ctx = canvas.getContext("2d");
 let breeding = 0;
 let tol = 20;
 
+let aged=0
+
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
 
@@ -117,9 +119,14 @@ const moveS = (sheepX, sheepY, x2, y2, brand) => {
   return [sheepX, sheepY, x2, y2];
 };
 
-const moveSA = () => {
+const moveSA = (t=0) => {
   colourRect(0, 0, 500, 500, "green");
   sheeps.forEach((e, i) => {
+
+// here incert the aging 
+
+// if(t%(40*1099)==0)sheeps[i][2]+=1
+
     [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(
       e[4],
       e[5],
