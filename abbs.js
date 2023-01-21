@@ -7,8 +7,7 @@ let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-let tol=4
-
+let tol = 4;
 
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
@@ -24,40 +23,32 @@ const rando = (i) => Math.floor(Math.random() * i);
 let onionProb = rando(100) + 10;
 const playAudio = (url) => new Audio(url).play();
 
-
 const show = (on) => {
   if (on == 1) {
-
-
-
     d.getElementById("modal2").style.visibility = "visible";
     d.getElementById("modal2").style.opacity = "1";
     // d.getElementById("sheepName").innerText=""
     // d.getElementById("sheepName").innerHTML=""
-    d.getElementById("sheepName").value=""
-    d.getElementById("age").value=""
-    d.getElementById("sex").value=""
-
-
+    d.getElementById("sheepName").value = "";
+    d.getElementById("age").value = "";
+    d.getElementById("sex").value = "";
   } else {
-
-
-
     d.getElementById("modal2").style.visibility = "hidden";
     d.getElementById("modal2").style.opacity = "0";
   }
 };
 
 //this is the detail and breed button/set
-const showDets = (on) => {
+const showDets = (n,s,a) => {
 
-    d.getElementById("modal3").style.visibility = "visible";
-    d.getElementById("modal3").style.opacity = "1";
-   
+
+  d.getElementById("modal3").style.visibility = "visible";
+  d.getElementById("modal3").style.opacity = "1";
+  d.getElementById("sheepName3").value = n;
+  d.getElementById("age3").value = a;
+  d.getElementById("sex3").value = s;
 
 };
-
-
 
 const draw = (e) => {
   var pos = getMousePos(canvas, e);
@@ -143,18 +134,12 @@ const clicky = () => {
       e[5] <= posy + 20
     ) {
       cr = e[0];
-
-      console.log(e[0])
-      
+      showDets(e[0],e[1],e[2]);
+      console.log(e[0]);
     } else {
-      
     }
-    
-    
-    
-    
   });
-  if(cr==" ")show(1);
+  if (cr == " ") show(1);
   d.getElementById("listy2").innerText = cr;
   d.getElementById("listy").innerText = cr;
 };

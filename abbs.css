@@ -170,6 +170,64 @@ body {
 }
 
 /* edit */
+
+
+
+/* edit */
+.wrapper3 {
+  background-color: green;
+}
+
+.wrapper3 a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+  color: black;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+.modal3 {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 77, 77, .7);
+  transition: all .4s;
+  
+}
+
+.modal3:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__content3 {
+  border-radius: 5px;
+  position: relative;
+  width: 200px;
+  max-width: 90%;
+  background: #fff;
+  padding: 1em 2em;
+}
+
+.modal__close3 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #585858;
+  text-decoration: none;
+}
+
+/* edit */
+
   .age {
     width: 20px;
   }
