@@ -86,11 +86,7 @@ const addSheep = () => {
   sex = d.getElementById("sexF").checked == true ? 0 : 4;
   age = d.getElementById("age").value;
   if (q > onionProb) {
-    sheepName = "Onion";
-    sex = 1;
-    age = 6;
-    br = 1;
-    q = 0;
+    [sheepName,sex,age,br,q] = ["Onion",0,6,1,0];
   } else {
     onionProb = rando(100) + 10;
     br = sex;
@@ -124,14 +120,6 @@ const moveS = (sheepX, sheepY, x2, y2, brand) => {
 const moveSA = () => {
   colourRect(0, 0, 500, 500, "green");
   sheeps.forEach((e, i) => {
-    //if(breeding==0){// show only male
-
-    //if(e[1]==0){
-
-    // continue
-
-    // }
-
     [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(
       e[4],
       e[5],
@@ -153,7 +141,6 @@ const clicky = () => {
     ) {
       cr = e[0];
       showDets(e[0], e[1], e[2]);
-      // console.log(e[0]);
     } else {
     }
   });
