@@ -6,7 +6,7 @@ let onion = d.getElementById("onion");
 let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-let sheepName = d.getElementById("sheepName").value;
+
 
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
@@ -23,9 +23,22 @@ let onionProb = rando(100) + 10;
 const playAudio = (url) => new Audio(url).play();
 const show = (on) => {
   if (on == 1) {
+
+
+
     d.getElementById("modal2").style.visibility = "visible";
     d.getElementById("modal2").style.opacity = "1";
+    // d.getElementById("sheepName").innerText=""
+    // d.getElementById("sheepName").innerHTML=""
+    d.getElementById("sheepName").value=""
+    d.getElementById("age").value=""
+    d.getElementById("sex").value=""
+
+
   } else {
+
+
+
     d.getElementById("modal2").style.visibility = "hidden";
     d.getElementById("modal2").style.opacity = "0";
   }
@@ -51,6 +64,8 @@ const colourRect = (leftX, topY, width, height, drawColor) => {
 
 const addSheep = () => {
   playAudio("sheep.mp3");
+
+  sheepName = d.getElementById("sheepName").value;
   sex = d.querySelector('input[name="sex"]:checked').value;
   age = d.getElementById("age").value;
   if (q > onionProb) {
@@ -112,9 +127,11 @@ const clicky = () => {
       e[5] <= posy + 20
     ) {
       cr = e[0];
+
+      console.log(e[0])
       d.getElementById("listy").innerText = cr;
     } else {
-      cr = "add pos " + posx;
+      
     }
     show(1);
     d.getElementById("listy2").innerText = cr;
