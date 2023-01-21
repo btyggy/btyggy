@@ -47,6 +47,18 @@ const show = (on) => {
     d.getElementById("modal2").style.opacity = "0";
   }
 };
+
+//this is the detail and breed button/set
+const showDets = (on) => {
+
+    d.getElementById("modal3").style.visibility = "visible";
+    d.getElementById("modal3").style.opacity = "1";
+   
+
+};
+
+
+
 const draw = (e) => {
   var pos = getMousePos(canvas, e);
   posx = pos.x;
