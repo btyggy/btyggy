@@ -118,13 +118,13 @@ const moveS = (sheepX, sheepY, x2, y2, brand) => {
 const moveSA = () => {
   colourRect(0, 0, 500, 500, "green");
   sheeps.forEach((e, i) => {
-    if(breeding==1){// show only male
+    //if(breeding==0){// show only male
     
-    if(e[1]==0){
+    //if(e[1]==0){
 
 // continue
 
-    }
+   // }
     
 
 
@@ -135,7 +135,7 @@ const moveSA = () => {
       e[6],
       e[7],
       e[3]
-    );}
+    );
   });
 };
 
