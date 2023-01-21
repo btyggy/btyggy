@@ -7,6 +7,8 @@ let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
+let tol=4
+
 
 let x1, y1, x2, y2, posx, posy, br;
 let q = 0;
@@ -21,6 +23,8 @@ const types = {
 const rando = (i) => Math.floor(Math.random() * i);
 let onionProb = rando(100) + 10;
 const playAudio = (url) => new Audio(url).play();
+
+
 const show = (on) => {
   if (on == 1) {
 
@@ -129,13 +133,18 @@ const clicky = () => {
       cr = e[0];
 
       console.log(e[0])
-      d.getElementById("listy").innerText = cr;
+      
     } else {
       
     }
-    show(1);
-    d.getElementById("listy2").innerText = cr;
+    
+    
+    
+    
   });
+  if(cr==" ")show(1);
+  d.getElementById("listy2").innerText = cr;
+  d.getElementById("listy").innerText = cr;
 };
 
 const close = () => {
