@@ -6,7 +6,7 @@ let onion = d.getElementById("onion");
 let otherSheep = d.getElementById("otherSheep");
 let canvas = d.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-let breeding=0
+let breeding = 0;
 let tol = 20;
 
 let x1, y1, x2, y2, posx, posy, br;
@@ -45,11 +45,11 @@ const showDets = (n, s, a) => {
     d.getElementById("modal3").style.opacity = "1";
     d.getElementById("sheepName3").value = n;
 
-s==1?d.getElementById("sex3F").checked=true:d.getElementById("sex3M").checked=true;
-
+    s == 1
+      ? (d.getElementById("sex3F").checked = true)
+      : (d.getElementById("sex3M").checked = true);
 
     d.getElementById("age3").value = a;
-    
   } else {
     d.getElementById("modal3").style.visibility = "hidden";
     d.getElementById("modal3").style.opacity = "0";
@@ -79,7 +79,7 @@ const addSheep = () => {
   playAudio("sheep.mp3");
 
   sheepName = d.getElementById("sheepName").value;
-  sex = d.getElementById("sexF").checked==true?1:0
+  sex = d.getElementById("sexF").checked == true ? 1 : 0;
   age = d.getElementById("age").value;
   if (q > onionProb) {
     sheepName = "Onion";
@@ -102,7 +102,7 @@ const addSheep = () => {
     rando(10) > 5 ? 1 : -1,
     rando(10) > 5 ? 1 : -1,
 
-    console.log("se "+sex)
+    console.log("se " + sex),
   ]);
 };
 
@@ -123,16 +123,12 @@ const moveSA = () => {
   colourRect(0, 0, 500, 500, "green");
   sheeps.forEach((e, i) => {
     //if(breeding==0){// show only male
-    
+
     //if(e[1]==0){
 
-// continue
+    // continue
 
-   // }
-    
-   
-
-
+    // }
 
     [sheeps[i][4], sheeps[i][5], sheeps[i][6], sheeps[i][7]] = moveS(
       e[4],
@@ -142,10 +138,6 @@ const moveSA = () => {
       e[3]
     );
   });
-
-
-
-
 };
 
 const clicky = () => {
@@ -164,27 +156,17 @@ const clicky = () => {
     }
   });
   if (cr == " ") show(1);
-  // d.getElementById("listy2").innerText = cr;
-  // d.getElementById("listy").innerText = cr;
 };
 
-const close = () => {
-  show(0);
-};
+const close = () => show(0);
 
-const close3 = () => {
-  showDets();
-};
+const close3 = () => showDets();
 
-const aging = () => {
-  sheeps = sheeps.map((e) => e + 1);
-};
+const aging = () => (sheeps = sheeps.map((e) => e + 1));
 
 const breed = () => {
   showDets();
-
-  breeding=1
-
+  breeding = 1;
   // breeding bit goes here :-) maybe
 };
 
