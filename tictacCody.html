@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tic Tac Toe</title>
+<style>
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+}
+
+.cell {
+  border: 1px solid black;
+  font-size: 60px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div id="board">
+  <div class="cell" id="0"></div>
+  <div class="cell" id="1"></div>
+  <div class="cell" id="2"></div>
+  <div class="cell" id="3"></div>
+  <div class="cell" id="4"></div>
+  <div class="cell" id="5"></div>
+  <div class="cell" id="6"></div>
+  <div class="cell" id="7"></div>
+  <div class="cell" id="8"></div>
+</div>
+
+<script>
+// Game state variables
+let board = ['', '', '', '', '', '', '', '', ''];
+let playerTurn = 'X';
+const cells = document.querySelectorAll('.cell');
+// Game logic functions
+function makeMove(cell) {
+  if (board[cell] == '') {
+    board[cell] = playerTurn;
+    switchTurn();
+    checkGameOver();
+  }
+}
+
+function switchTurn() {
+  if (playerTurn == 'X') {
+    playerTurn = 'O';
+  } else {
+    playerTurn = 'X';
+  }
+} 
+
+function checkGameOver() {
+  // Check win conditions
+  // Check draw condition
+  // Handle game over
+}
+
+
+
+
+// Select all cells 
+
+
+// Attach click handler to cells
+for (let i = 0; i < cells.length; i++) {
+
+  cells[i].addEventListener('click', () => {
+    makeMove(i); 
+  });
+
+}
+
+
+
+</script>
+
+</body>
+</html>

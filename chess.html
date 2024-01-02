@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#chessboard {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #333;
+}
+
+.black {
+  float: left; 
+  width: 50px; 
+  height: 50px;
+  background-color: #999;
+}
+
+.white {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+</style>
+</head>
+<body>
+
+<div id="chessboard">
+</div>
+
+<img id="pawn" src="pawn.png">
+
+<script>
+// Create chess board
+for (let i = 0; i < 8; i++) {
+  for (let j = 0; j < 8; j++) {
+    let square = document.createElement("div");
+    if ((i + j) % 2 == 0) {
+      square.className = "white";
+    } else {
+      square.className = "black";
+    }
+    document.getElementById("chessboard").appendChild(square);
+  }
+}
+
+// Make pieces draggable
+let selectedPiece = null;
+document.getElementById("pawn").ondragstart = function(evt) {
+  selectedPiece = evt.target;
+}
+
+document.getElementById("chessboard").ondragover = function(evt) {
+  evt.preventDefault();
+}
+
+document.getElementById("chessboard").ondrop = function(evt) {
+  if (selectedPiece) {
+    evt.target.appendChild(selectedPiece);
+  }
+}
+</script>
+
+</body>
+</html>
