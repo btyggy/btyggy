@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Copy Input to ASCII</title>
+</head>
+<body>
+
+  <input type="text" id="input1">
+  
+  <button onclick="copyTextToASCII()">Convert to ASCII</button>  
+
+  <input type="text" id="input2">
+
+<script>
+function copyTextToASCII() {
+  var text = document.getElementById("input1").value;
+  
+  var ascii = "";
+  for(var i = 0; i < text.length; i++) {
+    ascii += text.charCodeAt(i) + " "; 
+  }
+  
+  document.getElementById("input2").value = ascii;
+}
+</script>
+
+</body>
+</html>
